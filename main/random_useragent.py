@@ -1,3 +1,11 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+# Sneaker Notify
+# author - Yu Lin
+# https://github.com/yulin12345
+# admin@yulin12345.site
+
 import random
 
 from scrapy import signals
