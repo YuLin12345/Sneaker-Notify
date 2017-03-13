@@ -1,0 +1,8 @@
+scrapy
+scrapy-random-useragent
+TwitterAPI
+MySQL-python
+mysql-connector
+crayons
+datetime
+beautifulsoup4
