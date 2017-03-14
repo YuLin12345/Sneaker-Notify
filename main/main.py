@@ -778,6 +778,6 @@ process.crawl(LuisaSpider)
 # process.crawl(SNSSpider)		#Blocked on Vultr via CloudFlare.
 # process.crawl(FinishLineSpider)	#Blocked on Vultr.
 # process.crawl(BarneysSpider)		#Banned if crawl too much.
-# process.crawl(JimmyJazzSpider)		#Blocked on Vultr via CloudFlare.
+# process.crawl(JimmyJazzSpider)	#Blocked on Vultr via CloudFlare.
 
 process.start()
