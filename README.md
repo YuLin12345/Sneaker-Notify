@@ -2,7 +2,7 @@ Sneaker/Restock Notify via Twitter coded in Python using Scrapy.
 #
 Status: **Under Development. If Interested feel free to follow W_Notify on Twitter.**
 
-Description: Crawl a list of sneaker websites. Once new product goes live or restocks and contains certain keywords, alert the user via tweet, Twitter with date, time, item name, and link.
+Description: Crawl a list of sneaker websites. Once the new product is found or is restocked. It will check for certain keywords in the item name. If found, it will alert the user via tweet, Twitter, with date, time, item name, and link.
 
 #
 **Supported Sites List:**
@@ -65,7 +65,7 @@ Description: Crawl a list of sneaker websites. Once new product goes live or res
 - Install the MySQL database -> .sql provided in the folder.
 - Go into mysql_pipeline.py edit MySQL connection info and edit Twitter CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN_KEY, and ACCESS_TOKEN_SECRET to your Twitter account.
 - To run:
- - For Windows:
-  - Click on main.py
- - For Mac:
-  - Open terminal on the folder type python main.py
+- For Windows:
+ - Click on main.py
+- For Mac:
+ - Open terminal on the folder type python main.py
