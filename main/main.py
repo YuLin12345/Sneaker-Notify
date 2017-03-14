@@ -47,10 +47,9 @@ SneakerBaasURL = "http://www.sneakerbaas.com/uk/mens.html?brands=adidas,jordan,n
 UrbanOutfittersURL = "http://www.urbanoutfitters.com/urban/catalog/category.jsp?id=M_SHOES_SNEAKERS&cm_sp=MENS-_-L3-_-MENS_SHOES:M_SHOES_SNEAKERS&brand=adidas&sortBy=--newexpirationdate#/"
 LuisaURL = "https://www.luisaviaroma.com/men/catalog/shoes/sneakers/lang_EN/lineid_4/catid_97?FilterDes=4R8,140,210&Page=1&SortType=NewIn"
 SlamJamURL = "https://www.slamjamsocialism.com/footwear/#/page-1"
-
-
-Undefeated = "http://undefeated.com/footwear"
-Zappos = "http://www.zappos.com/men-sneakers-athletic-shoes/CK_XARC81wHAAQLiAgMYAQI.zso?s=goliveRecentSalesStyle/desc/&pf_rd_r=1KWFND05MEYHZEAK8HKZ&pf_rd_p=84e94fb2-53e3-4daf-b619-8550ec38719e#!/men-sneakers-athletic-shoes-page3/CK_XARC81wFaCOEG0gYB5RVvwAEC4gIEGAECCw.zso?p=0&s=isNew/desc/goLiveDate/desc/recentSalesStyle/desc/"
+Rise45URL = "https://rise45.com/collections/mens-footwear"
+UndefeatedURL = "http://undefeated.com/footwear"
+ZapposURL = "http://www.zappos.com/men-shoes/CK_XAcABAuICAgEY.zso?s=isNew/desc/productPopularity/asc/"
 
 
 init()
@@ -765,6 +764,72 @@ class SlamJamSpider(Spider):
         yield Request(SlamJamURL, callback=self.parse, dont_filter=True)
 
         
+class Rise45Spider(Spider):
+    
+    name = "Rise45Spider"
+    allowded_domains = ["rise45.com"]
+    start_urls = [Rise45URL ]
+    
+    def __init__(self):
+        logging.critical("Rise45Spider STARTED.")
+        
+    def parse(self, response):
+        products = Selector(response).xpath('//div[@id="content"]//div[@class="collection-matrix"]//div[contains(@class,"col")]/div')
+        
+        for product in products:
+            item = Rise45Item()
+            item['name'] = product.xpath('a[2]/h4/text()').extract()[0]
+            item['link'] = "https://rise45.com" + product.xpath('a[1]/@href').extract()[0]
+            item['image'] = "https:" + product.xpath('a[1]/img/@src').extract()[0]
+            yield item
+            
+        yield Request(Rise45URL , callback=self.parse, dont_filter=True)
+
+        
+class UndefeatedSpider(Spider):
+    
+    name = "UndefeatedSpider"
+    allowded_domains = ["undefeated.com"]
+    start_urls = [UndefeatedURL]
+    
+    def __init__(self):
+        logging.critical("UndefeatedSpider STARTED.")
+        
+    def parse(self, response):
+        products = Selector(response).xpath('//div[@class="view view-solr view-id-solr view-display-id-solr_grid_footwear grid view-dom-id-d656a32e9a8bc23ef35dadd83510be07"]//div[@class="view-content"]//div[contains(@class,"views-row")]')
+        
+        for product in products:
+            item = UndefeatedItem()
+            item['name'] = product.xpath('div[2]/a/text()').extract()[0]
+            item['link'] = "http://undefeated.com" + product.xpath('div[1]/a/@href').extract()[0]
+            item['image'] = product.xpath('div[1]/a/img/@data-src').extract()[0]
+            yield item
+            
+        yield Request(UndefeatedURL, callback=self.parse, dont_filter=True)
+
+        
+class ZapposSpider(Spider):
+    
+    name = "ZapposSpider"
+    allowded_domains = ["zappos.com"]
+    start_urls = [ZapposURL]
+    
+    def __init__(self):
+        logging.critical("ZapposSpider STARTED.")
+        
+    def parse(self, response):
+        products = Selector(response).xpath('//div[@id="resultWrap"]//div[@id="searchResults"]//a')
+        
+        for product in products:
+            item = ZapposItem()
+            item['name'] = product.xpath('img/@alt').extract()[0]
+            item['link'] = "http://www.zappos.com" + product.xpath('@href').extract()[0]
+            item['image'] = product.xpath('img/@src').extract()[0]
+            yield item
+            
+        yield Request(ZapposURL, callback=self.parse, dont_filter=True)
+
+        
 crawler_settings = Settings()
 crawler_settings.setmodule(settings)
 process = CrawlerProcess(settings=crawler_settings)
@@ -796,6 +861,9 @@ process.crawl(SneakerBaasSpider)
 process.crawl(UrbanOutfittersSpider)
 process.crawl(LuisaSpider)
 process.crawl(SlamJamSpider)
+process.crawl(Rise45Spider)
+process.crawl(UndefeatedSpider)
+process.crawl(ZapposSpider)
 
 # process.crawl(EndSpider)		#Captcha if spam too much.
 # process.crawl(SNSSpider)		#Blocked on Vultr via CloudFlare.

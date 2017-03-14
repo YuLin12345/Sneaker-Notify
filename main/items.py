@@ -224,7 +224,7 @@ class UrbanOutfittersItem(Item):
     image = Field()
     link = Field()
     name = Field()
-
+    
 class LuisaItem(Item):
     date = Field()
     price = Field()
@@ -233,6 +233,27 @@ class LuisaItem(Item):
     name = Field()
     
 class SlamJamItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+    
+class Rise45Item(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+    
+class UndefeatedItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+    
+class ZapposItem(Item):
     date = Field()
     price = Field()
     image = Field()

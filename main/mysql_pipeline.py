@@ -159,9 +159,21 @@ class MYSQL_Pipeline(object):
         # Insert item into slamjam table.
         elif isinstance(item, SlamJamItem):
             self.cursor.execute("INSERT INTO slamjam (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
-            
+			
+        # Insert item into rise45 table.
+        elif isinstance(item, Rise45Item):
+            self.cursor.execute("INSERT INTO rise45 (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
+			
+        # Insert item into undefeated table.
+        elif isinstance(item, UndefeatedItem):
+            self.cursor.execute("INSERT INTO undefeated (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
+			
+        # Insert item into zappos table.
+        elif isinstance(item, ZapposItem):
+            self.cursor.execute("INSERT INTO zappos (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
+			
         self.conn.commit()
-        
+		
         # If item name contain below words. Tweet it.
         if 'nmd' in item['name'].encode('utf-8').lower() or 'boost' in item['name'].encode('utf-8').lower() or 'retro' in item['name'].encode('utf-8').lower() or 'yeezy' in item['name'].encode('utf-8').lower():
           
