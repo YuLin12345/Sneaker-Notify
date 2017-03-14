@@ -34,7 +34,7 @@ class MYSQL_Pipeline(object):
             
         # Insert item into ruvilla table.
         elif isinstance(item, RuvillaItem):
-            self.cursor.execute("INSERT INTO ruvilla (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
+            self.cursor.execute("INSERT INTO ruvilla (name, link, date) VALUES (%s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), DATE))
             
         # Insert item into footlocker table.
         elif isinstance(item, FootLockerItem):
