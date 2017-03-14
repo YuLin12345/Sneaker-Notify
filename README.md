@@ -1,8 +1,8 @@
 Sneaker/Restock Notify via Twitter coded in Python using Scrapy.
 #
-Status: **Under Development**
+Status: **Under Development. If Interested feel free to follow W_Notify on Twitter**
 
-Description: Crawl a list of sneaker websites. Once new product goes live or restocks, alert the user via tweet, Twitter with date, time, item name, and link.
+Description: Crawl a list of sneaker websites. Once new product goes live or restocks and contains certain keywords, alert the user via tweet, Twitter with date, time, item name, and link.
 
 #
 **Supported Sites List:**
@@ -30,6 +30,7 @@ Description: Crawl a list of sneaker websites. Once new product goes live or res
  - OverKill
  - Ruvilla
  - Size
+ - SlamJam
  - SneakerBaas
  - SneakerNStuff
  - SneakerPolitics
@@ -37,7 +38,7 @@ Description: Crawl a list of sneaker websites. Once new product goes live or res
  - Urban Industry
  - UrbanOutfitters
  - YCMC
-	
+ 
 #
 **Requirements:**
 - scrapy
