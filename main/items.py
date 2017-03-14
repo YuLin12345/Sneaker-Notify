@@ -231,3 +231,10 @@ class LuisaItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    
+class SlamJamItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()

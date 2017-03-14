@@ -46,9 +46,9 @@ UrbanIndustryURL = "https://www.urbanindustry.co.uk/collections/shoes?page=1&sor
 SneakerBaasURL = "http://www.sneakerbaas.com/uk/mens.html?brands=adidas,jordan,nike,nike-skate-boarding&p=1"
 UrbanOutfittersURL = "http://www.urbanoutfitters.com/urban/catalog/category.jsp?id=M_SHOES_SNEAKERS&cm_sp=MENS-_-L3-_-MENS_SHOES:M_SHOES_SNEAKERS&brand=adidas&sortBy=--newexpirationdate#/"
 LuisaURL = "https://www.luisaviaroma.com/men/catalog/shoes/sneakers/lang_EN/lineid_4/catid_97?FilterDes=4R8,140,210&Page=1&SortType=NewIn"
+SlamJamURL = "https://www.slamjamsocialism.com/footwear/#/page-1"
 
 
-SlamJam = "https://www.slamjamsocialism.com/footwear/#/manufacturer-adidas_consortium-adidas_originals-nike/page-1"
 Undefeated = "http://undefeated.com/footwear"
 Zappos = "http://www.zappos.com/men-sneakers-athletic-shoes/CK_XARC81wHAAQLiAgMYAQI.zso?s=goliveRecentSalesStyle/desc/&pf_rd_r=1KWFND05MEYHZEAK8HKZ&pf_rd_p=84e94fb2-53e3-4daf-b619-8550ec38719e#!/men-sneakers-athletic-shoes-page3/CK_XARC81wFaCOEG0gYB5RVvwAEC4gIEGAECCw.zso?p=0&s=isNew/desc/goLiveDate/desc/recentSalesStyle/desc/"
 
@@ -743,6 +743,28 @@ class LuisaSpider(Spider):
         yield Request(LuisaURL, callback=self.parse, dont_filter=True)
 
         
+class SlamJamSpider(Spider):
+    
+    name = "SlamJamSpider"
+    allowded_domains = ["slamjamsocialism.com"]
+    start_urls = [SlamJamURL]
+    
+    def __init__(self):
+        logging.critical("SlamJamSpider STARTED.")
+        
+    def parse(self, response):
+        products = Selector(response).xpath('//ul[@class="product_list grid row packery"]//li[contains(@class,"tooltip")]//div[@class="product-container"]//div[@class="left-block"]//div[@class="product-image-container"]')
+        
+        for product in products:
+            item = SlamJamItem()
+            item['name'] = product.xpath('a/img/@alt').extract()[0]
+            item['link'] = product.xpath('a/@href').extract()[0]
+            item['image'] = product.xpath('a/img/@src').extract()[0]
+            yield item
+            
+        yield Request(SlamJamURL, callback=self.parse, dont_filter=True)
+
+        
 crawler_settings = Settings()
 crawler_settings.setmodule(settings)
 process = CrawlerProcess(settings=crawler_settings)
@@ -773,6 +795,7 @@ process.crawl(UrbanIndustrySpider)
 process.crawl(SneakerBaasSpider)
 process.crawl(UrbanOutfittersSpider)
 process.crawl(LuisaSpider)
+process.crawl(SlamJamSpider)
 
 # process.crawl(EndSpider)		#Captcha if spam too much.
 # process.crawl(SNSSpider)		#Blocked on Vultr via CloudFlare.
