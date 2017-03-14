@@ -34,7 +34,7 @@ class MYSQL_Pipeline(object):
             
         # Insert item into ruvilla table.
         elif isinstance(item, RuvillaItem):
-            self.cursor.execute("INSERT INTO ruvilla (name, link, date) VALUES (%s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), DATE))
+            self.cursor.execute("INSERT INTO ruvilla (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
             
         # Insert item into footlocker table.
         elif isinstance(item, FootLockerItem):
@@ -156,19 +156,26 @@ class MYSQL_Pipeline(object):
         elif isinstance(item, LuisaItem):
             self.cursor.execute("INSERT INTO luisa (name, link, date) VALUES (%s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), DATE))
             
+        # Insert item into slamjam table.
+        elif isinstance(item, SlamJamItem):
+            self.cursor.execute("INSERT INTO slamjam (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
+            
         self.conn.commit()
         
-        # Twitter Auth - If a new item is found tweet the item with date, time, item name, and link.
-        # To obtain Twitter CONSUMER and ACCESS keys go to https://apps.twitter.com/
-        CONSUMER_KEY = ' PASTE CONSUMER_KEY HERE '
-        CONSUMER_SECRET = ' PASTE CONSUMER_SECRET HERE '
-        ACCESS_TOKEN_KEY = ' PASTE ACCESS_TOKEN_KEY HERE '
-        ACCESS_TOKEN_SECRET = ' PASTE ACCESS_TOKEN_SECRET HERE '
-        API = TwitterAPI(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN_KEY, ACCESS_TOKEN_SECRET)
-        TEXT_TO_TWEET = DATE + " EST " + item['name'] + " " + item['link']
-        TWEET = API.request('statuses/update', {'status': TEXT_TO_TWEET})
-        print(Fore.RED + 'LOG: SUCCESSFULLY TWEETED' + Style.RESET_ALL if TWEET.status_code == 200 else Fore.RED + 'LOG: FAILED TO TWEET' + Style.RESET_ALL)
-        
+        # If item name contain below words. Tweet it.
+        if 'nmd' in item['name'].encode('utf-8').lower() or 'boost' in item['name'].encode('utf-8').lower() or 'retro' in item['name'].encode('utf-8').lower() or 'yeezy' in item['name'].encode('utf-8').lower():
+          
+          # Twitter Auth - Tweet the item with date, time, item name, and link.
+          # To obtain Twitter CONSUMER and ACCESS keys go to https://apps.twitter.com/
+          CONSUMER_KEY = ' PASTE CONSUMER_KEY HERE '
+          CONSUMER_SECRET = ' PASTE CONSUMER_SECRET HERE '
+          ACCESS_TOKEN_KEY = ' PASTE ACCESS_TOKEN_KEY HERE '
+          ACCESS_TOKEN_SECRET = ' PASTE ACCESS_TOKEN_SECRET HERE '
+          API = TwitterAPI(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN_KEY, ACCESS_TOKEN_SECRET)
+          TEXT_TO_TWEET = DATE + " EST " + item['name'] + " " + item['link']
+          TWEET = API.request('statuses/update', {'status': TEXT_TO_TWEET})
+          print(Fore.RED + 'LOG: SUCCESSFULLY TWEETED' + Style.RESET_ALL if TWEET.status_code == 200 else Fore.RED + 'LOG: FAILED TO TWEET' + Style.RESET_ALL)
+          
     except MySQLdb.Error, e:
       print (Fore.RED + "ERROR %d: %s" % (e.args[0], e.args[1] + Style.RESET_ALL))
       
