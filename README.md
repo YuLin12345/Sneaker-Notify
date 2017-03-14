@@ -54,9 +54,9 @@ Description: Crawl a list of sneaker websites. Once new product goes live or res
 - Open CMD (Windows) or Terminal (Mac) pip install the requirements above.
 
  - For Mac, to install MySQL-python. Open terminal:
- - /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
- - brew install mysql-connector-c
- - pip install mysql-python
+  - /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  - brew install mysql-connector-c
+  - pip install MySQL-python
 
 - Install the MySQL database -> .sql provided in the folder.
 - Go into mysql_pipeline.py edit MySQL connection info and edit Twitter CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN_KEY, and ACCESS_TOKEN_SECRET to your Twitter account.
