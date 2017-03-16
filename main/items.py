@@ -308,8 +308,50 @@ class KongItem(Item):
     image = Field()
     link = Field()
     name = Field()
-
+    
 class SaveOurSoleItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+    
+class InflammableItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+    
+class DefShopItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+    
+class OffSpringItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+    
+class SoleKitchenItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+    
+class DromeItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+    
+class FootAsylumItem(Item):
     date = Field()
     price = Field()
     image = Field()

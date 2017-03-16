@@ -28,13 +28,13 @@ FootShopURL = "https://www.footshop.com/en/5-mens-shoes/brand-adidas_originals-a
 AfewURL = "https://www.afew-store.com/en/sneaker/nike_air-jordan_adidas/?limit=24&p=1"
 CalirootsURL = "https://caliroots.com/mens-sneakers/s/19/1?p=94509&p=222765&p=100518&p=98890&orderBy=Published"
 EinhalbURL = "http://www.43einhalb.com/en/sneaker/filter/__brand_nike.adidas/page/1/sort/date_new/perpage/24"
-EndURL = "https://www.endclothing.com/us/footwear?p=1&brand=767-769-387963-485046-266802-393359-158-47923-48457-339915-494498-526966-560129&dir=asc&order=position"
+EndURL = "https://www.endclothing.com/us/footwear?p=1&brand=767-769-387963-485046-266802-393359-158-47923-48457-339915-494498-526966-560129-266506&dir=desc&order=position"
 SNSURL = "http://www.sneakersnstuff.com/en/2/sneakers/1?p=813&p=5954&p=1046&orderBy=Published"
-TintURL = "http://www.tint-footwear.com/shoes?dir=asc&limit=16&order=news_from_date&p=1"
+TintURL = "http://www.tint-footwear.com/shoes?dir=desc&limit=16&order=news_from_date&p=1"
 OverkillURL = "https://www.overkillshop.com/en/sneaker/filter/manufacturer-nike-adidas-jordan.html?dir=desc&limit=36&order=category_sorting&p=1"
-FootDistrictURL = "https://footdistrict.com/en/sneakers/latest/where/marca/adidas_jordan_nike/p/1/limit/12.html"
+FootDistrictURL = "https://footdistrict.com/en/sneakers/latest/where/marca/adidas_jordan_nike/p/1/order/position/dir/desc/limit/12.html"
 SizeURL = "https://www.size.co.uk/mens/footwear/brand/nike,adidas-originals,adidas,nike-sb,jordan/latest/?from=0"
-YCMCURL = "http://www.ycmc.com/men/shoes/sneakers.html?dir=asc&limit=48&order=new_arrivals&p=1"
+YCMCURL = "http://www.ycmc.com/men/shoes/sneakers.html?dir=desc&order=new_arrivals&p=1&warm=1"
 CityURL = "http://www.citygear.com/catalog/shoes/brand/nike-adidas-jordan/sort-by/news_from_date/sort-direction/desc.html"
 FootLockerURL = "http://m.footlocker.com/?uri=search&Nao=0&Rpp=20&N=991+76"
 FootActionURL = "http://m.footaction.com/?uri=search&Nao=0&Rpp=20&N=991+76"
@@ -47,21 +47,27 @@ NordstromURL = "http://shop.nordstrom.com/c/mens-sneakers?top=12&sort=Newest&pag
 BarneysURL = "http://www.barneys.com/category/men/shoes/adidas/N-13x4l33Z11mt8ibZ1ltz1sdZ7i1mmyZ15aqac?page=1&recordsPerPage=48"
 JimmyJazzURL = "http://www.jimmyjazz.com/mens/footwear?sort=most-recent&ppg=52&page=1"
 JDSportsURL = "https://www.jdsports.co.uk/men/mens-footwear/brand/adidas-originals,nike,adidas,nike-sb,jordan/latest/?from=0"
-FootPatrolURL = "http://www.footpatrol.co.uk/footwear/br:adidas,adidas-consortium,adidas-originals,jordan,nike,nikelab/?order_by=1"
+FootPatrolURL = "http://www.footpatrol.co.uk/footwear/br:adidas,adidas-consortium,adidas-originals,adidas-raf-simons,adidas-spezial,jordan,nike,nikelab/?order_by=1"
 SneakerPoliticsURL = "http://sneakerpolitics.com/collections/sneakers?page=1"
 UrbanIndustryURL = "https://www.urbanindustry.co.uk/collections/shoes?page=1&sort_by=created-descending"
 SneakerBaasURL = "http://www.sneakerbaas.com/uk/mens.html?brands=adidas,jordan,nike,nike-skate-boarding&p=1"
 UrbanOutfittersURL = "http://www.urbanoutfitters.com/urban/catalog/category.jsp?id=M_SHOES_SNEAKERS&cm_sp=MENS-_-L3-_-MENS_SHOES:M_SHOES_SNEAKERS&brand=adidas&sortBy=--newexpirationdate#/"
-LuisaURL = "https://www.luisaviaroma.com/men/catalog/shoes/sneakers/lang_EN/lineid_4/catid_97?FilterDes=4R8,140,210&Page=1&SortType=NewIn"
-SlamJamURL = "https://www.slamjamsocialism.com/footwear/#/page-1"
+LuisaURL = "https://www.luisaviaroma.com/men/catalog/shoes/sneakers/lang_EN/lineid_4/catid_97?FilterDes=4R8,140,210,DNR,VL1,DMS,W8H,3HU,VW5&Page=1&SortType=NewIn"
+SlamJamURL = "https://www.slamjamsocialism.com/footwear/#/manufacturer-adidas_by_raf_simons-adidas_consortium-adidas_originals-nike-nike_gyakusou-nike_special_project/page-1"
 Rise45URL = "https://rise45.com/collections/mens-footwear"
 UndefeatedURL = "http://undefeated.com/footwear"
-ZapposURL = "http://www.zappos.com/men-shoes/CK_XAcABAuICAgEY.zso?s=isNew/desc/productPopularity/asc/"
-PointzURL = "https://www.5pointz.co.uk/footwear?brand=510_486_493&dir=desc&order=created_at"
+ZapposURL = "http://www.zappos.com/men-shoes/CK_XAcABAuICAgEY.zso?s=isNew/desc/goLiveDate/desc/recentSalesStyle/desc/"
+PointzURL = "https://www.5pointz.co.uk/footwear?brand=510_486_493&dir=desc&order=release_date"
 StickABushURL = "https://www.stickabush.com/sneaker.html?limit=18&p=1"
-ShoesPalaceURL = "http://www.shoepalace.com/men/footwear/shoes/?limit=24&p=1&order=created_at"
+ShoesPalaceURL = "http://www.shoepalace.com/men/footwear/shoes/?limit=24&order=created_at&p=1"
 KongURL = "http://www.kongonline.co.uk/collections/footwear?page=1&sort_by=created-descending"
 SaveOurSoleURL = "https://www.saveoursole.de/en/sneaker/?p=1&o=1&n=12"
+InflammableURL = "http://www.inflammable.com/en/sneaker/?&perPage=30&page=1"
+DefShopURL = "https://en.def-shop.com/men/sneakers/?page=1&rf=1"
+OffspringURL = "http://www.offspring.co.uk/view/category/offspring_catalog/1?page=1&pageSize=24&sort=releaseDate"
+SoleKitchenURL = "http://www.solekitchen.de/en/sneaker/?p=1&o=1"
+DromeURL = "http://www.drome.co.uk/footwear/?old_expand=2&brand=BR_AA&brand=BR_NN&brand=BR_JORD&display=grid4&order=NEW+PRODUCTS&expand=1"
+FootAsylumURL = "https://www.footasylum.com/mens-footwear/?brand=BR_AA&brand=BR_NN&brand=BR_JORD&order=NEW+PRODUCTS&page=1"
 
 
 init()
@@ -928,8 +934,8 @@ class KongSpider(Spider):
             yield item
 
         yield Request(KongURL, callback=self.parse, dont_filter=True)
-
-        
+		
+		
 class SaveOurSoleSpider(Spider):
     
     name = "SaveOurSoleSpider"
@@ -950,8 +956,139 @@ class SaveOurSoleSpider(Spider):
             yield item
             
         yield Request(SaveOurSoleURL, callback=self.parse, dont_filter=True)
+		
+		
+class InflammableSpider(Spider):
 
+    name = "InflammableSpider"
+    allowded_domains = ["inflammable.com"]
+    start_urls = [InflammableURL]
+	
+    def __init__(self):
+        logging.critical("InflammableSpider STARTED.")
+		
+    def parse(self, response):
+        products = Selector(response).xpath('//div[@class="span10 sidebar-products row"]//div[contains(@class,"span25")]')
+		
+        for product in products:
+            item = InflammableItem()
+            item['name'] = product.xpath('div[1]/div[1]/a/img/@title').extract()[0]
+            item['link'] = product.xpath('div[1]/div[1]/a/@href').extract()[0]
+            item['image'] = "http://www.inflammable.com/" + product.xpath('div[1]/div[1]/a/img/@src').extract()[0]
+            yield item
+			
+        yield Request(InflammableURL, callback=self.parse, dont_filter=True)
+		
+		
+class DefShopSpider(Spider):
+
+    name = "DefShopSpider"
+    allowded_domains = ["def-shop.com"]
+    start_urls = [DefShopURL]
+	
+    def __init__(self):
+        logging.critical("DefShopSpider STARTED.")
+		
+    def parse(self, response):
+        products = Selector(response).xpath('//div[@class="row def-v-offset3 container-fluid"]//div[contains(@class,"def-col-listing")]//article[@class="prod-article"]//div[@class="bx-wrapper"]')
+		
+        for product in products:
+            item = DefShopItem()
+            item['name'] = product.xpath('a/@title').extract()[0]
+            item['link'] = product.xpath('a/@href').extract()[0]
+            item['image'] = product.xpath('a/div/img/@content').extract()[0]
+            yield item
+			
+        yield Request(DefShopURL, callback=self.parse, dont_filter=True)
+		
+		
+class OffspringSpider(Spider):
+    
+    name = "OffspringSpider"
+    allowded_domains = ["offspring.co.uk"]
+    start_urls = [OffspringURL]
+	
+    def __init__(self):
+        logging.critical("OffspringSpider STARTED.")
+		
+    def parse(self, response):
+        products = Selector(response).xpath('//div[@class="productList row"]//ul//li[contains(@class,"col-xs-6")]//div[@class="productList_item"]')
+		
+        for product in products:
+            item = OffSpringItem()
+            item['name'] = product.xpath('div[2]/div[1]/a//text()[3]').extract()[0]
+            item['link'] = "http://www.offspring.co.uk/view" + product.xpath('div[1]/a/@href').extract()[0]
+            # item['image'] = product.xpath('div[1]/a/img/@src').extract()[0]
+            yield item
+			
+        yield Request(OffspringURL, callback=self.parse, dont_filter=True)
+		
+class SoleKitchenSpider(Spider):
+
+    name = "SoleKitchenSpider"
+    allowded_domains = ["SoleKitchen.com"]
+    start_urls = [SoleKitchenURL]
+	
+    def __init__(self):
+        logging.critical("SoleKitchenSpider STARTED.")
+		
+    def parse(self, response):
+        products = Selector(response).xpath('//div[@class="listing--container"]//div[@class="listing"]//div[contains(@class,"product--box")]//div[@class="box--content slktn"]')
+		
+        for product in products:
+            item = SoleKitchenItem()
+            item['name'] = product.xpath('div/a/@title').extract()[0]
+            item['link'] = product.xpath('div/a/@href').extract()[0]
+            # tem['image'] = product.xpath('div/span/div/div/div/a[2]/img/@src').extract()[0]
+            yield item
+			
+        yield Request(SoleKitchenURL, callback=self.parse, dont_filter=True)
         
+        
+class DromeSpider(Spider):
+    
+    name = "DromeSpider"
+    allowded_domains = ["drome.co.uk"]
+    start_urls = [DromeURL]
+    
+    def __init__(self):
+        logging.critical("DromeSpider STARTED.")
+        
+    def parse(self, response):
+        products = Selector(response).xpath('//div[@class="main-list nogaps row"]//div[contains(@class,"prodlistwrap")]//div[@class="prodlist"]')
+        
+        for product in products:
+            item = DromeItem()
+            item['name'] = product.xpath('div[1]/img/@alt').extract()[0]
+            item['link'] = "http://www.drome.co.uk" + product.xpath('div[2]/div[2]/a/@href').extract()[0]
+            item['image'] = "http://www.drome.co.uk" + product.xpath('div[1]/img/@src').extract()[0]
+            yield item
+            
+        yield Request(DromeURL, callback=self.parse, dont_filter=True)
+        
+        
+class FootAsylumSpider(Spider):
+
+    name = "FootAsylumSpider"
+    allowded_domains = ["footasylum.com"]
+    start_urls = [FootAsylumURL]
+	
+    def __init__(self):
+        logging.critical("FootAsylumSpider STARTED.")
+		
+    def parse(self, response):
+        products = Selector(response).xpath('//div[@class="productDataOnPage_inner"]//ul[@class="main-list row"]//li[contains(@class,"left")]')
+		
+        for product in products:
+            item = FootAsylumItem()
+            item['name'] = product.xpath('div/span[2]/img/@alt').extract()[0]
+            item['link'] = product.xpath('div/span[1]/text()').extract()[0]
+            item['image'] = "https://www.footasylum.com" + product.xpath('div/span[2]/img/@data-original').extract()[0]
+            yield item
+			
+        yield Request(FootAsylumURL, callback=self.parse, dont_filter=True)
+		
+		
 crawler_settings = Settings()
 crawler_settings.setmodule(settings)
 process = CrawlerProcess(settings=crawler_settings)
@@ -990,6 +1127,12 @@ process.crawl(PointzSpider)
 process.crawl(StickABushSpider)
 process.crawl(KongSpider)
 process.crawl(SaveOurSoleSpider)
+process.crawl(InflammableSpider)
+process.crawl(DefShopSpider)
+process.crawl(OffspringSpider)
+process.crawl(SoleKitchenSpider)
+process.crawl(DromeSpider)
+process.crawl(FootAsylumSpider)
 
 # process.crawl(EndSpider)		#Captcha if crawl too much.
 # process.crawl(SNSSpider)		#ASN blocked on Vultr via CloudFlare.
