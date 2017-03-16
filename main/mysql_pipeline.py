@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+
+# Sneaker Notify
+# author - Yu Lin
+# https://github.com/yulin12345
+# admin@yulin12345.site
+
 from datetime import datetime
 import hashlib
 import sys
@@ -171,7 +178,35 @@ class MYSQL_Pipeline(object):
         # Insert item into zappos table.
         elif isinstance(item, ZapposItem):
             self.cursor.execute("INSERT INTO zappos (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
+            
+        # Insert item into ubiq table.
+        elif isinstance(item, UbiqItem):
+            self.cursor.execute("INSERT INTO ubiq (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
+            
+        # Insert item into pointz table.
+        elif isinstance(item, PointzItem):
+            self.cursor.execute("INSERT INTO pointz (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
 			
+        # Insert item into kicks table.
+        elif isinstance(item, KicksItem):
+            self.cursor.execute("INSERT INTO kicks (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
+			
+        # Insert item into shoespalace table.
+        elif isinstance(item, ShoesPalaceItem):
+            self.cursor.execute("INSERT INTO shoespalace (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
+			
+        # Insert item into stickabush table.
+        elif isinstance(item, StickABushItem):
+            self.cursor.execute("INSERT INTO stickabush (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
+            
+        # Insert item into kong table.
+        elif isinstance(item, KongItem):
+            self.cursor.execute("INSERT INTO kong (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
+
+        # Insert item into saveoursole table.
+        elif isinstance(item, SaveOurSoleItem):
+            self.cursor.execute("INSERT INTO saveoursole (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
+            
         self.conn.commit()
 		
         # If item name contain below words. Tweet it.

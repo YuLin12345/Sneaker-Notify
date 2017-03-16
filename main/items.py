@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+
+# Sneaker Notify
+# author - Yu Lin
+# https://github.com/yulin12345
+# admin@yulin12345.site
+
 from scrapy.item import Item, Field
 
 
@@ -224,7 +231,7 @@ class UrbanOutfittersItem(Item):
     image = Field()
     link = Field()
     name = Field()
-    
+
 class LuisaItem(Item):
     date = Field()
     price = Field()
@@ -254,6 +261,55 @@ class UndefeatedItem(Item):
     name = Field()
     
 class ZapposItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+    
+class UbiqItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+    
+class PointzItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+    
+class KicksItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+    
+class ShoesPalaceItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+    
+class StickABushItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+    
+class KongItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+
+class SaveOurSoleItem(Item):
     date = Field()
     price = Field()
     image = Field()
