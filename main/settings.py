@@ -1,5 +1,10 @@
 # -*- coding: utf-8 -*-
 
+# Sneaker Notify
+# author - Yu Lin
+# https://github.com/yulin12345
+# admin@yulin12345.site
+
 # Scrapy settings for crawler project
 #
 # For simplicity, this file contains only settings considered important or

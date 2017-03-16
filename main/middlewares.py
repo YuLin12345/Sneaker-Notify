@@ -1,5 +1,10 @@
 # -*- coding: utf-8 -*-
 
+# Sneaker Notify
+# author - Yu Lin
+# https://github.com/yulin12345
+# admin@yulin12345.site
+
 # Define here the models for your spider middleware
 #
 # See documentation in:
