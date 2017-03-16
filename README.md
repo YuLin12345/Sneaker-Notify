@@ -2,43 +2,48 @@ Sneaker/Restock Notify via Twitter coded in Python using Scrapy.
 #
 Status: **Under Development. If Interested feel free to follow W_Notify on Twitter.**
 
-Description: Crawl a list of sneaker websites. Once the new product is found or is restocked. It will check for certain keywords in the item name. If found, it will alert the user via tweet, Twitter, with date, time, item name, and link.
+Description: Crawl a list of sneaker websites. Once the new product is found or is restocked. It will check for certain keywords in the item's name. If found, it will alert the user via Twitter using tweet, with date, time, item name, and link.
 
 #
 **Supported Sites List:**
  - 43einhalb
+ - 5 Pointz
  - AFewStore
  - Adidas
- - Barneys - Block if crawl too much.
+ - Barneys - Ban if crawl too much.
  - Caliroots
  - ChampsSports
  - City Gear
  - EastBay
  - End - Captcha if crawl too much.
- - FinishLine
+ - FinishLine - Banned on Vultr.
  - FootAction
  - FootDistrict
  - FootLocker
  - FootPatrol
  - FootShop
  - JDSports
- - JimmyJazz
+ - JimmyJazz - ASN blocked on Vultr via CloudFlare.
  - Kith
+ - Kong
  - Luisa Via Roma
  - Nike
  - Nordstrom
  - OverKill
  - Rise45
  - Ruvilla
+ - SaveOurSole
+ - ShoesPalace - Need to disobey robots.txt, if you want to crawl.
  - Size
- - SlamJam
+ - Slam Jam Socialism
  - SneakerBaas
- - SneakerNStuff
+ - SneakerNStuff - ASN blocked on Vultr via CloudFlare.
  - SneakerPolitics
+ - StickABush
  - Tint Footware
  - Undefeated
  - Urban Industry
- - UrbanOutfitters
+ - Urban Outfitters
  - YCMC
  - Zappos
  
@@ -55,6 +60,7 @@ Description: Crawl a list of sneaker websites. Once the new product is found or 
 
 #
 **Setup:**
+- Make sure you have Python installed: https://www.python.org/
 - Open CMD (Windows) or Terminal (Mac) pip install the requirements above.
 
 - For Mac, to install MySQL-python. Open terminal:
@@ -64,6 +70,7 @@ Description: Crawl a list of sneaker websites. Once the new product is found or 
 
 - Install the MySQL database -> .sql provided in the folder.
 - Go into mysql_pipeline.py edit MySQL connection info and edit Twitter CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN_KEY, and ACCESS_TOKEN_SECRET to your Twitter account.
+
 - To run:
 - For Windows:
  - Click on main.py
