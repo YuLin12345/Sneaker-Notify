@@ -79,6 +79,13 @@ AsphaltGoldURL = "https://asphaltgold.de/en/sneaker?p=1"
 HanonURL = "http://www.hanon-shop.com/c/q/department/footwear"
 SoleBoxURL = "https://www.solebox.com/en/Footwear/"
 ConsortiumURL = "http://www.consortium.co.uk/footwear.html?brand=adidas,nike&p=1"
+HavenURL = "https://shop.havenshop.ca/collections/footwear?page=1&sort_by=created-descending"
+NeedSupplyURL = "http://needsupply.com/mens/shoes/sneakers?p=1"
+LoadedURL = "http://www.loadednz.com/products/footwear,1"
+WellGoshURL = "https://wellgosh.com/footwear?dir=desc&order=created_at&p=1"
+CapsuleURL = "http://www.capsuletoronto.com/collections/footwear?page=1"
+YMEURL = "https://ymeuniverse.com/en/sneakers?brand=Adidas+Consortium,Adidas,Nike,Nike+SP,NIKELAB+ACG&dir=asc&order=created_at&p=1"
+HypeDCURL = "https://www.hypedc.com/mens/footwear?dir=desc&manufacturer=28,55,478&order=news_from_date&p=1"
 
 
 init()
@@ -1037,7 +1044,7 @@ class OffspringSpider(Spider):
 class SoleKitchenSpider(Spider):
 
     name = "SoleKitchenSpider"
-    allowded_domains = ["SoleKitchen.com"]
+    allowded_domains = ["solekitchen.de"]
     start_urls = [SoleKitchenURL]
 	
     def __init__(self):
@@ -1342,6 +1349,160 @@ class ConsortiumSpider(Spider):
         yield Request(ConsortiumURL, callback=self.parse, dont_filter=True)
 		
 		
+class HavenSpider(Spider):
+    
+    name = "HavenSpider"
+    allowded_domains = ["havenshop.ca"]
+    start_urls = [HavenURL]
+    
+    def __init__(self):
+        logging.critical("HavenSpider STARTED.")
+
+    def parse(self, response):
+        products = Selector(response).xpath('//main[@class="main shop-category"]//section[@class="shop-products"]//a[contains(@class,"product-card")]')
+
+        for product in products:
+            item = HavenItem()
+            item['name'] = product.xpath('div[2]/p[2]/text()').extract()[0]
+            item['link'] = product.xpath('@href').extract()[0]
+            item['image'] = "https:" + product.xpath('div[1]/img[1]/@data-src').extract()[0]
+            yield item
+
+        yield Request(HavenURL, callback=self.parse, dont_filter=True)
+		
+		
+class NeedSupplySpider(Spider):
+    
+    name = "NeedSupplySpider"
+    allowded_domains = ["needsupply.com"]
+    start_urls = [NeedSupplyURL]
+    
+    def __init__(self):
+        logging.critical("NeedSupplySpider STARTED.")
+
+    def parse(self, response):
+        products = Selector(response).xpath('//div[@class="product-list-grid"]//article[contains(@class,"grid-item")]')
+
+        for product in products:
+            item = NeedSupplyItem()
+            item['name'] = product.xpath('.//div/a/@title').extract()[0]
+            item['link'] = product.xpath('.//div/a/@href').extract()[0]
+            item['image'] = product.xpath('.//div/a/img/@src').extract()[0]
+            yield item
+
+        yield Request(NeedSupplyURL, callback=self.parse, dont_filter=True)
+		
+		
+class LoadedSpider(Spider):
+    
+    name = "LoadedSpider"
+    allowded_domains = ["loadednz.com"]
+    start_urls = [LoadedURL]
+    
+    def __init__(self):
+        logging.critical("LoadedSpider STARTED.")
+
+    def parse(self, response):
+        products = Selector(response).xpath('//div[@class="row image-grid"]//div[contains(@class,"image")]')
+
+        for product in products:
+            item = LoadedItem()
+            item['name'] = product.xpath('.//div[2]/text()').extract()[0]
+            item['link'] = "http://www.loadednz.com" + product.xpath('.//a/@href').extract()[0]
+            item['image'] = product.xpath('.//a/img/@src').extract()[0]
+            yield item
+
+        yield Request(LoadedURL, callback=self.parse, dont_filter=True)
+		
+		
+class WellGoshSpider(Spider):
+    
+    name = "WellGoshSpider"
+    allowded_domains = ["wellgosh.com"]
+    start_urls = [WellGoshURL]
+    
+    def __init__(self):
+        logging.critical("WellGoshSpider STARTED.")
+
+    def parse(self, response):
+        products = Selector(response).xpath('//div[@class="category-products row grid-mode"]//article[contains(@class,"small-6")]')
+
+        for product in products:
+            item = WellGoshItem()
+            item['name'] = product.xpath('.//figure/a/@title').extract()[0]
+            item['link'] = product.xpath('.//figure/a/@href').extract()[0]
+            item['image'] = product.xpath('.//figure/a/img/@src').extract()[0]
+            yield item
+
+        yield Request(WellGoshURL, callback=self.parse, dont_filter=True)
+		
+		
+class CapsuleSpider(Spider):
+    
+    name = "CapsuleSpider"
+    allowded_domains = ["capsuletoronto.com"]
+    start_urls = [CapsuleURL]
+    
+    def __init__(self):
+        logging.critical("CapsuleSpider STARTED.")
+        
+    def parse(self, response):
+        products = Selector(response).xpath('//div[@class="product-list"]//div[contains(@class,"product-block")]//div[@class="block-inner"]//div[@class="image-cont"]')
+		
+        for product in products:
+            item = CapsuleItem()
+            item['name'] = product.xpath('a[1]/div/img/@alt').extract()[0]
+            item['link'] = "http://www.capsuletoronto.com" + product.xpath('a[1]/@href').extract()[0]
+            item['image'] = "http:" + product.xpath('a[1]/div/img/@src').extract()[0]
+            yield item
+            
+        yield Request(CapsuleURL, callback=self.parse, dont_filter=True)
+		
+		
+class YMESpider(Spider):
+    
+    name = "YMESpider"
+    allowded_domains = ["ymeuniverse.com"]
+    start_urls = [YMEURL]
+    
+    def __init__(self):
+        logging.critical("YMESpider STARTED.")
+
+    def parse(self, response):
+        products = Selector(response).xpath('//div[@class="category-products"]//ul[contains(@class,"small-block-grid-2")]//li[@class="item"]//div[@class="item-wrapper"]')
+
+        for product in products:
+            item = YMEItem()
+            item['name'] = product.xpath('a/@title').extract()[0]
+            item['link'] = product.xpath('a/@href').extract()[0]
+            item['image'] = product.xpath('a/span/img/@src').extract()[0]
+            yield item
+
+        yield Request(YMEURL, callback=self.parse, dont_filter=True)
+		
+		
+class HypeDCSpider(Spider):
+    
+    name = "HypeDCSpider"
+    allowded_domains = ["hypedc.com"]
+    start_urls = [HypeDCURL]
+    
+    def __init__(self):
+        logging.critical("HypeDCSpider STARTED.")
+
+    def parse(self, response):
+        products = Selector(response).xpath('//div[@class="category-products row"]//div[contains(@class,"item")]')
+
+        for product in products:
+            item = HypeDCItem()
+            item['name'] = product.xpath('.//a/@title').extract()[0]
+            item['link'] = product.xpath('.//a/@href').extract()[0]
+            item['image'] = product.xpath('.//a/div/img/@data-src').extract()[0]
+            yield item
+
+        yield Request(HypeDCURL, callback=self.parse, dont_filter=True)
+		
+		
 crawler_settings = Settings()
 crawler_settings.setmodule(settings)
 process = CrawlerProcess(settings=crawler_settings)
@@ -1397,6 +1558,13 @@ process.crawl(AsphaltGoldSpider)
 process.crawl(HanonSpider)
 process.crawl(SoleBoxSpider)
 process.crawl(ConsortiumSpider)
+process.crawl(HavenSpider)
+process.crawl(NeedSupplySpider)
+process.crawl(LoadedSpider)
+process.crawl(WellGoshSpider)
+process.crawl(CapsuleSpider)
+process.crawl(YMESpider)
+process.crawl(HypeDCSpider)
 
 # process.crawl(EndSpider)		#Captcha if crawl too much.
 # process.crawl(SNSSpider)		#ASN blocked on Vultr via CloudFlare.

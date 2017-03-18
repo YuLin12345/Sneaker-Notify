@@ -441,3 +441,52 @@ class ConsortiumItem(Item):
     image = Field()
     link = Field()
     name = Field()
+	
+class HavenItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+	
+class NeedSupplyItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+	
+class LoadedItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+	
+class WellGoshItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+	
+class CapsuleItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+	
+class YMEItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+	
+class HypeDCItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
