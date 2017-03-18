@@ -15,6 +15,7 @@ Description: Crawl a list of sneaker websites. Once the new product is found or 
  - Barneys - Ban if crawl too much.
  - Bodega
  - Caliroots
+ - Capsule
  - ChampsSports
  - City Gear
  - Concepts
@@ -32,13 +33,17 @@ Description: Crawl a list of sneaker websites. Once the new product is found or 
  - FootPatrol
  - FootShop
  - Hanon
+ - Haven
+ - HypeDC
  - Inflammable
  - JDSports
  - JimmyJazz - ASN blocked on Vultr via CloudFlare.
  - Kith
  - Kong
  - Lapstone and Hammer
+ - Loaded
  - Luisa Via Roma
+ - NeedSupply
  - Nike
  - Nordstrom
  - Offspring
@@ -62,7 +67,9 @@ Description: Crawl a list of sneaker websites. Once the new product is found or 
  - Undefeated
  - Urban Industry
  - Urban Outfitters
+ - WellGosh
  - YCMC
+ - YME Universe
  - Zappos
 #
 **Requirements:**
