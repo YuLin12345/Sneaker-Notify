@@ -1,4 +1,4 @@
-Sneaker/Restock Notify via Twitter coded in Python using Scrapy.
+Sneaker/Restock/Monitor Notify via Twitter coded in Python using Scrapy.
 
 ![Example](http://i.imgur.com/cqI2s0x.png)
 #
@@ -11,14 +11,19 @@ Description: Crawl a list of sneaker websites. Once the new product is found or 
  - 5 Pointz
  - AFewStore
  - Adidas
+ - AsphaltGold
  - Barneys - Ban if crawl too much.
+ - Bodega
  - Caliroots
  - ChampsSports
  - City Gear
+ - Concepts
+ - Consortium
  - DefShop
  - Drome
  - EastBay
  - End - Captcha if crawl too much.
+ - Extra Butter NY
  - FinishLine - Banned on Vultr.
  - FootAction
  - FootAsylum
@@ -26,11 +31,13 @@ Description: Crawl a list of sneaker websites. Once the new product is found or 
  - FootLocker
  - FootPatrol
  - FootShop
+ - Hanon
  - Inflammable
  - JDSports
  - JimmyJazz - ASN blocked on Vultr via CloudFlare.
  - Kith
  - Kong
+ - Lapstone and Hammer
  - Luisa Via Roma
  - Nike
  - Nordstrom
@@ -38,13 +45,17 @@ Description: Crawl a list of sneaker websites. Once the new product is found or 
  - OverKill
  - Rise45
  - Ruvilla
+ - SaintAlfred
  - SaveOurSole
+ - Shelf Life
  - ShoesPalace - Need to disobey robots.txt, if you want to crawl.
  - Size
  - Slam Jam Socialism
  - SneakerBaas
  - SneakerNStuff - ASN blocked on Vultr via CloudFlare.
  - SneakerPolitics
+ - SocialStatus
+ - SoleBox
  - SoleKitchen
  - StickABush
  - Tint Footware
