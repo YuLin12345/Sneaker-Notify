@@ -226,15 +226,63 @@ class MYSQL_Pipeline(object):
         # Insert item into drome table.
         elif isinstance(item, DromeItem):
             self.cursor.execute("INSERT INTO drome (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
-            
+			
         # Insert item into footasylum table.
         elif isinstance(item, FootAsylumItem):
             self.cursor.execute("INSERT INTO footasylum (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
-            
+			
+        # Insert item into hhv table.
+        elif isinstance(item, HHVItem):
+            self.cursor.execute("INSERT INTO hhv (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
+			
+        # Insert item into concepts table.
+        elif isinstance(item, ConceptsItem):	
+            self.cursor.execute("INSERT INTO concepts (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
+			
+        # Insert item into socialstatus table.
+        elif isinstance(item, SocialStatusItem):	
+            self.cursor.execute("INSERT INTO socialstatus (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
+			
+        # Insert item into extrabutter table.
+        elif isinstance(item, ExtraButterItem):	
+            self.cursor.execute("INSERT INTO extrabutter (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
+						
+        # Insert item into bodega table.
+        elif isinstance(item, BodegaItem):	
+            self.cursor.execute("INSERT INTO bodega (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
+				
+        # Insert item into saintalfred table.
+        elif isinstance(item, SaintAlfredItem):	
+            self.cursor.execute("INSERT INTO saintalfred (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
+								
+        # Insert item into lapstonenhammer table.
+        elif isinstance(item, LapstoneNHammerItem):	
+            self.cursor.execute("INSERT INTO lapstonenhammer (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
+
+        # Insert item into shelflife table.
+        elif isinstance(item, ShelfLifeItem):	
+            self.cursor.execute("INSERT INTO shelflife (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
+								
+        # Insert item into asphaltgold table.
+        elif isinstance(item, AsphaltGoldItem):	
+            self.cursor.execute("INSERT INTO asphaltgold (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
+								
+        # Insert item into hanon table.
+        elif isinstance(item, HanonItem):	
+            self.cursor.execute("INSERT INTO hanon (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
+								
+        # Insert item into solebox table.
+        elif isinstance(item, SoleBoxItem):	
+            self.cursor.execute("INSERT INTO solebox (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'], item['image'].encode('utf-8'), DATE))
+							
+        # Insert item into consortium table.
+        elif isinstance(item, ConsortiumItem):	
+            self.cursor.execute("INSERT INTO consortium (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
+														
         self.conn.commit()
 		
         # If item name contain below words. Tweet it.
-        if 'nmd' in item['name'].encode('utf-8').lower() or 'boost' in item['name'].encode('utf-8').lower() or 'retro' in item['name'].encode('utf-8').lower() or 'yeezy' in item['name'].encode('utf-8').lower():
+        if 'nmd' in item['name'].encode('utf-8').lower() or 'boost' in item['name'].encode('utf-8').lower() or 'retro' in item['name'].encode('utf-8').lower() or 'yeezy' in item['name'].encode('utf-8').lower() or 'atmos' in item['name'].encode('utf-8').lower():
           
           # Twitter Auth - Tweet the item with date, time, item name, and link.
           # To obtain Twitter CONSUMER and ACCESS keys go to https://apps.twitter.com/

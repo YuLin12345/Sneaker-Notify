@@ -68,6 +68,17 @@ OffspringURL = "http://www.offspring.co.uk/view/category/offspring_catalog/1?pag
 SoleKitchenURL = "http://www.solekitchen.de/en/sneaker/?p=1&o=1"
 DromeURL = "http://www.drome.co.uk/footwear/?old_expand=2&brand=BR_AA&brand=BR_NN&brand=BR_JORD&display=grid4&order=NEW+PRODUCTS&expand=1"
 FootAsylumURL = "https://www.footasylum.com/mens-footwear/?brand=BR_AA&brand=BR_NN&brand=BR_JORD&order=NEW+PRODUCTS&page=1"
+ConceptsURL = "http://cncpts.com/collections/footwear#"
+SocialStatusURL = "https://www.socialstatuspgh.com/collections/sneakers?page=1&sort_by=created-descending"
+ExtraButterURL = "https://shop.extrabutterny.com/collections/footwear?page=1&sort_by=created-descending"
+BodegaURL = "https://shop.bdgastore.com/collections/footwear?sort_by=created-descending&page=1"
+SaintAlfredURL = "https://www.saintalfred.com/collections/footwear?page=1&sort_by=created-descending"
+LapstoneNHammerURL = "https://www.lapstoneandhammer.com/collections/foortwear?page=1"
+ShelfLifeURL = "https://www.shelflife.co.za/Online-store/sneakers/?&page=1"
+AsphaltGoldURL = "https://asphaltgold.de/en/sneaker?p=1"
+HanonURL = "http://www.hanon-shop.com/c/q/department/footwear"
+SoleBoxURL = "https://www.solebox.com/en/Footwear/"
+ConsortiumURL = "http://www.consortium.co.uk/footwear.html?brand=adidas,nike&p=1"
 
 
 init()
@@ -400,8 +411,8 @@ class FootLockerSpider(Spider):
         
         for product in products:
             item = FootLockerItem()
-            item['name'] = product.xpath('.//div/a/@title').extract()[0]
-            item['link'] = product.xpath('.//div/a/@href').extract()[0]
+            item['name'] = product.xpath('.//div/a/@title').extract()[0].replace(" - Men's", "")
+            item['link'] = product.xpath('.//div/a/@href').extract()[0].replace("&cm=GLOBAL SEARCH: KEYWORD SEARCH", "")
             item['image'] = product.xpath('.//div/a/div/img/@data-original').extract()[0]
             yield item
             
@@ -422,8 +433,8 @@ class FootActionSpider(Spider):
         
         for product in products:
             item = FootActionItem()
-            item['name'] = product.xpath('.//div/a/@title').extract()[0]
-            item['link'] = product.xpath('.//div/a/@href').extract()[0]
+            item['name'] = product.xpath('.//div/a/@title').extract()[0].replace(" - Men's", "")
+            item['link'] = product.xpath('.//div/a/@href').extract()[0].replace("&cm=GLOBAL SEARCH: KEYWORD SEARCH", "")
             item['image'] = product.xpath('.//div/a/div/img/@data-original').extract()[0]
             yield item
             
@@ -444,8 +455,8 @@ class ChampsSpider(Spider):
         
         for product in products:
             item = ChampsItem()
-            item['name'] = product.xpath('.//div/a/@title').extract()[0]
-            item['link'] = product.xpath('.//div/a/@href').extract()[0]
+            item['name'] = product.xpath('.//div/a/@title').extract()[0].replace(" - Men's", "")
+            item['link'] = product.xpath('.//div/a/@href').extract()[0].replace("&cm=GLOBAL SEARCH: KEYWORD SEARCH", "")
             item['image'] = product.xpath('.//div/a/div/img/@data-original').extract()[0]
             yield item
             
@@ -466,8 +477,8 @@ class EastBaySpider(Spider):
         
         for product in products:
             item = EastBayItem()
-            item['name'] = product.xpath('.//div/a/@title').extract()[0]
-            item['link'] = product.xpath('.//div/a/@href').extract()[0]
+            item['name'] = product.xpath('.//div/a/@title').extract()[0].replace(" - Men's", "")
+            item['link'] = product.xpath('.//div/a/@href').extract()[0].replace("&cm=GLOBAL SEARCH: KEYWORD SEARCH", "")
             item['image'] = product.xpath('.//div/a/div/img/@data-original').extract()[0]
             yield item
             
@@ -488,7 +499,7 @@ class FinishLineSpider(Spider):
         
         for product in products:
             item = FinishLineItem()
-            item['name'] = product.xpath('.//div/a[2]/div/p/text()').extract()[0]
+            item['name'] = product.xpath('.//div/a[2]/div/p/text()').extract()[0].strip().replace("Men's ", "")
             item['link'] = "http://www.finishline.com" + product.xpath('.//div/a[1]/@href').extract()[0]
             item['image'] = product.xpath('.//div/a[1]/div/img/@src').extract()[0]
             yield item
@@ -554,7 +565,7 @@ class NordstromSpider(Spider):
         
         for product in products:
             item = NordstromItem()
-            item['name'] = product.xpath('.//a/img/@alt').extract()[0]
+            item['name'] = product.xpath('.//a/img/@alt').extract()[0].replace(" (Men)", "")
             item['link'] = "http://shop.nordstrom.com" + product.xpath('.//a/@href').extract()[0]
             item['image'] = product.xpath('.//a/img/@src').extract()[0]
             yield item
@@ -1016,7 +1027,7 @@ class OffspringSpider(Spider):
 		
         for product in products:
             item = OffSpringItem()
-            item['name'] = product.xpath('div[2]/div[1]/a//text()[3]').extract()[0]
+            item['name'] = product.xpath('div[2]/div[1]/a//text()[3]').extract()[0].strip()
             item['link'] = "http://www.offspring.co.uk/view" + product.xpath('div[1]/a/@href').extract()[0]
             # item['image'] = product.xpath('div[1]/a/img/@src').extract()[0]
             yield item
@@ -1089,6 +1100,248 @@ class FootAsylumSpider(Spider):
         yield Request(FootAsylumURL, callback=self.parse, dont_filter=True)
 		
 		
+class ConceptsSpider(Spider):
+    
+    name = "ConceptsSpider"
+    allowded_domains = ["cncpts.com"]
+    start_urls = [ConceptsURL]
+    
+    def __init__(self):
+        logging.critical("ConceptsSpider STARTED.")
+        
+    def parse(self, response):
+        products = Selector(response).xpath('//div[@class="prod-flex-list"]//div[contains(@class,"product")]')
+
+        for product in products:
+            item = ConceptsItem()
+            item['name'] = product.xpath('div/h4/a/text()').extract()[0]
+            item['link'] = "http://cncpts.com" + product.xpath('a/@href').extract()[0]
+            item['image'] = "http:" + product.xpath('a/img/@src').extract()[0]
+            yield item
+            
+        yield Request(ConceptsURL, callback=self.parse, dont_filter=True)
+		
+		
+class SocialStatusSpider(Spider):
+    
+    name = "SocialStatusSpider"
+    allowded_domains = ["socialstatuspgh.com"]
+    start_urls = [SocialStatusURL]
+    
+    def __init__(self):
+        logging.critical("SocialStatusSpider STARTED.")
+        
+    def parse(self, response):
+        products = Selector(response).xpath('//div[@class="desktop-12 tablet-6 mobile-3"]//div[contains(@class,"product-index")]//div[@class="product-index-inner"]')
+		
+        for product in products:
+            item = SocialStatusItem()
+            item['name'] = product.xpath('a/@title').extract()[0]
+            item['link'] = "https://www.socialstatuspgh.com" + product.xpath('a/@href').extract()[0]
+            item['image'] = "https:" + product.xpath('a/img[1]/@src').extract()[0]
+            yield item
+            
+        yield Request(SocialStatusURL, callback=self.parse, dont_filter=True)
+		
+		
+class ExtraButterSpider(Spider):
+    
+    name = "ExtraButterSpider"
+    allowded_domains = ["extrabutterny.com"]
+    start_urls = [ExtraButterURL]
+    
+    def __init__(self):
+        logging.critical("ExtraButterSpider STARTED.")
+
+    def parse(self, response):
+        products = Selector(response).xpath('//div[@class="row"]//div[contains(@class,"col-xs-12")]//div[@class="product-thumbnail"]//div[@class="thumbnail-image"]')
+		
+        for product in products:
+            item = ExtraButterItem()
+            item['name'] = product.xpath('a/img/@alt').extract()[0]
+            item['link'] = "https://shop.extrabutterny.com" + product.xpath('a/@href').extract()[0]
+            item['image'] = "https:" + product.xpath('a/img/@src').extract()[0]
+            yield item
+            
+        yield Request(ExtraButterURL, callback=self.parse, dont_filter=True)
+		
+		
+class BodegaSpider(Spider):
+    
+    name = "BodegaSpider"
+    allowded_domains = ["bdgastore.com"]
+    start_urls = [BodegaURL]
+    
+    def __init__(self):
+        logging.critical("BodegaSpider STARTED.")
+		
+    def parse(self, response):
+        products = Selector(response).xpath('//ul[@class="grid clearfix"]//li[contains(@class,"product-item")]')
+		
+        for product in products:
+            item = BodegaItem()
+            item['name'] = product.xpath('div[2]/h3/a/text()').extract()[0].strip()
+            item['link'] = "https://shop.bdgastore.com" + product.xpath('div[1]/a/@href').extract()[0]
+            item['image'] = "https:" + product.xpath('div[1]/a/img/@src').extract()[0]
+            yield item
+			
+        yield Request(BodegaURL, callback=self.parse, dont_filter=True)
+
+		
+class SaintAlfredSpider(Spider):
+    
+    name = "SaintAlfredSpider"
+    allowded_domains = ["saintalfred.com"]
+    start_urls = [SaintAlfredURL]
+    
+    def __init__(self):
+        logging.critical("SaintAlfredSpider STARTED.")
+        
+    def parse(self, response):
+        products = Selector(response).xpath('//div[contains(@class,"collection-products")]//div[contains(@class,"product-list-item")]//figure[@class="product-list-item-thumbnail"]')
+		
+        for product in products:
+            item = SaintAlfredItem()
+            item['name'] = product.xpath('a/img/@alt').extract()[0]
+            item['link'] = "https://www.saintalfred.com" + product.xpath('a/@href').extract()[0]
+            item['image'] = "https:" + product.xpath('a/img//@src').extract()[0]
+            yield item
+            
+        yield Request(SaintAlfredURL, callback=self.parse, dont_filter=True)	
+		
+		
+class LapstoneNHammerSpider(Spider):
+    
+    name = "LapstoneNHammerSpider"
+    allowded_domains = ["lapstoneandhammer.com"]
+    start_urls = [LapstoneNHammerURL]
+    
+    def __init__(self):
+        logging.critical("LapstoneNHammerSpider STARTED.")
+
+    def parse(self, response):
+        products = Selector(response).xpath('//div[@class="product-grid clearfix"]//div[contains(@class,"product-item columns")]//div[@class="image-wrapper"]')
+
+        for product in products:
+            item = LapstoneNHammerItem()
+            item['name'] = product.xpath('a/img/@alt').extract()[0]
+            item['link'] = "https://www.lapstoneandhammer.com" + product.xpath('a/@href').extract()[0]
+            item['image'] = "https:" + product.xpath('a/img//@src').extract()[0]
+            yield item
+            
+        yield Request(LapstoneNHammerURL, callback=self.parse, dont_filter=True)
+		
+		
+class ShelfLifeSpider(Spider):
+    
+    name = "ShelfLifeSpider"
+    allowded_domains = ["shelflife.co.za"]
+    start_urls = [ShelfLifeURL]
+    
+    def __init__(self):
+        logging.critical("ShelfLifeSpider STARTED.")
+
+    def parse(self, response):
+        products = Selector(response).xpath('//div[@class="row push_both push_top push_bottom light_row"]//div[contains(@class,"col-xs-6")]')
+		
+        for product in products:
+            item = ShelfLifeItem()
+            item['name'] = product.xpath('.//a/div/img/@alt').extract()[0]
+            item['link'] = "https://www.shelflife.co.za/" + product.xpath('.//a/@href').extract()[0]
+            item['image'] = "https://www.shelflife.co.za/" + product.xpath('.//a/div/img/@src').extract()[0]
+            yield item
+
+        yield Request(ShelfLifeURL, callback=self.parse, dont_filter=True)
+		
+		
+class AsphaltGoldSpider(Spider):
+    
+    name = "AsphaltGoldSpider"
+    allowded_domains = ["asphaltgold.de"]
+    start_urls = [AsphaltGoldURL]
+    
+    def __init__(self):
+        logging.critical("AsphaltGoldSpider STARTED.")
+        
+    def parse(self, response):
+        products = Selector(response).xpath('//div[@class="product-grid"]//section[contains(@class,"item")]')
+
+        for product in products:
+            item = AsphaltGoldItem()
+            item['name'] = product.xpath('a/@title').extract()[0]
+            item['link'] = product.xpath('a/@href').extract()[0]
+            item['image'] = product.xpath('a/img//@src').extract()[0]
+            yield item
+            
+        yield Request(AsphaltGoldURL, callback=self.parse, dont_filter=True)
+		
+		
+class HanonSpider(Spider):
+    
+    name = "HanonSpider"
+    allowded_domains = ["hanon-shop.com"]
+    start_urls = [HanonURL]
+    
+    def __init__(self):
+        logging.critical("HanonSpider STARTED.")
+        
+    def parse(self, response):
+        products = Selector(response).xpath('//div[@id="ks-products-wrapper"]//div[contains(@class,"product")]')
+
+        for product in products:
+            item = HanonItem()
+            item['name'] = product.xpath('a/@title').extract()[0]
+            item['link'] = "http://www.hanon-shop.com" + product.xpath('a/@href').extract()[0]
+            item['image'] = product.xpath('a/img/@src').extract()[0]
+            yield item
+            
+        yield Request(HanonURL, callback=self.parse, dont_filter=True)
+		
+		
+class SoleBoxSpider(Spider):
+    
+    name = "SoleBoxSpider"
+    allowded_domains = ["solebox.com"]
+    start_urls = [SoleBoxURL]
+    
+    def __init__(self):
+        logging.critical("SoleBoxSpider STARTED.")
+        
+    def parse(self, response):
+        products = Selector(response).xpath('//ul[@class="gridView clear"]//li[contains(@class,"productData")]')
+		
+        for product in products:
+            item = SoleBoxItem()
+            item['name'] = product.xpath('a/@title').extract()[0].strip()
+            item['link'] = product.xpath('a/@href').re("(.*html)")
+            item['image'] = product.xpath('a/div/img/@src').extract()[0]
+            yield item
+
+        yield Request(SoleBoxURL, callback=self.parse, dont_filter=True)
+		
+		
+class ConsortiumSpider(Spider):
+    
+    name = "ConsortiumSpider"
+    allowded_domains = ["consortium.co.uk"]
+    start_urls = [ConsortiumURL]
+    
+    def __init__(self):
+        logging.critical("ConsortiumSpider STARTED.")
+
+    def parse(self, response):
+        products = Selector(response).xpath('//li[@class="item text-center"]')
+		
+        for product in products:
+            item = ConsortiumItem()
+            item['name'] = product.xpath('div/h2/a/@title').extract()[0]
+            item['link'] = product.xpath('div/h2/a/@href').extract()[0]
+            item['image'] = product.xpath('img/@src').extract()[0]
+            yield item
+            
+        yield Request(ConsortiumURL, callback=self.parse, dont_filter=True)
+		
+		
 crawler_settings = Settings()
 crawler_settings.setmodule(settings)
 process = CrawlerProcess(settings=crawler_settings)
@@ -1133,6 +1386,17 @@ process.crawl(OffspringSpider)
 process.crawl(SoleKitchenSpider)
 process.crawl(DromeSpider)
 process.crawl(FootAsylumSpider)
+process.crawl(ConceptsSpider)
+process.crawl(SocialStatusSpider)
+process.crawl(ExtraButterSpider)
+process.crawl(BodegaSpider)
+process.crawl(SaintAlfredSpider)
+process.crawl(LapstoneNHammerSpider)
+process.crawl(ShelfLifeSpider)
+process.crawl(AsphaltGoldSpider)
+process.crawl(HanonSpider)
+process.crawl(SoleBoxSpider)
+process.crawl(ConsortiumSpider)
 
 # process.crawl(EndSpider)		#Captcha if crawl too much.
 # process.crawl(SNSSpider)		#ASN blocked on Vultr via CloudFlare.
