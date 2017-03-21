@@ -371,6 +371,54 @@ class MYSQL_Pipeline(object):
         elif isinstance(item, BasketItem):	
             self.cursor.execute("INSERT INTO basket (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
 			
+        # Insert item into oneblockdown table.
+        elif isinstance(item, OneBlockDownItem):	
+            self.cursor.execute("INSERT INTO oneblockdown (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
+			
+        # Insert item into dopefactory table.
+        elif isinstance(item, DopeFactoryItem):	
+            self.cursor.execute("INSERT INTO dopefactory (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
+			
+        # Insert item into nextdoor table.
+        elif isinstance(item, NextDoorItem):	
+            self.cursor.execute("INSERT INTO nextdoor (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
+			
+        # Insert item into summer table.
+        elif isinstance(item, SummerItem):	
+            self.cursor.execute("INSERT INTO summer (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
+			
+        # Insert item into mrpotter table.
+        elif isinstance(item, MrPotterItem):	
+            self.cursor.execute("INSERT INTO mrpotter (name, link, date) VALUES (%s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), DATE))
+			
+        # Insert item into stormfashion table.
+        elif isinstance(item, StormFashionItem):	
+            self.cursor.execute("INSERT INTO stormfashion (name, link, date) VALUES (%s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), DATE))
+			
+        # Insert item into tresbien table.
+        elif isinstance(item, TresBienItem):	
+            self.cursor.execute("INSERT INTO tresbien (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
+			
+        # Insert item into packer table.
+        elif isinstance(item, PackerItem):	
+            self.cursor.execute("INSERT INTO packer (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
+			
+        # Insert item into addict table.
+        elif isinstance(item, AddictItem):	
+            self.cursor.execute("INSERT INTO addict (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
+			
+        # Insert item into aphrodite table.
+        elif isinstance(item, AphroditeItem):	
+            self.cursor.execute("INSERT INTO aphrodite (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
+			
+        # Insert item into bait table.
+        elif isinstance(item, BaitItem):	
+            self.cursor.execute("INSERT INTO bait (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
+			
+        # Insert item into blends table.
+        elif isinstance(item, BlendsItem):	
+            self.cursor.execute("INSERT INTO blends (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
+			
         # Insert item into shoesaddictor table.
         elif isinstance(item, ShoesAddictorItem):	
             self.cursor.execute("INSERT INTO shoesaddictor (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
