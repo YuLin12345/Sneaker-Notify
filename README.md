@@ -11,12 +11,16 @@ Description: Crawl a list of sneaker websites. Once the new product is found or 
  - 5 Pointz
  - AFewStore
  - ALLike
+ - Addict
  - Adidas
+ - Aphrodite
  - AsphaltGold
  - BSTN
  - Back Door
+ - Bait
  - Barneys - Ban if crawl too much.
  - Basket Store
+ - Blends
  - Bodega
  - Caliroots
  - Capsule
@@ -25,6 +29,7 @@ Description: Crawl a list of sneaker websites. Once the new product is found or 
  - Concepts
  - Consortium
  - DefShop
+ - Dope Factory
  - Drome
  - EastBay
  - End - Captcha if crawl too much.
@@ -47,12 +52,15 @@ Description: Crawl a list of sneaker websites. Once the new product is found or 
  - Lapstone and Hammer
  - Loaded
  - Luisa Via Roma
+ - Mr Potter
  - NeedSupply
+ - Next Door
  - Nike
  - Nordstrom
  - Office
  - Offspring
  - OverKill
+ - Packer
  - Rise45
  - Ruvilla
  - SSense
@@ -69,7 +77,10 @@ Description: Crawl a list of sneaker websites. Once the new product is found or 
  - SoleBox
  - SoleKitchen
  - StickABush
+ - StormFashion
+ - Summer
  - Tint Footware
+ - Tres Bien
  - TrophyRoom
  - Undefeated
  - Urban Industry
