@@ -92,15 +92,15 @@ Description: Crawl a list of sneaker websites. Once the new product is found or 
 #
 **Setup:**
 1. Make sure you have Python installed. (Working on 2.7 not sure about 3) To install go to https://www.python.org/
-
+2. Install the requirements above.
 - For Mac, to install MySQL-python. Open terminal:
  - /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
  - brew install mysql-connector-c
  - pip install MySQL-python
  
-2. Install the MySQL database -> .sql file provided in the folder.
-3. Go into mysql_pipeline.py edit MySQL connection info and edit Twitter's CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN_KEY, and ACCESS_TOKEN_SECRET to your Twitter account's info.
+3. Install the MySQL database -> .sql file provided in the folder.
+4. Go into mysql_pipeline.py edit MySQL connection info and edit Twitter's CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN_KEY, and ACCESS_TOKEN_SECRET to your Twitter account's info.
 
-4. To run:
+5. To run:
  - For Windows: Click on main.py
  - For Mac: Open terminal on the folder type python main.py
