@@ -86,6 +86,15 @@ WellGoshURL = "https://wellgosh.com/footwear?dir=desc&order=created_at&p=1"
 CapsuleURL = "http://www.capsuletoronto.com/collections/footwear?page=1"
 YMEURL = "https://ymeuniverse.com/en/sneakers?brand=Adidas+Consortium,Adidas,Nike,Nike+SP,NIKELAB+ACG&dir=asc&order=created_at&p=1"
 HypeDCURL = "https://www.hypedc.com/mens/footwear?dir=desc&manufacturer=28,55,478&order=news_from_date&p=1"
+BSTNURL = "https://www.bstnstore.com/en/footwear/filter/__brand_adidas.jordan.nike/page/1/sort/date_new"
+TrophyRoomURL = "https://www.trophyroomstore.com/collections/all/footwear?page=1&sort_by=created-descending"
+OfficeURL = "http://www.office.co.uk/view/search?page=1&pageSize=30&search=his&sort=releaseDate&BRAND=Adidas"
+ALLikeURL = "https://www.allikestore.com/default/sneakers.html?dir=desc&limit=16&manufacturer=27_639_494_641_628_28_650&order=created_at&p=1"
+UrbanJungleURL = "http://www.urbanjunglestore.com/en/sneakers/shopby/nike-jordan-adidas.html#"
+SSenseURL = "https://www.ssense.com/en-us/men/designers/all/shoes/sneakers/pages/1"
+BackDoorURL = "http://www.back-door.it/product-category/sneakers/page/1/"
+BasketURL = "http://www.baskets-store.com/sneakers/-/adidas-originals_nike/?dir=desc&ignore=true&limit=20&order=news_from_date&p=1"
+ShoesAddictorURL = "http://shoesaddictor.com/"
 
 
 init()
@@ -1503,6 +1512,204 @@ class HypeDCSpider(Spider):
         yield Request(HypeDCURL, callback=self.parse, dont_filter=True)
 		
 		
+class BSTNSpider(Spider):
+    
+    name = "BSTNSpider"
+    allowded_domains = ["bstnstore.com"]
+    start_urls = [BSTNURL]
+	
+    def __init__(self):
+        logging.critical("BSTNSpider STARTED.")
+		
+    def parse(self, response):
+        products = Selector(response).xpath('//ul[@class="block-grid four-up mobile-two-up productlist"]//li[contains(@class,"item")]//div[@class="itemWrapper pOverlay"]//div[@class="pImageContainer"]')
+		
+        for product in products:
+            item = BSTNItem()
+            item['name'] = product.xpath('a/div[1]/@data-alt').extract()[0]
+            item['link'] = "https://www.bstnstore.com" + product.xpath('a/@href').extract()[0]
+            item['image'] = "https://www.bstnstore.com" + product.xpath('a/div[1]/div[2]/@data-src').extract()[0]
+            yield item
+			
+	yield Request(BSTNURL, callback=self.parse, dont_filter=True)
+		
+		
+class TrophyRoomSpider(Spider):
+    
+    name = "TrophyRoomSpider"
+    allowded_domains = ["trophyroomstore.com"]
+    start_urls = [TrophyRoomURL]
+	
+    def __init__(self):
+        logging.critical("TrophyRoomSpider STARTED.")
+		
+    def parse(self, response):
+        products = Selector(response).xpath('//div[@class="grid-uniform"]//div[contains(@class,"grid__item")]//div[@class="product-card"]')
+		
+        for product in products:
+            item = TrophyRoomItem()
+            item['name'] = product.xpath('a/img/@alt').extract()[0]
+            item['link'] = "https://www.trophyroomstore.com" + product.xpath('a/@href').extract()[0]
+            item['image'] = "https:" + product.xpath('a/img/@src').extract()[0]
+            yield item
+			
+        yield Request(TrophyRoomURL, callback=self.parse, dont_filter=True)
+		
+		
+class OfficeSpider(Spider):
+    
+    name = "OfficeSpider"
+    allowded_domains = ["office.co.uk"]
+    start_urls = [OfficeURL]
+    
+    def __init__(self):
+        logging.critical("OfficeSpider STARTED.")
+        
+    def parse(self, response):
+        products = Selector(response).xpath('//div[@class="productList row"]//li[contains(@class,"col-xs-6")]//div[@class="productList_item"]')
+
+        for product in products:
+            item = OfficeItem()
+            item['name'] = product.xpath('div[2]/div/a/text()[2]').extract()[0].strip()
+            item['link'] = "http://www.office.co.uk" + product.xpath('div[1]/a/@href').extract()[0]
+            item['image'] = "http:" + product.xpath('div[1]/a/img/@data-transition').extract()[0]
+            yield item
+
+        yield Request(OfficeURL, callback=self.parse, dont_filter=True)
+		
+		
+class ALLikeSpider(Spider):
+    
+    name = "ALLikeSpider"
+    allowded_domains = ["allikestore.com"]
+    start_urls = [ALLikeURL]
+    
+    def __init__(self):
+        logging.critical("ALLikeSpider STARTED.")
+        
+    def parse(self, response):
+        products = Selector(response).xpath('//ul[@class="products-grid"]//li[contains(@class,"item")]//div[@class="item-wrap"]')
+
+        for product in products:
+            item = ALLikeItem()
+            item['name'] = product.xpath('a/@title').extract()[0]
+            item['link'] = product.xpath('a/@href').extract()[0]
+            item['image'] = product.xpath('a/img/@src').extract()[0]
+            yield item
+
+        yield Request(ALLikeURL, callback=self.parse, dont_filter=True)
+		
+		
+class UrbanJungleSpider(Spider):
+    
+    name = "UrbanJungleSpider"
+    allowded_domains = ["urbanjunglestore.com"]
+    start_urls = [UrbanJungleURL]
+    
+    def __init__(self):
+        logging.critical("UrbanJungleSpider STARTED.")
+        
+    def parse(self, response):
+        products = Selector(response).xpath('//ul[@class="products-grid category-products-grid itemgrid itemgrid-adaptive itemgrid-3col single-line-name centered equal-height"]//li[contains(@class,"item")]//div[@class="product-image-wrapper"]')
+
+        for product in products:
+            item = UrbanJungleItem()
+            item['name'] = product.xpath('a/@title').extract()[0]
+            item['link'] = product.xpath('a/@href').extract()[0]
+            item['image'] = product.xpath('a/img/@src').extract()[0]
+            yield item
+            
+        yield Request(UrbanJungleURL, callback=self.parse, dont_filter=True)
+		
+		
+class SSenseSpider(Spider):
+    
+    name = "SSenseSpider"
+    allowded_domains = ["ssense.com"]
+    start_urls = [SSenseURL]
+    
+    def __init__(self):
+        logging.critical("SSenseSpider STARTED.")
+        
+    def parse(self, response):
+        products = Selector(response).xpath('//div[@class="browsing-product-list"]//div[contains(@class,"browsing-product-item")]')
+
+        for product in products:
+            item = SSenseItem()
+            item['name'] = product.xpath('.//meta[2]/@content').extract()[0]
+            item['link'] = product.xpath('.//meta[4]/@content').extract()[0]
+            item['image'] = product.xpath('.//meta[3]/@content').extract()[0]
+            yield item
+
+        yield Request(SSenseURL, callback=self.parse, dont_filter=True)
+		
+		
+class BackDoorSpider(Spider):
+    
+    name = "BackDoorSpider"
+    allowded_domains = ["back-door.it"]
+    start_urls = [BackDoorURL]
+    
+    def __init__(self):
+        logging.critical("BackDoorSpider STARTED.")
+
+    def parse(self, response):
+        products = Selector(response).xpath('//ul[@class="products clearfix"]//li')
+
+        for product in products:
+            item = BackDoorItem()
+            item['name'] = product.xpath('a[2]/h6/text()').extract()[0]
+            item['link'] = product.xpath('a[1]/@href').extract()[0]
+            # item['image'] = product.xpath('div/a[2]/span/img/@src').extract()[0]
+            yield item
+
+        yield Request(BackDoorURL, callback=self.parse, dont_filter=True)
+		
+		
+class BasketSpider(Spider):
+    
+    name = "BasketSpider"
+    allowded_domains = ["baskets-store.com"]
+    start_urls = [BasketURL]
+    
+    def __init__(self):
+        logging.critical("BasketSpider STARTED.")
+
+    def parse(self, response):
+        products = Selector(response).xpath('//div[@class="products-grid"]//div[contains(@class,"item")]')
+
+        for product in products:
+            item = BasketItem()
+            item['name'] = product.xpath('a/@title').extract()[0]
+            item['link'] = product.xpath('a/@href').extract()[0]
+            item['image'] = product.xpath('a/img/@src').extract()[0]
+            yield item
+
+        yield Request(BasketURL, callback=self.parse, dont_filter=True)
+		
+		
+class ShoesAddictorSpider(Spider):
+    
+    name = "ShoesAddictorSpider"
+    allowded_domains = ["shoesaddictor.com"]
+    start_urls = [ShoesAddictorURL]
+    
+    def __init__(self):
+        logging.critical("ShoesAddictorSpider STARTED.")
+        
+    def parse(self, response):
+        products = Selector(response).xpath('//div[@class="row multi-columns-row"]//div[contains(@class,"col-sm-6")]//div[@class="shop-item"]')
+
+        for product in products:
+            item = ShoesAddictorItem()
+            item['name'] = product.xpath('h4/a/text()').extract()[0]
+            item['link'] = product.xpath('h4/a/@href').extract()[0]
+            item['image'] = product.xpath('div/img/@src').extract()[0]
+            yield item
+
+        yield Request(ShoesAddictorURL)
+		
+		
 crawler_settings = Settings()
 crawler_settings.setmodule(settings)
 process = CrawlerProcess(settings=crawler_settings)
@@ -1565,6 +1772,15 @@ process.crawl(WellGoshSpider)
 process.crawl(CapsuleSpider)
 process.crawl(YMESpider)
 process.crawl(HypeDCSpider)
+process.crawl(BSTNSpider)
+process.crawl(TrophyRoomSpider)
+process.crawl(OfficeSpider)
+process.crawl(ALLikeSpider)
+process.crawl(UrbanJungleSpider)
+process.crawl(SSenseSpider)
+process.crawl(BackDoorSpider)
+process.crawl(BasketSpider)
+process.crawl(ShoesAddictorSpider)
 
 # process.crawl(EndSpider)		#Captcha if crawl too much.
 # process.crawl(SNSSpider)		#ASN blocked on Vultr via CloudFlare.

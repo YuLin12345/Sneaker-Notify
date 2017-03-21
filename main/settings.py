@@ -42,6 +42,7 @@ COOKIES_ENABLED = False
 
 # Disable Telnet Console (enabled by default)
 # TELNETCONSOLE_ENABLED = False
+TELNETCONSOLE_PORT = None
 
 # Override the default request headers:
 # DEFAULT_REQUEST_HEADERS = {
@@ -59,21 +60,21 @@ COOKIES_ENABLED = False
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
     # 'crawler.middlewares.MyCustomDownloaderMiddleware': 543,
+    # 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware': 700,
     'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
-    'scrapy.downloadermiddlewares.cookies.CookiesMiddleware': 700,
-    'random_useragent.RandomUserAgentMiddleware': 400
+    'random_useragent.RandomUserAgentMiddleware': 500
 }
 
 # Enable or disable extensions
 # See http://scrapy.readthedocs.org/en/latest/topics/extensions.html
-EXTENSIONS = {
-    'scrapy.extensions.telnet.TelnetConsole': None,
-}
+# EXTENSIONS = {
+#    'scrapy.extensions.telnet.TelnetConsole': None,
+# }
 
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    'mysql_pipeline.MYSQL_Pipeline': 100,
+     'mysql_pipeline.MYSQL_Pipeline': 100
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

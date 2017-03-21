@@ -490,3 +490,122 @@ class HypeDCItem(Item):
     image = Field()
     link = Field()
     name = Field()
+	
+class HolyPopItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+	
+class BSTNItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+	
+class TrophyRoomItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+	
+class SideStepItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+	
+class ShiekhItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+	
+class RezetItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+	
+class FootLockerEUItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+	
+class OfficeItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+	
+class ALLikeItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+	
+class SportsShoesItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+	
+class RunnersPointItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+	
+class GraffitiItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+	
+class UrbanJungleItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+	
+class SSenseItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+	
+class BackDoorItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+	
+class BasketItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+	
+class ShoesAddictorItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
