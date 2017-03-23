@@ -387,9 +387,9 @@ class MYSQL_Pipeline(object):
         elif isinstance(item, SummerItem):	
             self.cursor.execute("INSERT INTO summer (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
 			
-        # Insert item into mrpotter table.
-        elif isinstance(item, MrPotterItem):	
-            self.cursor.execute("INSERT INTO mrpotter (name, link, date) VALUES (%s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), DATE))
+        # Insert item into mrporter table.
+        elif isinstance(item, MrPorterItem):	
+            self.cursor.execute("INSERT INTO mrporter (name, link, date) VALUES (%s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), DATE))
 			
         # Insert item into stormfashion table.
         elif isinstance(item, StormFashionItem):	
@@ -418,6 +418,38 @@ class MYSQL_Pipeline(object):
         # Insert item into blends table.
         elif isinstance(item, BlendsItem):	
             self.cursor.execute("INSERT INTO blends (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
+			
+        # Insert item into nicekicks table.
+        elif isinstance(item, NiceKicksItem):	
+            self.cursor.execute("INSERT INTO nicekicks (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
+			
+        # Insert item into clicks table.
+        elif isinstance(item, ClicksItem):	
+            self.cursor.execute("INSERT INTO clicks (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
+			
+        # Insert item into feature table.
+        elif isinstance(item, FeatureItem):	
+            self.cursor.execute("INSERT INTO feature (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
+			
+        # Insert item into hypebeast table.
+        elif isinstance(item, HypeBeastItem):	
+            self.cursor.execute("INSERT INTO hypebeast (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
+			
+        # Insert item into deadstock table.
+        elif isinstance(item, DeadStockItem):	
+            self.cursor.execute("INSERT INTO deadstock (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
+			
+        # Insert item into notre table.
+        elif isinstance(item, NotreItem):	
+            self.cursor.execute("INSERT INTO notre (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
+			
+        # Insert item into nrml table.
+        elif isinstance(item, NrmlItem):	
+            self.cursor.execute("INSERT INTO nrml (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
+			
+        # Insert item into oneness table.
+        elif isinstance(item, OnenessItem):	
+            self.cursor.execute("INSERT INTO oneness (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
 			
         # Insert item into shoesaddictor table.
         elif isinstance(item, ShoesAddictorItem):	

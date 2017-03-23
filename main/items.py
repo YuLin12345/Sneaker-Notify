@@ -631,7 +631,7 @@ class SummerItem(Item):
     link = Field()
     name = Field()
 	
-class MrPotterItem(Item):
+class MrPorterItem(Item):
     date = Field()
     price = Field()
     image = Field()
@@ -681,6 +681,62 @@ class BaitItem(Item):
     name = Field()
 	
 class BlendsItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+	
+class NiceKicksItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+	
+class ClicksItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+	
+class FeatureItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+	
+class HypeBeastItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+
+class DeadStockItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+	
+class NotreItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+	
+class NrmlItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+	
+class OnenessItem(Item):
     date = Field()
     price = Field()
     image = Field()
