@@ -1,3 +1,9 @@
+**Donation:**
+Feel free to buy me a cup of coffee, so I can stay moviated and keep updating this project.
+
+[![PayPal](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3WA5WTGP9HPYG)
+
+#
 Sneaker/Restock/Monitor Notify via Twitter coded in Python using Scrapy.
 
 ![Example](http://i.imgur.com/cqI2s0x.png)
@@ -28,12 +34,14 @@ Description: Crawl a list of sneaker websites. Once the new product is found or 
  - City Gear
  - Concepts
  - Consortium
+ - DeadStock
  - DefShop
  - Dope Factory
  - Drome
  - EastBay
  - End - Captcha if crawl too much.
  - Extra Butter NY
+ - Feature
  - FinishLine - Banned on Vultr.
  - FootAction
  - FootAsylum
@@ -43,6 +51,7 @@ Description: Crawl a list of sneaker websites. Once the new product is found or 
  - FootShop
  - Hanon
  - Haven
+ - HypeBeast
  - HypeDC
  - Inflammable
  - JDSports
@@ -55,10 +64,14 @@ Description: Crawl a list of sneaker websites. Once the new product is found or 
  - Mr Potter
  - NeedSupply
  - Next Door
+ - NiceKicks
  - Nike
  - Nordstrom
+ - Notre
+ - Nrml
  - Office
  - Offspring
+ - Oneness
  - OverKill
  - Packer
  - Rise45
