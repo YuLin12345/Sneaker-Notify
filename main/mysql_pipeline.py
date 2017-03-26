@@ -451,6 +451,46 @@ class MYSQL_Pipeline(object):
         elif isinstance(item, OnenessItem):	
             self.cursor.execute("INSERT INTO oneness (name, link, date) VALUES (%s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), DATE))
 			
+        # Insert item into pufferreds table.
+        elif isinstance(item, PufferRedsItem):	
+            self.cursor.execute("INSERT INTO pufferreds (name, link, date) VALUES (%s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), DATE))
+			
+        # Insert item into renarts table.
+        elif isinstance(item, RenartsItem):	
+            self.cursor.execute("INSERT INTO renarts (name, link, date) VALUES (%s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), DATE))
+			
+        # Insert item into shoesgallery table.
+        elif isinstance(item, ShoesGalleryItem):	
+            self.cursor.execute("INSERT INTO shoesgallery (name, link, date) VALUES (%s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), DATE))
+			
+        # Insert item into proper table.
+        elif isinstance(item, ProperItem):	
+            self.cursor.execute("INSERT INTO proper (name, link, date) VALUES (%s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), DATE))
+			
+        # Insert item into solestop table.
+        elif isinstance(item, SoleStopItem):	
+            self.cursor.execute("INSERT INTO solestop (name, link, date) VALUES (%s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), DATE))
+			
+        # Insert item into titolo table.
+        elif isinstance(item, TitoloItem):	
+            self.cursor.execute("INSERT INTO titolo (name, link, date) VALUES (%s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), DATE))
+			
+        # Insert item into uptown table.
+        elif isinstance(item, UptownItem):	
+            self.cursor.execute("INSERT INTO uptown (name, link, date) VALUES (%s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), DATE))
+			
+        # Insert item into westnyc table.
+        elif isinstance(item, WestNYCItem):	
+            self.cursor.execute("INSERT INTO westnyc (name, link, date) VALUES (%s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), DATE))
+			
+        # Insert item into wishatl table.
+        elif isinstance(item, WishATLItem):	
+            self.cursor.execute("INSERT INTO wishatl (name, link, date) VALUES (%s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), DATE))
+			
+        # Insert item into xileclothing table.
+        elif isinstance(item, XileClothingItem):	
+            self.cursor.execute("INSERT INTO xileclothing (name, link, date) VALUES (%s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), DATE))
+			
         # Insert item into shoesaddictor table.
         elif isinstance(item, ShoesAddictorItem):	
             self.cursor.execute("INSERT INTO shoesaddictor (name, link, date) VALUES (%s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), DATE))
