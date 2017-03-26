@@ -74,6 +74,9 @@ Description: Crawl a list of sneaker websites. Once the new product is found or 
  - Oneness
  - OverKill
  - Packer
+ - Proper
+ - Puff Reds
+ - Renarts
  - Rise45
  - Ruvilla
  - SSense
@@ -89,17 +92,22 @@ Description: Crawl a list of sneaker websites. Once the new product is found or 
  - SocialStatus
  - SoleBox
  - SoleKitchen
+ - SoleStop
  - StickABush
  - StormFashion
  - Summer
  - Tint Footware
+ - Titolo
  - Tres Bien
  - TrophyRoom
  - Undefeated
+ - Uptown
  - Urban Industry
  - Urban Jungle
  - Urban Outfitters
  - WellGosh
+ - West NYC
+ - XileClothing
  - YCMC
  - YME Universe
  - Zappos
