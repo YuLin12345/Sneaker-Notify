@@ -8,7 +8,7 @@ Sneaker/Restock/Monitor Notify via Twitter coded in Python using Scrapy.
 
 ![Example](http://i.imgur.com/cqI2s0x.png)
 #
-Status: **Under Development. If Interested feel free to follow W_Notify on Twitter.**
+Status: **Under Development. If Interested feel free to [![Twitter Follow](https://img.shields.io/twitter/follow/espadrine.svg?style=social&label=Follow)](https://twitter.com/w_notify) on Twitter.**
 
 Description: Crawl a list of sneaker websites. Once the new product is found or is restocked. It will check for certain keywords in the item's name. If found, it will alert the user via Twitter using tweet, with date, time, item name, and link.
 #
