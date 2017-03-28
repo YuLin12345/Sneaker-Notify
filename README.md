@@ -1,5 +1,5 @@
 **Donation:**
-Feel free to buy me a cup of coffee, so I can stay moviated and keep updating this project.
+Feel free to buy me a cup of coffee, so I can stay motivated and keep updating this project.
 
 [![PayPal](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3WA5WTGP9HPYG)
 
@@ -125,10 +125,12 @@ Description: Crawl a list of sneaker websites. Once the new product is found or 
 **Setup:**
 1. Make sure you have Python installed. (Working on 2.7 not sure about 3) To install go to https://www.python.org/
 2. Install the requirements above.
-- For Mac, to install MySQL-python. Open terminal:
+- For Mac: to install MySQL-python. Open terminal and type the below:
+```
  - /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
  - brew install mysql-connector-c
  - pip install MySQL-python
+ ```
  
 3. Install the MySQL database -> .sql file provided in the folder.
 4. Go into mysql_pipeline.py edit MySQL connection info and edit Twitter's CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN_KEY, and ACCESS_TOKEN_SECRET to your Twitter account's info.
