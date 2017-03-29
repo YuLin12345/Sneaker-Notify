@@ -6,6 +6,7 @@
 # admin@yulin12345.site
 
 import logging
+import re
 import time
 
 from colorama import Fore, Style, init
@@ -1357,7 +1358,8 @@ class SoleBoxSpider(Spider):
         for product in products:
             item = SoleBoxItem()
             item['name'] = product.xpath('a/@title').extract()[0].strip()
-            item['link'] = product.xpath('a/@href').re("(.*html)")
+            temp = product.xpath('a/@href').extract()[0]
+            item['link'] = re.sub(r'(\?(.*))', '', temp)
             # item['image'] = product.xpath('a/div/img/@src').extract()[0]
             yield item
 
@@ -2354,12 +2356,12 @@ process.crawl(OffspringSpider)
 process.crawl(SoleKitchenSpider)
 process.crawl(DromeSpider)
 process.crawl(FootAsylumSpider)
+
 process.crawl(ConceptsSpider)
 process.crawl(SocialStatusSpider)
 process.crawl(ExtraButterSpider)
 process.crawl(BodegaSpider)
 process.crawl(SaintAlfredSpider)
-
 process.crawl(LapstoneNHammerSpider)
 process.crawl(ShelfLifeSpider)
 process.crawl(AsphaltGoldSpider)
@@ -2385,6 +2387,7 @@ process.crawl(DopeFactorySpider)
 process.crawl(NextDoorSpider)
 process.crawl(SummerSpider)
 process.crawl(MrPorterSpider)
+
 process.crawl(StormFashionSpider)
 process.crawl(TresBienSpider)
 process.crawl(PackerSpider)

@@ -273,7 +273,7 @@ class MYSQL_Pipeline(object):
             
         # Insert item into solebox table.
         elif isinstance(item, SoleBoxItem):	
-            self.cursor.execute("INSERT INTO solebox (name, link, date) VALUES (%s, %s, %s)", (item['name'].encode('utf-8'), item['link'], DATE))
+            self.cursor.execute("INSERT INTO solebox (name, link, date) VALUES (%s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), DATE))
             
         # Insert item into consortium table.
         elif isinstance(item, ConsortiumItem):	
