@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 # Sneaker Notify
@@ -10,6 +11,8 @@ import re
 import time
 
 from colorama import Fore, Style, init
+
+from items import *
 from scrapy import Spider
 from scrapy.crawler import CrawlerProcess
 from scrapy.exceptions import CloseSpider, DropItem
@@ -18,8 +21,6 @@ from scrapy.selector import Selector
 from scrapy.settings import Settings
 from scrapy.utils.log import configure_logging
 from scrapy.utils.project import get_project_settings
-
-from items import *
 import settings as settings
 
 

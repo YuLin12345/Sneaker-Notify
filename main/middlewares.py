@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 # Sneaker Notify
@@ -11,6 +12,7 @@
 # http://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
 from colorama import Fore, Style
+
 from scrapy import signals
 
 
