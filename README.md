@@ -8,7 +8,7 @@ Sneaker/Restock/Monitor Notify via Twitter coded in Python using Scrapy.
 
 ![Example](http://i.imgur.com/cqI2s0x.png)
 #
-Status: **Under Development. If Interested feel free to [![Twitter Follow](https://img.shields.io/twitter/follow/espadrine.svg?style=social&label=Follow)](https://twitter.com/w_notify) on Twitter. To view the database online check [here](https://shoesaddictor.com/Crawler_DB.php)**
+Status: **Under Development. If Interested feel free to [![Twitter Follow](https://img.shields.io/twitter/follow/espadrine.svg?style=social&label=Follow)](https://twitter.com/w_notify) on Twitter. To view the database online check [here](https://shoesaddictor.com/Crawler_DB.php).**
 
 Description: Crawl a list of sneaker websites. Once the new product is found or is restocked. It will check the item's name for certain keywords. If found, it will alert the user via Twitter using tweets, with date, time, item name, and link.
 #
@@ -139,5 +139,5 @@ Description: Crawl a list of sneaker websites. Once the new product is found or 
  - For Windows: Click on main.py
  - For Mac: Open terminal on the folder type python main.py
  
-Optional: Added a crawler_db.php to see the data from web.
- - To install, put it on your web server with the crawler's database running and edit the connection info.
+Optional: Added a crawler_db.php to see the data online.
+ - To install, put crawler_db.php on your web server with the crawler's database running on and edit the connection info.
