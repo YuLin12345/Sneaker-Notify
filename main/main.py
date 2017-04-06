@@ -1200,13 +1200,13 @@ class ExtraButterSpider(Spider):
         logging.critical("ExtraButterSpider STARTED.")
 		
     def parse(self, response):
-        products = Selector(response).xpath('//div[@class="row"]//div[contains(@class,"col-xs-12")]//div[@class="product-thumbnail"]//div[@class="thumbnail-image"]')
+        products = Selector(response).xpath('//div[@class="row"]//div[contains(@class,"col-xs-12")]//div[@class="product-thumbnail"]')
 		
         for product in products:
             item = ExtraButterItem()
-            item['name'] = product.xpath('a/img/@alt').extract()[0]
-            item['link'] = "https://shop.extrabutterny.com" + product.xpath('a/@href').extract()[0]
-            # item['image'] = "https:" + product.xpath('a/img/@src').extract()[0]
+            item['name'] = product.xpath('a/h4/text()').extract()[0]
+            item['link'] = "https://shop.extrabutterny.com" + product.xpath('div/a/@href').extract()[0]
+            # item['image'] = "https:" + product.xpath('div/a/img/@src').extract()[0]
             yield item
 			
         yield Request(ExtraButterURL, callback=self.parse, dont_filter=True, priority=48)
