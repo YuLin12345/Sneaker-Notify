@@ -123,6 +123,8 @@ TitoloURL = "https://en.titolo.ch/sneakers?limit=36"
 UptownURL = "https://www.uptownmia.com/collections/new-arrivals?page=1"
 WestNYCURL = "https://www.westnyc.com/collections/footwear?page=1&sort_by=created-descending"
 XileClothingURL = "https://www.xileclothing.com/browse/c-Footwear-24/b-Adidas-8/?page=1&sortby=new-additions"
+SoleflyURL = "https://www.solefly.com/collections/mens-1?page=1"
+SVDURL = "https://www.sivasdescalzo.com/en/lifestyle/sneakers?limit=36&p=1"
 ShoesAddictorURL = "http://shoesaddictor.com/"
 
 
@@ -896,9 +898,9 @@ class ZapposSpider(Spider):
         
         for product in products:
             item = ZapposItem()
-            item['name'] = product.xpath('img/@alt').extract()[0]
+            item['name'] = product.xpath('span[@class="productImgContainer"]/img/@alt').extract()[0]
             item['link'] = "http://www.zappos.com" + product.xpath('@href').extract()[0]
-            # item['image'] = product.xpath('img/@src').extract()[0]
+            # item['image'] = product.xpath('span[@class="productImgContainer"]/img/@src').extract()[0]
             yield item
             
         yield Request(ZapposURL, callback=self.parse, dont_filter=True, priority=34)
@@ -2313,6 +2315,50 @@ class XileClothingSpider(Spider):
         yield Request(XileClothingURL, callback=self.parse, dont_filter=True, priority=98)
 		
 		
+class SoleflySpider(Spider):
+    
+    name = "SoleflySpider"
+    allowded_domains = ["solefly.com"]
+    start_urls = [SoleflyURL]
+    
+    def __init__(self):
+        logging.critical("SoleflySpider STARTED.")
+
+    def parse(self, response):
+        products = Selector(response).xpath('//div[@class="grid grid--uniform grid--view-items"]//div[contains(@class,"grid__item")]//div[@class="grid-view-item text-center"]')
+
+        for product in products:
+            item = SoleflyItem()
+            item['name'] = product.xpath('a/img/@alt').extract()[0]
+            item['link'] = "https://www.solefly.com" + product.xpath('a/@href').extract()[0]
+            item['image'] = "https:" + product.xpath('a/img/@src').extract()[0]
+            yield item
+
+        yield Request(SoleflyURL, callback=self.parse, dont_filter=True, priority=99)
+		
+		
+class SVDSpider(Spider):
+    
+    name = "SVDSpider"
+    allowded_domains = ["SVD.com"]
+    start_urls = [SVDURL]
+    
+    def __init__(self):
+        logging.critical("SVDSpider STARTED.")
+        
+    def parse(self, response):
+        products = Selector(response).xpath('//ul[@class="products-list medium-block-grid-3 large-block-grid-4"]//li')
+
+        for product in products:
+            item = SVDItem()
+            item['name'] = product.xpath('div/a/img/@alt').extract()[0]
+            item['link'] = product.xpath('div/a/@href').extract()[0]
+            item['image'] = product.xpath('div/a/img/@src').extract()[0]
+            yield item
+
+        yield Request(SVDURL, callback=self.parse, dont_filter=True, priority=100)
+		
+		
 crawler_settings = Settings()
 crawler_settings.setmodule(settings)
 process = CrawlerProcess(settings=crawler_settings)
@@ -2411,6 +2457,8 @@ process.crawl(TitoloSpider)
 process.crawl(UptownSpider)
 process.crawl(WestNYCSpider)
 process.crawl(XileClothingSpider)
+process.crawl(SoleflySpider)
+process.crawl(SVDSpider)
 
 # process.crawl(ShoesAddictorSpider)
 # process.crawl(EndSpider)		#Captcha if crawl too much.

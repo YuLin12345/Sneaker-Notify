@@ -491,6 +491,18 @@ class MYSQL_Pipeline(object):
         # Insert item into xileclothing table.
         elif isinstance(item, XileClothingItem):	
             self.cursor.execute("INSERT INTO xileclothing (name, link, date) VALUES (%s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), DATE))
+
+        # Insert item into solefly table.
+        elif isinstance(item, SoleflyItem):	
+            self.cursor.execute("INSERT INTO solefly (name, link, date) VALUES (%s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), DATE))
+			
+        # Insert item into patta table.
+        elif isinstance(item, PattaItem):	
+            self.cursor.execute("INSERT INTO patta (name, link, date) VALUES (%s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), DATE))
+			
+        # Insert item into svd table.
+        elif isinstance(item, SVDItem):	
+            self.cursor.execute("INSERT INTO svd (name, link, date) VALUES (%s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), DATE))
 			
         # Insert item into shoesaddictor table.
         elif isinstance(item, ShoesAddictorItem):	

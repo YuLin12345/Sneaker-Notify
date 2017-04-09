@@ -813,6 +813,27 @@ class XileClothingItem(Item):
     image = Field()
     link = Field()
     name = Field()
+
+class SoleflyItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+    
+class PattaItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+	
+class SVDItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
 	
 class ShoesAddictorItem(Item):
     date = Field()
