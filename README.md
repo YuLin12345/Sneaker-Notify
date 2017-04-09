@@ -24,7 +24,7 @@ Description: Crawl a list of sneaker websites. Once the new product is found or 
  - BSTN
  - Back Door
  - Bait
- - Barneys - Ban if crawl too much.
+ - BarneysBan if crawl too much.
  - Basket Store
  - Blends
  - Bodega
@@ -39,10 +39,10 @@ Description: Crawl a list of sneaker websites. Once the new product is found or 
  - Dope Factory
  - Drome
  - EastBay
- - End - Captcha if crawl too much.
+ - EndCaptcha if crawl too much.
  - Extra Butter NY
  - Feature
- - FinishLine - Banned on Vultr.
+ - FinishLineBanned on Vultr.
  - FootAction
  - FootAsylum
  - FootDistrict
@@ -55,13 +55,13 @@ Description: Crawl a list of sneaker websites. Once the new product is found or 
  - HypeDC
  - Inflammable
  - JDSports
- - JimmyJazz - ASN blocked on Vultr via CloudFlare.
+ - JimmyJazzASN blocked on Vultr via CloudFlare.
  - Kith
  - Kong
  - Lapstone and Hammer
  - Loaded
  - Luisa Via Roma
- - Mr Potter
+ - MrPorter
  - NeedSupply
  - Next Door
  - NiceKicks
@@ -80,19 +80,21 @@ Description: Crawl a list of sneaker websites. Once the new product is found or 
  - Rise45
  - Ruvilla
  - SSense
+ - SVD
  - SaintAlfred
  - SaveOurSole
  - Shelf Life
- - ShoesPalace - Need to disobey robots.txt, if you want to crawl.
+ - ShoesPalaceNeed to disobey robots.txt, if you want to crawl.
  - Size
  - Slam Jam Socialism
  - SneakerBaas
- - SneakerNStuff - ASN blocked on Vultr via CloudFlare.
+ - SneakerNStuffASN blocked on Vultr via CloudFlare.
  - SneakerPolitics
  - SocialStatus
  - SoleBox
  - SoleKitchen
  - SoleStop
+ - Solefly
  - StickABush
  - StormFashion
  - Summer
@@ -140,4 +142,4 @@ Description: Crawl a list of sneaker websites. Once the new product is found or 
  - For Mac: Open terminal on the folder type python main.py
  
 Optional: Added a crawler_db.php to see the data online.
- - To install, put crawler_db.php on your web server with the crawler's database running on and edit the connection info.
+ - To install, put crawler_db.php on your web server with the crawler's database running and edit the connection info.
