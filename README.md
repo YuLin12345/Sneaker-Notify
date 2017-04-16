@@ -38,6 +38,7 @@ Description: Crawl a list of sneaker websites. Once the new product is found or 
  - DefShop
  - Dope Factory
  - Drome
+ - DSMNY
  - EastBay
  - EndCaptcha if crawl too much.
  - Extra Butter NY
