@@ -46,6 +46,7 @@ table, th, td{
 	<option value="defshop">Defshop</option>
 	<option value="dopefactory">Dopefactory</option>
 	<option value="drome">Drome</option>
+	<option value="dsmny">DSMNY</option>
 	<option value="eastbay">Eastbay</option>
 	<option value="einhalb">43einhalb</option>
 	<option value="end">End</option>
@@ -323,7 +324,7 @@ $conn->close();
 </select>
 
 <!-- Search Textfield -->
-<input type="text" id="search" name="search" value="">
+<input type="text" id="search" name="search" placeholder="Keyword" value="">
 
 <!-- Submit Button -->
 <input type="submit" name="form2" value="Submit">
