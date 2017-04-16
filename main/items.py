@@ -835,6 +835,13 @@ class SVDItem(Item):
     link = Field()
     name = Field()
 	
+class DSMNYItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+	
 class ShoesAddictorItem(Item):
     date = Field()
     price = Field()

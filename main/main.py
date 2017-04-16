@@ -125,6 +125,7 @@ WestNYCURL = "https://www.westnyc.com/collections/footwear?page=1&sort_by=create
 XileClothingURL = "https://www.xileclothing.com/browse/c-Footwear-24/b-Adidas-8/?page=1&sortby=new-additions"
 SoleflyURL = "https://www.solefly.com/collections/mens-1?page=1"
 SVDURL = "https://www.sivasdescalzo.com/en/lifestyle/sneakers?limit=36&p=1"
+DSMNYURL = "http://shop.doverstreetmarket.com/us/what-s-new"
 ShoesAddictorURL = "http://shoesaddictor.com/"
 
 
@@ -2359,6 +2360,26 @@ class SVDSpider(Spider):
         yield Request(SVDURL, callback=self.parse, dont_filter=True, priority=100)
 		
 		
+class DSMNYSpider(Spider):
+    
+    name = "DSMNYSpider"
+    allowded_domains = ["doverstreetmarket.com"]
+    start_urls = [DSMNYURL]
+    
+    def __init__(self):
+        logging.critical("DSMNYSpider STARTED.")
+        
+    def parse(self, response):
+        products = Selector(response).xpath('//div[@id="home-content"]//a')
+        
+        for product in products:
+            item = DSMNYItem()
+            item['link'] = product.xpath('@href').extract()[0]
+            yield item
+            
+        yield Request(DSMNYURL, callback=self.parse, dont_filter=True, priority=101)
+		
+		
 crawler_settings = Settings()
 crawler_settings.setmodule(settings)
 process = CrawlerProcess(settings=crawler_settings)
@@ -2461,6 +2482,7 @@ process.crawl(SoleflySpider)
 process.crawl(SVDSpider)
 
 # process.crawl(ShoesAddictorSpider)
+# process.crawl(DSMNYSpider)
 # process.crawl(EndSpider)		#Captcha if crawl too much.
 # process.crawl(SNSSpider)		#ASN blocked on Vultr via CloudFlare.
 # process.crawl(FinishLineSpider)	#Banned on Vultr.

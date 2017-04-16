@@ -504,6 +504,10 @@ class MYSQL_Pipeline(object):
         elif isinstance(item, SVDItem):	
             self.cursor.execute("INSERT INTO svd (name, link, date) VALUES (%s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), DATE))
 			
+        # Insert item into dsmny table.
+        elif isinstance(item, DSMNYItem):	
+            self.cursor.execute("INSERT INTO dsmny (link, date) VALUES (%s, %s)", (item['link'].encode('utf-8'), DATE))
+			
         # Insert item into shoesaddictor table.
         elif isinstance(item, ShoesAddictorItem):	
             self.cursor.execute("INSERT INTO shoesaddictor (name, link, date) VALUES (%s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), DATE))
@@ -511,9 +515,9 @@ class MYSQL_Pipeline(object):
         self.conn.commit()
 		
         # If item name contain below words. Tweet it.
-        if ('nmd' in item['name'].encode('utf-8').lower()) or ('ultra' in item['name'].encode('utf-8').lower() and 'boost' in item['name'].encode('utf-8').lower()) or ('jordan' in item['name'].encode('utf-8').lower() and 'retro' in item['name'].encode('utf-8').lower()) or ('yeezy' in item['name'].encode('utf-8').lower()) or ('max' in item['name'].encode('utf-8').lower() and 'atmos' in item['name'].encode('utf-8').lower()) or ('max' in item['name'].encode('utf-8').lower() and 'master' in item['name'].encode('utf-8').lower()):
-          
-          # Twitter Auth - Tweet the item with date, time, item name, and link.
+        if ('nmd' in item['name'].encode('utf-8').lower()) or ('ultra' in item['name'].encode('utf-8').lower() and 'boost' in item['name'].encode('utf-8').lower()) or ('jordan' in item['name'].encode('utf-8').lower() and 'retro' in item['name'].encode('utf-8').lower()) or ('yeezy' in item['name'].encode('utf-8').lower()) or ('max' in item['name'].encode('utf-8').lower() and 'atmos' in item['name'].encode('utf-8').lower()) or ('max' in item['name'].encode('utf-8').lower() and 'master' in item['name'].encode('utf-8').lower()) or ('ronnie' in item['name'].encode('utf-8').lower()) or ('fieg' in item['name'].encode('utf-8').lower()):
+		
+		  # Twitter Auth - Tweet the item with date, time, item name, and link.
           # To obtain Twitter CONSUMER and ACCESS keys go to https://apps.twitter.com/
           CONSUMER_KEY = ' PASTE CONSUMER_KEY HERE '
           CONSUMER_SECRET = ' PASTE CONSUMER_SECRET HERE '
