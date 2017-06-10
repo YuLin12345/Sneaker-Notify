@@ -1692,7 +1692,7 @@ class BackDoorSpider(Spider):
 
         for product in products:
             item = BackDoorItem()
-            item['name'] = product.xpath('a[2]/h6/text()').extract()[0]
+            item['name'] = product.xpath('a[1]/h6/text()').extract()[0]
             item['link'] = product.xpath('a[1]/@href').extract()[0]
             # item['image'] = product.xpath('div/a[2]/span/img/@src').extract()[0]
             yield item
