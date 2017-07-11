@@ -138,16 +138,16 @@ Description: Crawl a list of sneaker websites. Once the new product is found or 
  - pip install MySQL-python
 ```
 
-  If you have problem installing mysqldb or getting "no module named mysqldb" for Windows
-  Go to: http://www.lfd.uci.edu/~gohlke/pythonlibs/#mysql-python
+- If you have problem installing mysqldb or getting "no module named mysqldb" for Windows
+- Go to: http://www.lfd.uci.edu/~gohlke/pythonlibs/#mysql-python
 
-  Download:
-  MySQL_python‑1.2.5‑cp27‑none‑win32.whl for 32 Bit
-  MySQL_python‑1.2.5‑cp27‑none‑win_amd64.whl for 64 Bit
+- Download:
+- MySQL_python‑1.2.5‑cp27‑none‑win32.whl for 32 Bit
+- MySQL_python‑1.2.5‑cp27‑none‑win_amd64.whl for 64 Bit
 
-  pip install wheel
-  pip install MySQL_python‑1.2.5‑cp27‑none‑win32.whl for 32 Bit
-  pip install MySQL_python‑1.2.5‑cp27‑none‑win_amd64.whl for 64 Bit
+- pip install wheel
+- pip install MySQL_python‑1.2.5‑cp27‑none‑win32.whl for 32 Bit
+- pip install MySQL_python‑1.2.5‑cp27‑none‑win_amd64.whl for 64 Bit
 
 3. Install the MySQL database -> .sql file provided in the folder.
 
