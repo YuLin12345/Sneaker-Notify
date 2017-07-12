@@ -24,7 +24,7 @@ Description: Crawl a list of sneaker websites. Once the new product is found or 
  - BSTN
  - Back Door
  - Bait
- - BarneysBan if crawl too much.
+ - Barneys - Ban if crawl too much.
  - Basket Store
  - Blends
  - Bodega
@@ -40,10 +40,10 @@ Description: Crawl a list of sneaker websites. Once the new product is found or 
  - Drome
  - DSMNY
  - EastBay
- - EndCaptcha if crawl too much.
+ - End - Captcha if crawl too much.
  - Extra Butter NY
  - Feature
- - FinishLineBanned on Vultr.
+ - FinishLine - Banned on Vultr.
  - FootAction
  - FootAsylum
  - FootDistrict
@@ -56,7 +56,7 @@ Description: Crawl a list of sneaker websites. Once the new product is found or 
  - HypeDC
  - Inflammable
  - JDSports
- - JimmyJazzASN blocked on Vultr via CloudFlare.
+ - JimmyJazz - ASN blocked on Vultr via CloudFlare.
  - Kith
  - Kong
  - Lapstone and Hammer
@@ -85,11 +85,11 @@ Description: Crawl a list of sneaker websites. Once the new product is found or 
  - SaintAlfred
  - SaveOurSole
  - Shelf Life
- - ShoesPalaceNeed to disobey robots.txt, if you want to crawl.
+ - ShoesPalace - Need to disobey robots.txt, if you want to crawl.
  - Size
  - Slam Jam Socialism
  - SneakerBaas
- - SneakerNStuffASN blocked on Vultr via CloudFlare.
+ - SneakerNStuff - ASN blocked on Vultr via CloudFlare.
  - SneakerPolitics
  - SocialStatus
  - SoleBox
@@ -119,23 +119,38 @@ Description: Crawl a list of sneaker websites. Once the new product is found or 
 - pip install scrapy
 - pip install scrapy-random-useragent
 - pip install TwitterAPI
-- pip install MySQL-python
-- pip install mysql-connector
 - pip install crayons
 - pip install datetime
 - pip install beautifulsoup4
+- pip install pypiwin32
+- pip install MySQL-python
+- pip install mysql-connector
 #
 **Setup:**
-1. Make sure you have Python installed. (Working on 2.7 not sure about 3) To install go to https://www.python.org/
-2. Install the requirements above.
+1. Make sure you have Python installed. (Working on Python 2.7 - not working on Python 3) To install Python go to https://www.python.org/
+
+2. Install the pip requirements above.
 - For Mac: to install MySQL-python. Open terminal and type the below:
 ```
  - /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
  - brew install mysql-connector-c
  - pip install MySQL-python
 ```
- 
+
+If you have problem installing mysqldb or getting "no module named mysqldb" for Windows go to: http://www.lfd.uci.edu/~gohlke/pythonlibs/#mysql-python
+
+```
+Download:
+MySQL_python‑1.2.5‑cp27‑none‑win32.whl for 32 Bit
+MySQL_python‑1.2.5‑cp27‑none‑win_amd64.whl for 64 Bit
+
+pip install wheel
+pip install MySQL_python‑1.2.5‑cp27‑none‑win32.whl for 32 Bit
+pip install MySQL_python‑1.2.5‑cp27‑none‑win_amd64.whl for 64 Bit
+```
+
 3. Install the MySQL database -> .sql file provided in the folder.
+
 4. Go into mysql_pipeline.py edit MySQL connection info and edit Twitter's CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN_KEY, and ACCESS_TOKEN_SECRET to your Twitter account's info.
 
 5. To run:
