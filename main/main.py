@@ -147,13 +147,13 @@ class KithSpider(Spider):
         logging.critical("KithSpider STARTED.")
 		
     def parse(self, response):
-        products = Selector(response).xpath('//div[@class=" grid__item large-up--one-third medium--one-half "]')
+        products = Selector(response).xpath('//div[@class="grid-uniform grid--center wide--grid--middle"]//div[contains(@class,"grid__item")]')
 		
         for product in products:
             item = KithItem()
-            item['name'] = product.xpath('div/a[1]/img/@alt').extract()[0]
-            item['link'] = "https://kith.com" + product.xpath('div/a[1]/@href').extract()[0]
-            # item['image'] = "https:" + product.xpath('div/a[1]/img/@src').extract()[0]
+            item['name'] = product.xpath('div/div/a[1]/img/@alt').extract()[0]
+            item['link'] = "https://kith.com" + product.xpath('div/div/a[1]/@href').extract()[0]
+            # item['image'] = "https:" + product.xpath('div/div/a[1]/img/@src').extract()[0]
             yield item
 			
         yield Request(KithURL, callback=self.parse, dont_filter=True, priority=0)
@@ -1049,8 +1049,8 @@ class DefShopSpider(Spider):
         logging.critical("DefShopSpider STARTED.")
 		
     def parse(self, response):
-        products = Selector(response).xpath('//div[@class="row def-v-offset3 container-fluid"]//div[contains(@class,"def-col-listing")]//article[@class="prod-article"]//div[@class="bx-wrapper"]')
-		
+        products = Selector(response).xpath('//div[@class="row def-v-offset3"]//div[contains(@class,"def-col-listing")]//article[@class="prod-article"]//div[@class="bx-wrapper"]')
+        
         for product in products:
             item = DefShopItem()
             item['name'] = product.xpath('a/@title').extract()[0]
@@ -1225,13 +1225,13 @@ class BodegaSpider(Spider):
         logging.critical("BodegaSpider STARTED.")
 		
     def parse(self, response):
-        products = Selector(response).xpath('//ul[@class="grid clearfix"]//li[contains(@class,"product-item")]')
+        products = Selector(response).xpath('//div[contains(@class,"clear-xs-only clear-sm-only col-md-9")]//ul//li[contains(@class,"product-item")]')
 		
         for product in products:
             item = BodegaItem()
-            item['name'] = product.xpath('div[2]/h3/a/text()').extract()[0].strip()
-            item['link'] = "https://shop.bdgastore.com" + product.xpath('div[1]/a/@href').extract()[0]
-            # item['image'] = "https:" + product.xpath('div[1]/a/img/@src').extract()[0]
+            item['name'] = product.xpath('div//h4/a/@title').extract()[0].strip()
+            item['link'] = "https://shop.bdgastore.com" + product.xpath('div/a/@href').extract()[0]
+            # item['image'] = "https:" + product.xpath('div/a/div[1]/img/@src').extract()[0]
             yield item
 			
         yield Request(BodegaURL, callback=self.parse, dont_filter=True, priority=49)
@@ -2084,13 +2084,13 @@ class NotreSpider(Spider):
         logging.critical("NotreSpider STARTED.")
         
     def parse(self, response):
-        products = Selector(response).xpath('//div[@class="twelve columns"]//div[contains(@class,"four")]')
+        products = Selector(response).xpath('//div[@class="row"]//div[contains(@class,"col-lg-4")]/div/div[1]')
 
         for product in products:
             item = NotreItem()
-            item['name'] = product.xpath('a/@title').extract()[0]
-            item['link'] = "https://www.notre-shop.com" + product.xpath('a/@href').extract()[0]
-            # item['image'] = "https:" + product.xpath('a/div[1]/img[1]/@src').extract()[0]
+            item['name'] = product.xpath('a[1]/img/@alt').extract()[0]
+            item['link'] = "https://www.notre-shop.com" + product.xpath('a[1]/@href').extract()[0]
+            # item['image'] = "https:" + product.xpath('a[1]/img/@src').extract()[0]
             yield item
 
         yield Request(NotreURL, callback=self.parse, dont_filter=True, priority=88)
