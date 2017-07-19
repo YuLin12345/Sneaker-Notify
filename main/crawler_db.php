@@ -66,6 +66,7 @@ table, th, td{
 	<option value="haven">Haven</option>
 	<option value="hhv">HHV</option>
 	<option value="holypop">Holypop</option>
+	<option value="hubbastille">Hubbastille</option>
 	<option value="hypebeast">Hypebeast</option>
 	<option value="hypedc">Hypedc</option>
 	<option value="inflammable">Inflammable</option>
@@ -91,6 +92,7 @@ table, th, td{
 	<option value="oneness">Oneness</option>
 	<option value="overkill">Overkill</option>
 	<option value="packer">Packer</option>
+	<option value="patta">Patta</option>
 	<option value="pointz">Pointz</option>
 	<option value="proper">Proper</option>
 	<option value="pufferreds">Pufferreds</option>
@@ -114,6 +116,7 @@ table, th, td{
 	<option value="sns">SneakerNStuff</option>
 	<option value="socialstatus">Socialstatus</option>
 	<option value="solebox">Solebox</option>
+	<option value="solefly">Solefly</option>
 	<option value="solekitchen">Solekitchen</option>
 	<option value="solestop">Solestop</option>
 	<option value="sportsshoes">Sportsshoes</option>
@@ -228,6 +231,7 @@ $conn->close();
 	<option value="defshop">Defshop</option>
 	<option value="dopefactory">Dopefactory</option>
 	<option value="drome">Drome</option>
+	<option value="dsmny">DSMNY</option>
 	<option value="eastbay">Eastbay</option>
 	<option value="einhalb">43einhalb</option>
 	<option value="end">End</option>
@@ -247,6 +251,7 @@ $conn->close();
 	<option value="haven">Haven</option>
 	<option value="hhv">HHV</option>
 	<option value="holypop">Holypop</option>
+	<option value="hubbastille">Hubbastille</option>
 	<option value="hypebeast">Hypebeast</option>
 	<option value="hypedc">Hypedc</option>
 	<option value="inflammable">Inflammable</option>
@@ -272,6 +277,7 @@ $conn->close();
 	<option value="oneness">Oneness</option>
 	<option value="overkill">Overkill</option>
 	<option value="packer">Packer</option>
+	<option value="patta">Patta</option>
 	<option value="pointz">Pointz</option>
 	<option value="proper">Proper</option>
 	<option value="pufferreds">Pufferreds</option>
@@ -295,6 +301,7 @@ $conn->close();
 	<option value="sns">SneakerNStuff</option>
 	<option value="socialstatus">Socialstatus</option>
 	<option value="solebox">Solebox</option>
+	<option value="solefly">Solefly</option>
 	<option value="solekitchen">Solekitchen</option>
 	<option value="solestop">Solestop</option>
 	<option value="sportsshoes">Sportsshoes</option>
