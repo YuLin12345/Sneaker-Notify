@@ -52,6 +52,7 @@ Description: Crawl a list of sneaker websites. Once the new product is found or 
  - FootShop
  - Hanon
  - Haven
+ - Hubbastille
  - HypeBeast
  - HypeDC
  - Inflammable
