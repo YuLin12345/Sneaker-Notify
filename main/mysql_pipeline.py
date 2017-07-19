@@ -508,6 +508,10 @@ class MYSQL_Pipeline(object):
         elif isinstance(item, DSMNYItem):	
             self.cursor.execute("INSERT INTO dsmny (link, date) VALUES (%s, %s)", (item['link'].encode('utf-8'), DATE))
 			
+        # Insert item into hubbastille table.
+        elif isinstance(item, HubbastilleItem):	
+			self.cursor.execute("INSERT INTO hubbastille (name, link, date) VALUES (%s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), DATE))
+			
         # Insert item into shoesaddictor table.
         elif isinstance(item, ShoesAddictorItem):	
             self.cursor.execute("INSERT INTO shoesaddictor (name, link, date) VALUES (%s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), DATE))

@@ -842,6 +842,13 @@ class DSMNYItem(Item):
     link = Field()
     name = Field()
 	
+class HubbastilleItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+	
 class ShoesAddictorItem(Item):
     date = Field()
     price = Field()

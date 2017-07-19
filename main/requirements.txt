@@ -1,8 +1,9 @@
 scrapy
 scrapy-random-useragent
 TwitterAPI
-MySQL-python
-mysql-connector
 crayons
 datetime
 beautifulsoup4
+pypiwin32
+MySQL-python
+mysql-connector

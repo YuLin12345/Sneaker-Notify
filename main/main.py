@@ -95,7 +95,7 @@ OfficeURL = "http://www.office.co.uk/view/search?page=1&pageSize=30&search=his&s
 ALLikeURL = "https://www.allikestore.com/default/sneakers.html?dir=desc&limit=16&manufacturer=27_639_494_641_628_28_650&order=created_at&p=1"
 UrbanJungleURL = "http://www.urbanjunglestore.com/en/sneakers/shopby/nike-jordan-adidas.html#"
 SSenseURL = "https://www.ssense.com/en-us/men/designers/all/shoes/sneakers/pages/1"
-BackDoorURL = "http://www.back-door.it/product-category/sneakers/page/1/"
+BackDoorURL = "https://www.back-door.it/product-category/sneakers/page/1/?orderby=date"
 BasketURL = "http://www.baskets-store.com/sneakers/-/adidas-originals_nike/?dir=desc&ignore=true&limit=20&order=news_from_date&p=1"
 DopeFactoryURL = "http://www.dope-factory.com/categories/shoes.html?dir=desc&limit=20&order=product_date&p=1"
 NextDoorURL = "http://www.thenextdoor.fr/fr/34-chaussures?p=1"
@@ -126,6 +126,7 @@ XileClothingURL = "https://www.xileclothing.com/browse/c-Footwear-24/b-Adidas-8/
 SoleflyURL = "https://www.solefly.com/collections/mens-1?page=1"
 SVDURL = "https://www.sivasdescalzo.com/en/lifestyle/sneakers?limit=36&p=1"
 DSMNYURL = "http://shop.doverstreetmarket.com/us/what-s-new"
+HubbastilleURL = "http://hubbastille.com/13-le-rez-de-chaussee?orderby=date_add&orderway=desc&orderway=desc&p=1"
 ShoesAddictorURL = "http://shoesaddictor.com/"
 
 
@@ -1229,7 +1230,7 @@ class BodegaSpider(Spider):
 		
         for product in products:
             item = BodegaItem()
-            item['name'] = product.xpath('div//h4/a/@title').extract()[0].strip()
+            item['name'] = product.xpath('div/div/h3/a/text()').extract()[0].strip()
             item['link'] = "https://shop.bdgastore.com" + product.xpath('div/a/@href').extract()[0]
             # item['image'] = "https:" + product.xpath('div/a/div[1]/img/@src').extract()[0]
             yield item
@@ -1692,7 +1693,7 @@ class BackDoorSpider(Spider):
 
         for product in products:
             item = BackDoorItem()
-            item['name'] = product.xpath('a[2]/h6/text()').extract()[0]
+            item['name'] = product.xpath('a[1]/h6/text()').extract()[0]
             item['link'] = product.xpath('a[1]/@href').extract()[0]
             # item['image'] = product.xpath('div/a[2]/span/img/@src').extract()[0]
             yield item
@@ -2176,7 +2177,7 @@ class RenartsSpider(Spider):
 
         for product in products:
             item = RenartsItem()
-            item['name'] = product.xpath('div/a/img/@alt').extract()[0]
+            item['name'] = product.xpath('a/h4/text()').extract()[0]
             item['link'] = "https://renarts.com" + product.xpath('div/a/@href').extract()[0]
             # item['image'] = "https:" + product.xpath('div/a/img/@src').extract()[0]
             yield item
@@ -2380,6 +2381,27 @@ class DSMNYSpider(Spider):
         yield Request(DSMNYURL, callback=self.parse, dont_filter=True, priority=101)
 		
 		
+class HubbastilleSpider(Spider):
+    
+    name = "HubbastilleSpider"
+    allowded_domains = ["hubbastille.com"]
+    start_urls = [HubbastilleURL]
+    
+    def __init__(self):
+        logging.critical("HubbastilleSpider STARTED.")
+        
+    def parse(self, response):
+        products = Selector(response).xpath('//div[@class="mix cs-item"]')
+		
+        for product in products:
+            item = HubbastilleItem()
+            item['name'] = product.xpath('section/div/div/a/img[1]/@title').extract()[0]
+            item['link'] = product.xpath('section/div/div/a/@href').extract()[0]
+            yield item
+			
+        yield Request(HubbastilleURL, callback=self.parse, dont_filter=True, priority=102)
+		
+		
 crawler_settings = Settings()
 crawler_settings.setmodule(settings)
 process = CrawlerProcess(settings=crawler_settings)
@@ -2480,6 +2502,7 @@ process.crawl(WestNYCSpider)
 process.crawl(XileClothingSpider)
 process.crawl(SoleflySpider)
 process.crawl(SVDSpider)
+process.crawl(HubbastilleSpider)
 
 # process.crawl(ShoesAddictorSpider)
 # process.crawl(DSMNYSpider)
