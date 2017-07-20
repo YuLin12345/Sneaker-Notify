@@ -119,6 +119,7 @@ Description: Crawl a list of sneaker websites. Once the new product is found or 
 **Requirements:**
 - pip install scrapy
 - pip install scrapy-random-useragent
+- pip install scrapy_proxies
 - pip install TwitterAPI
 - pip install crayons
 - pip install datetime
