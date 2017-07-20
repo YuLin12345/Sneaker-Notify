@@ -63,7 +63,10 @@ DOWNLOADER_MIDDLEWARES = {
     # 'crawler.middlewares.MyCustomDownloaderMiddleware': 543,
     # 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware': 700,
     'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
-    'random_useragent.RandomUserAgentMiddleware': 500
+    'random_useragent.RandomUserAgentMiddleware': 120,
+    'scrapy.downloadermiddlewares.retry.RetryMiddleware': 90,
+    'scrapy_proxies.RandomProxy': 100,
+    'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': 110
 }
 
 # Enable or disable extensions
@@ -84,7 +87,7 @@ AUTOTHROTTLE_ENABLED = True
 # The initial download delay
 AUTOTHROTTLE_START_DELAY = 1
 # The maximum download delay to be set in case of high latencies
-AUTOTHROTTLE_MAX_DELAY = 3
+AUTOTHROTTLE_MAX_DELAY = 2
 # The average number of requests Scrapy should be sending in parallel to
 # each remote server
 # AUTOTHROTTLE_TARGET_CONCURRENCY = 1.0
@@ -98,3 +101,22 @@ AUTOTHROTTLE_MAX_DELAY = 3
 # HTTPCACHE_DIR = 'httpcache'
 # HTTPCACHE_IGNORE_HTTP_CODES = []
 # HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+# How many times you want to retry on fail
+RETRY_TIMES = 10
+# Retry error codes
+RETRY_HTTP_CODES = [400, 403, 404, 408, 500, 503, 504]
+
+# Proxy list format
+# http://ip:port
+# http://username:password@ip:port
+PROXY_LIST = 'proxies.txt'
+
+# Proxy mode
+# 0 = Every requests have different proxy
+# 1 = Take only one proxy from the list and assign it to every requests
+# 2 = Put a custom proxy to use in the settings
+PROXY_MODE = 0
+
+# If proxy mode is 2 uncomment below:
+# CUSTOM_PROXY = "http://ip:port"
