@@ -1,5 +1,6 @@
 scrapy
 scrapy-random-useragent
+scrapy_proxies
 TwitterAPI
 crayons
 datetime
