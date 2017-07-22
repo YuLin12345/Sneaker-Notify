@@ -64,9 +64,11 @@ DOWNLOADER_MIDDLEWARES = {
     # 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware': 700,
     'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
     'random_useragent.RandomUserAgentMiddleware': 120,
-    'scrapy.downloadermiddlewares.retry.RetryMiddleware': 90,
-    'scrapy_proxies.RandomProxy': 100,
-    'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': 110
+
+	# Proxies Pool. Comment/Uncomment the line below to enable/disable.
+    # 'scrapy.downloadermiddlewares.retry.RetryMiddleware': 90,
+    # 'scrapy_proxies.RandomProxy': 100,
+    # 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware': 110
 }
 
 # Enable or disable extensions

@@ -2,6 +2,7 @@ scrapy
 scrapy-random-useragent
 scrapy_proxies
 TwitterAPI
+requests
 crayons
 datetime
 beautifulsoup4
