@@ -4,13 +4,13 @@ Feel free to buy me a cup of coffee, so I can stay motivated and keep updating t
 [![PayPal](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3WA5WTGP9HPYG)
 
 #
-Sneaker/Restock/Monitor Notify via Twitter coded in Python using Scrapy.
+Sneaker Restock/Monitor Notify via Twitter/Discord/Slack coded in Python using Scrapy.
 
 ![Example](http://i.imgur.com/cqI2s0x.png)
 #
 Status: **Under Development. If Interested feel free to [![Twitter Follow](https://img.shields.io/twitter/follow/espadrine.svg?style=social&label=Follow)](https://twitter.com/w_notify) on Twitter. To view the database online check [here](https://shoesaddictor.com/Crawler_DB.php).**
 
-Description: Crawl a list of sneaker websites. Once the new product is found or is restocked. It will check the item's name for certain keywords. If found, it will alert the user via Twitter using tweets, with date, time, item name, and link.
+Description: Crawl a list of sneaker websites. Once the new product is found or is restocked. It will check the item's name for certain keywords. If found, it will alert the user via Twitter using tweets or Discord/Slack using WebHook with date, time, item name, and link.
 #
 **Supported Sites List:**
  - 43einhalb
@@ -126,6 +126,7 @@ Description: Crawl a list of sneaker websites. Once the new product is found or 
 - pip install datetime
 - pip install beautifulsoup4
 - pip install pypiwin32
+
 - pip install MySQL-python
 - pip install mysql-connector
 #
@@ -154,7 +155,8 @@ pip install MySQL_python‑1.2.5‑cp27‑none‑win_amd64.whl for 64 Bit
 
 3. Install the MySQL database -> .sql file provided in the folder.
 
-4. Go into mysql_pipeline.py edit MySQL connection info and edit Twitter's CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN_KEY, and ACCESS_TOKEN_SECRET to your Twitter account's info.
+4. Go into mysql_pipeline.py edit MySQL connection info and edit Twitter's CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN_KEY, and ACCESS_TOKEN_SECRET to your Twitter account's info. 
+To use Discord or Slack paste the WebHook URL into requests.post(' DISCORD or SLACK WEBHOOK URL ', data={'content': TEXT_TO_TWEET})
 
 5. To run:
  - For Windows: Click on main.py
