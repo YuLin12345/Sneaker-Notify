@@ -126,7 +126,6 @@ Description: Crawl a list of sneaker websites. Once the new product is found or 
 - pip install datetime
 - pip install beautifulsoup4
 - pip install pypiwin32
-
 - pip install MySQL-python
 - pip install mysql-connector
 #
