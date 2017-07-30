@@ -1,11 +1,10 @@
-scrapy
-scrapy-random-useragent
-scrapy_proxies
-TwitterAPI
 requests
 crayons
 datetime
 beautifulsoup4
-pypiwin32
+scrapy
+scrapy-random-useragent
+scrapy_proxies
+TwitterAPI
 MySQL-python
-mysql-connector
+mysql-connector==2.1.4
