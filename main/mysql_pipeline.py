@@ -530,12 +530,12 @@ class MYSQL_Pipeline(object):
           ACCESS_TOKEN_KEY = ' PASTE ACCESS_TOKEN_KEY HERE '
           ACCESS_TOKEN_SECRET = ' PASTE ACCESS_TOKEN_SECRET HERE '
           API = TwitterAPI(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN_KEY, ACCESS_TOKEN_SECRET)
-          TEXT_TO_TWEET = DATE + " EST " + item['name'] + " " + item['link']
-          TWEET = API.request('statuses/update', {'status': TEXT_TO_TWEET})
+          TEXT_TO_SEND = DATE + " EST " + item['name'] + " " + item['link']
+          TWEET = API.request('statuses/update', {'status': TEXT_TO_SEND})
           print(Fore.RED + 'TWEET LOG SUCCESS: ' + DATE + ' EST ' + item['name'] + ' ' + item['link'] + Style.RESET_ALL if TWEET.status_code == 200 else Fore.RED + 'TWEET LOG FAILURE: FAILED TO TWEET' + Style.RESET_ALL)
 		  
           # WebHook for Discord and Slack. Comment/Uncomment the line below to enable/disable.
-          requests.post(' DISCORD or SLACK WEBHOOK URL ', data={'content': TEXT_TO_TWEET})
+          requests.post(' DISCORD or SLACK WEBHOOK URL ', data={'content': TEXT_TO_SEND})
 		  
     except MySQLdb.Error, e:
       # print (Fore.RED + "MYSQL ERROR %d: %s" % (e.args[0], e.args[1] + Style.RESET_ALL))
