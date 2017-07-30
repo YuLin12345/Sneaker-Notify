@@ -116,23 +116,10 @@ Description: Crawl a list of sneaker websites. Once the new product is found or 
  - YME Universe
  - Zappos
 #
-**Requirements:**
-- pip install scrapy
-- pip install scrapy-random-useragent
-- pip install scrapy_proxies
-- pip install TwitterAPI
-- pip install requests
-- pip install crayons
-- pip install datetime
-- pip install beautifulsoup4
-- pip install pypiwin32
-- pip install MySQL-python
-- pip install mysql-connector
-#
 **Setup:**
 1. Make sure you have Python installed. (Working on Python 2.7 - not working on Python 3) To install Python go to https://www.python.org/
 
-2. Install the pip requirements above.
+2. Install the pip requirements - can be found in the requirements.txt.
 - For Mac: to install MySQL-python. Open terminal and type the below:
 ```
  - /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
