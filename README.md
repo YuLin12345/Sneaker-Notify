@@ -120,6 +120,13 @@ Description: Crawl a list of sneaker websites. Once the new product is found or 
 1. Make sure you have Python installed. (Working on Python 2.7 - not working on Python 3) To install Python go to https://www.python.org/
 
 2. Install the pip requirements - can be found in the requirements.txt.
+
+- Some Windows users will need to install
+
+```
+pip install pypiwin32
+```
+
 - For Mac: to install MySQL-python. Open terminal and type the below:
 ```
  - /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -127,7 +134,7 @@ Description: Crawl a list of sneaker websites. Once the new product is found or 
  - pip install MySQL-python
 ```
 
-If you have problem installing mysqldb or getting "no module named mysqldb" for Windows go to: http://www.lfd.uci.edu/~gohlke/pythonlibs/#mysql-python
+- If you have problem installing mysqldb or getting "no module named mysqldb" for Windows go to: http://www.lfd.uci.edu/~gohlke/pythonlibs/#mysql-python
 
 ```
 Download:
