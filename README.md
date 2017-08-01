@@ -129,24 +129,24 @@ pip install pypiwin32
 
 - For Mac: to install MySQL-python. Open terminal and type the below:
 ```
- - /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
- - brew install mysql-connector-c
- - pip install MySQL-python
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew install mysql-connector-c
+pip install MySQL-python
 ```
 
 - If you have problem installing mysqldb or getting "no module named mysqldb" for Windows go to: http://www.lfd.uci.edu/~gohlke/pythonlibs/#mysql-python
 
 ```
 Download:
-MySQL_python‑1.2.5‑cp27‑none‑win32.whl for 32 Bit
-MySQL_python‑1.2.5‑cp27‑none‑win_amd64.whl for 64 Bit
+MySQL_python‑1.2.5‑cp27‑none‑win32.whl for 32 Bit Python
+MySQL_python‑1.2.5‑cp27‑none‑win_amd64.whl for 64 Bit Python
 
 pip install wheel
-pip install MySQL_python‑1.2.5‑cp27‑none‑win32.whl for 32 Bit
-pip install MySQL_python‑1.2.5‑cp27‑none‑win_amd64.whl for 64 Bit
+pip install MySQL_python‑1.2.5‑cp27‑none‑win32.whl for 32 Bit Python
+pip install MySQL_python‑1.2.5‑cp27‑none‑win_amd64.whl for 64 Bit Python
 ```
 
-3. Install the MySQL database -> .sql file provided in the folder.
+3. Install MySQL database -> .sql file provided in the folder.
 
 4. Go into mysql_pipeline.py edit MySQL connection info and edit Twitter's CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN_KEY, and ACCESS_TOKEN_SECRET to your Twitter account's info. 
 To use Discord or Slack paste the WebHook URL into requests.post(' DISCORD or SLACK WEBHOOK URL ', data={'content': TEXT_TO_TWEET})
