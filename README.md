@@ -18,7 +18,8 @@ Description: Crawl a list of sneaker websites. Once the new product is found or 
  - AFewStore
  - ALLike
  - Addict
- - Adidas
+ - AdidasUS
+ - AdidasEU
  - Aphrodite
  - AsphaltGold
  - BSTN
