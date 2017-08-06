@@ -30,7 +30,7 @@ class MYSQL_Pipeline(object):
     
   def __init__(self):
     # Database connection info. (host, user, password, database)
-    self.conn = MySQLdb.connect(host=' HOST NAME HERE ', user=' USER NAME HERE ', passwd=' PASSWORD HERE ', db=' DATABASE NAME HERE ', charset="utf8", use_unicode=True)
+    self.conn = MySQLdb.connect(host='HOST NAME HERE', user='USER NAME HERE', passwd='PASSWORD HERE', db='DATABASE NAME HERE', charset="utf8", use_unicode=True)
     self.conn.ping(True)
     self.cursor = self.conn.cursor()
     
@@ -39,7 +39,7 @@ class MYSQL_Pipeline(object):
     try:
         # Insert item into kith table.
         if isinstance(item, KithItem):
-            self.cursor.execute("INSERT INTO kith (name, link, date) VALUES (%s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), DATE))
+            self.cursor.execute("INSERT INTO kith (name, link, size, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['size'].encode('utf-8'), DATE))
             
         # Insert item into ruvilla table.
         elif isinstance(item, RuvillaItem):
@@ -520,25 +520,25 @@ class MYSQL_Pipeline(object):
         self.conn.commit()
 		
         # If item name contain below words. Tweet it.
-        keywords = ['ultra boost', 'air jordan', 'jordan retro', 'nmd', 'boost', 'retro', 'yeezy', 'atmos', 'ronnie', 'fieg', 'pharrel', 'clots', 'mars', 'yard']
+        keywords = ['ultra boost', 'air jordan', 'jordan retro', 'nmd', 'boost', 'retro', 'flyknit', 'yeezy', 'ronnie', 'fieg', 'pharrel', 'atmos', 'clots', 'mars', 'yard']
 		
         if any(keyword in item['name'].encode('utf-8').lower() for keyword in keywords):
 		  # Twitter Auth - Tweet the item with date, time, item name, and link.
           # To obtain Twitter CONSUMER and ACCESS keys go to https://apps.twitter.com/
-          CONSUMER_KEY = ' PASTE CONSUMER_KEY HERE '
-          CONSUMER_SECRET = ' PASTE CONSUMER_SECRET HERE '
-          ACCESS_TOKEN_KEY = ' PASTE ACCESS_TOKEN_KEY HERE '
-          ACCESS_TOKEN_SECRET = ' PASTE ACCESS_TOKEN_SECRET HERE '
+          CONSUMER_KEY = 'PASTE CONSUMER_KEY HERE'
+          CONSUMER_SECRET = 'PASTE CONSUMER_SECRET HERE'
+          ACCESS_TOKEN_KEY = 'PASTE ACCESS_TOKEN_KEY HERE'
+          ACCESS_TOKEN_SECRET = 'PASTE ACCESS_TOKEN_SECRET HERE'
           API = TwitterAPI(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN_KEY, ACCESS_TOKEN_SECRET)
           TEXT_TO_SEND = DATE + " EST " + item['name'] + " " + item['link']
           TWEET = API.request('statuses/update', {'status': TEXT_TO_SEND})
           print(Fore.RED + 'TWEET LOG SUCCESS: ' + DATE + ' EST ' + item['name'] + ' ' + item['link'] + Style.RESET_ALL if TWEET.status_code == 200 else Fore.RED + 'TWEET LOG FAILURE: FAILED TO TWEET' + Style.RESET_ALL)
 		  
 		  # WebHook for Discord. Comment/Uncomment the line below to enable/disable.
-          requests.post(' DISCORD WEBHOOK URL ', data={'content': TEXT_TO_SEND})
+          # requests.post('DISCORD WEBHOOK URL', data={'content': "**" + item['name'] + "**" + "\n" + item['link'] + "\n" + "\n" + "[ATC]: " + item['size']})
 		  
 		  # WebHook for Slack. Comment/Uncomment the line below to enable/disable.
-          requests.post(' SLACK WEBHOOK URL ', json={'text': TEXT_TO_SEND}, headers={'Content-Type': 'application/json'})
+          # requests.post('SLACK WEBHOOK URL', json={'text': "*" + item['name'] + "*" + "\n" + item['link'] + "\n" + "\n" + "[ATC]: " + item['size']}, headers={'Content-Type': 'application/json'})
 		  
     except MySQLdb.Error, e:
       # print (Fore.RED + "MYSQL ERROR %d: %s" % (e.args[0], e.args[1] + Style.RESET_ALL))
