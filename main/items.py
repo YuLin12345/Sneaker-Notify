@@ -22,6 +22,7 @@ class KithItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
     
 class RuvillaItem(Item):
     date = Field()
