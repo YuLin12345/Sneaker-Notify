@@ -184,6 +184,7 @@ class RuvillaSpider(Spider):
             item['name'] = product.xpath('div/div[1]/a/@title').extract()[0]
             item['link'] = product.xpath('div/div[1]/a/@href').extract()[0]
             # item['image'] = product.xpath('div/div[1]/a/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
         yield Request(RuvillaURL, callback=self.parse, dont_filter=True, priority=1)
@@ -206,6 +207,7 @@ class FootShopSpider(Spider):
             item['name'] = product.xpath('a/@title').extract()[0]
             item['link'] = product.xpath('a/@href').extract()[0]
             # item['image'] = product.xpath('a/div/img/@data-src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
         yield Request(FootShopURL, callback=self.parse, dont_filter=True, priority=2)
@@ -228,6 +230,7 @@ class AfewSpider(Spider):
             item['name'] = product.xpath('./h2/a/@title').extract()[0]
             item['link'] = product.xpath('.//h2/a/@href').extract()[0]
             # item['image'] = product.xpath('.//div[1]/@base_img').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
         yield Request(AfewURL, callback=self.parse, dont_filter=True, priority=3)
@@ -250,6 +253,7 @@ class CalirootsSpider(Spider):
             item['name'] = product.xpath('.//a/p[2]/text()').extract()[0]
             item['link'] = "https://caliroots.com" + product.xpath('.//a/@href').extract()[0]
             # item['image'] = product.xpath('.//a/div/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
         yield Request(CalirootsURL, callback=self.parse, dont_filter=True, priority=4)
@@ -272,6 +276,7 @@ class EinhalbSpider(Spider):
             item['name'] = product.xpath('.//a/@title').extract()[0]
             item['link'] = "http://www.43einhalb.com" + product.xpath('.//a/@href').extract()[0]
             # item['image'] = product.xpath('.//a/div/img[1]/@data-src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
         yield Request(EinhalbURL, callback=self.parse, dont_filter=True, priority=5)
@@ -294,6 +299,7 @@ class EndSpider(Spider):
             item['name'] = product.xpath('.//a/@title').extract()[0]
             item['link'] = product.xpath('.//a/@href').extract()[0]
             # item['image'] = product.xpath('.//a/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
         yield Request(EndURL, callback=self.parse, dont_filter=True, priority=6)
@@ -316,6 +322,7 @@ class SNSSpider(Spider):
             item['name'] = product.xpath('.//div/h4/a/text()').extract()[0]
             item['link'] = "http://www.sneakersnstuff.com" + product.xpath('.//div/h4/a/@href').extract()[0]
             # item['image'] = "http://www.sneakersnstuff.com" + product.xpath('.//a/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
         yield Request(SNSURL, callback=self.parse, dont_filter=True, priority=7)
@@ -338,6 +345,7 @@ class TintSpider(Spider):
             item['name'] = product.xpath('div/div/div[1]/a/@title').extract()[0]
             item['link'] = product.xpath('div/div/div[1]/a/@href').extract()[0]
             # item['image'] = product.xpath('div/div/div[1]/a/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
         yield Request(TintURL, callback=self.parse, dont_filter=True, priority=8)
@@ -360,6 +368,7 @@ class OverkillSpider(Spider):
             item['name'] = product.xpath('.//div/a/@title').extract()[0]
             item['link'] = product.xpath('.//div/a/@href').extract()[0]
             # item['image'] = product.xpath('.//div/a/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
         yield Request(OverkillURL, callback=self.parse, dont_filter=True, priority=9)
@@ -382,6 +391,7 @@ class FootDistrictSpider(Spider):
             item['name'] = product.xpath('.//li[1]/a[2]/@title').extract()[0]
             item['link'] = product.xpath('.//li[1]/a[2]/@href').extract()[0]
             # item['image'] = product.xpath('.//li[1]/a[2]/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
         yield Request(FootDistrictURL, callback=self.parse, dont_filter=True, priority=10)
@@ -404,6 +414,7 @@ class SizeSpider(Spider):
             item['name'] = product.xpath('.//span/span/span/a/text()').extract()[0]
             item['link'] = "https://www.size.co.uk" + product.xpath('.//span/span/span/a/@href').extract()[0]
             # item['image'] = product.xpath('.//span/a/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
         yield Request(SizeURL, callback=self.parse, dont_filter=True, priority=11)
@@ -426,6 +437,7 @@ class YCMCSpider(Spider):
             item['name'] = product.xpath('.//div/a/@title').extract()[0]
             item['link'] = product.xpath('.//div/a/@href').extract()[0]
             # item['image'] = product.xpath('.//div/a/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
         yield Request(YCMCURL, callback=self.parse, dont_filter=True, priority=12)
@@ -448,6 +460,7 @@ class CitySpider(Spider):
             item['name'] = product.xpath('.//a/@title').extract()[0]
             item['link'] = product.xpath('.//a/@href').extract()[0]
             # item['image'] = product.xpath('.//a/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
         yield Request(CityURL, callback=self.parse, dont_filter=True, priority=13)
@@ -470,6 +483,7 @@ class FootLockerSpider(Spider):
             item['name'] = product.xpath('.//div/a/@title').extract()[0].replace(" - Men's", "")
             item['link'] = product.xpath('.//div/a/@href').extract()[0].replace("&cm=GLOBAL SEARCH: KEYWORD SEARCH", "")
             # item['image'] = product.xpath('.//div/a/div/img/@data-original').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
         yield Request(FootLockerURL, callback=self.parse, dont_filter=True, priority=14)
@@ -492,6 +506,7 @@ class FootActionSpider(Spider):
             item['name'] = product.xpath('.//div/a/@title').extract()[0].replace(" - Men's", "")
             item['link'] = product.xpath('.//div/a/@href').extract()[0].replace("&cm=GLOBAL SEARCH: KEYWORD SEARCH", "")
             # item['image'] = product.xpath('.//div/a/div/img/@data-original').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
         yield Request(FootActionURL, callback=self.parse, dont_filter=True, priority=15)
@@ -514,6 +529,7 @@ class ChampsSpider(Spider):
             item['name'] = product.xpath('.//div/a/@title').extract()[0].replace(" - Men's", "")
             item['link'] = product.xpath('.//div/a/@href').extract()[0].replace("&cm=GLOBAL SEARCH: KEYWORD SEARCH", "")
             # item['image'] = product.xpath('.//div/a/div/img/@data-original').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
         yield Request(ChampsURL, callback=self.parse, dont_filter=True, priority=16)
@@ -536,6 +552,7 @@ class EastBaySpider(Spider):
             item['name'] = product.xpath('.//div/a/@title').extract()[0].replace(" - Men's", "")
             item['link'] = product.xpath('.//div/a/@href').extract()[0].replace("&cm=GLOBAL SEARCH: KEYWORD SEARCH", "")
             # item['image'] = product.xpath('.//div/a/div/img/@data-original').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
         yield Request(EastBayURL, callback=self.parse, dont_filter=True, priority=17)
@@ -558,6 +575,7 @@ class FinishLineSpider(Spider):
             item['name'] = product.xpath('.//div/a[2]/div/p/text()').extract()[0].strip().replace("Men's ", "")
             item['link'] = "http://www.finishline.com" + product.xpath('.//div/a[1]/@href').extract()[0]
             # item['image'] = product.xpath('.//div/a[1]/div/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
         yield Request(FinishLineURL, callback=self.parse, dont_filter=True, priority=18)
@@ -580,6 +598,7 @@ class AdidasUSSpider(Spider):
             item['name'] = product.xpath('div[3]/div[3]/a/@data-productname').extract()[0]
             item['link'] = product.xpath('div[3]/div[3]/a/@href').extract()[0]
             # item['image'] = product.xpath('div[3]/div[3]/a/img/@data-original').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
         yield Request(AdidasUSURL, callback=self.parse, dont_filter=True, priority=19)
@@ -602,6 +621,7 @@ class AdidasEUSpider(Spider):
             item['name'] = product.xpath('div[3]/div[3]/a/@data-productname').extract()[0]
             item['link'] = product.xpath('div[3]/div[3]/a/@href').extract()[0]
             # item['image'] = product.xpath('div[3]/div[3]/a/img/@data-original').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
         yield Request(AdidasEUURL, callback=self.parse, dont_filter=True, priority=20)
@@ -624,6 +644,7 @@ class NikeSpider(Spider):
             item['name'] = product.xpath('.//div/div/div/div/p[1]/text()').extract()[0]
             item['link'] = product.xpath('.//div/div/div[1]/div/a/@href').extract()[0]
             # item['image'] = product.xpath('.//div/div/div[1]/div/a/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
         yield Request(NikeURL, callback=self.parse, dont_filter=True, priority=21)
@@ -646,6 +667,7 @@ class NordstromSpider(Spider):
             item['name'] = product.xpath('.//a/img/@alt').extract()[0].replace(" (Men)", "")
             item['link'] = "http://shop.nordstrom.com" + product.xpath('.//a/@href').extract()[0]
             # item['image'] = product.xpath('.//a/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
         yield Request(NordstromURL, callback=self.parse, dont_filter=True, priority=22)
@@ -668,6 +690,7 @@ class BarneysSpider(Spider):
             item['name'] = product.xpath('.//div/div/a/img/@title').extract()[0]
             item['link'] = "http://www.barneys.com" + product.xpath('.//div/div/a/@href').extract()[0]
             # item['image'] = product.xpath('.//div/div/a/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
         yield Request(BarneysURL, callback=self.parse, dont_filter=True, priority=23)
@@ -690,6 +713,7 @@ class JimmyJazzSpider(Spider):
             item['name'] = product.xpath('.//div/a/@title').extract()[0]
             item['link'] = "http://www.jimmyjazz.com" + product.xpath('.//div/a/@href').extract()[0]
             # item['image'] = product.xpath('.//div/a/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
         yield Request(JimmyJazzURL, callback=self.parse, dont_filter=True, priority=24)
@@ -712,6 +736,7 @@ class JDSportsSpider(Spider):
             item['name'] = product.xpath('.//span/a/img/@title').extract()[0]
             item['link'] = "https://www.jdsports.co.uk" + product.xpath('.//span/a/@href').extract()[0]
             # item['image'] = product.xpath('.//span/a/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
         yield Request(JDSportsURL, callback=self.parse, dont_filter=True, priority=25)
@@ -734,6 +759,7 @@ class FootPatrolSpider(Spider):
             item['name'] = product.xpath('.//div/a/img/@alt').extract()[0]
             item['link'] = "http://www.footpatrol.co.uk" + product.xpath('.//div/a/@href').extract()[0]
             # item['image'] = product.xpath('.//div/a/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 
         yield Request(FootPatrolURL, callback=self.parse, dont_filter=True, priority=26)
@@ -756,6 +782,7 @@ class SneakerPoliticsSpider(Spider):
             item['name'] = product.xpath('.//a/@title').extract()[0]
             item['link'] = "http://sneakerpolitics.com" + product.xpath('.//a/@href').extract()[0]
             # item['image'] = "http:" + product.xpath('.//a/div/img/@data-src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
         yield Request(SneakerPoliticsURL, callback=self.parse, dont_filter=True, priority=27)
@@ -778,6 +805,7 @@ class UrbanIndustrySpider(Spider):
             item['name'] = product.xpath('a/@title').extract()[0]
             item['link'] = "https://www.urbanindustry.co.uk" + product.xpath('a/@href').extract()[0]
             # item['image'] = "http:" + product.xpath('div[1]/a/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
         yield Request(UrbanIndustryURL, callback=self.parse, dont_filter=True, priority=28)
@@ -800,6 +828,7 @@ class SneakerBaasSpider(Spider):
             item['name'] = product.xpath('.//div/h2/a/@title').extract()[0]
             item['link'] = product.xpath('.//div/h2/a/@href').extract()[0]
             # item['image'] = product.xpath('.//a/img/@data-src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
         yield Request(SneakerBaasURL, callback=self.parse, dont_filter=True, priority=29)
@@ -822,6 +851,7 @@ class UrbanOutfittersSpider(Spider):
             item['name'] = product.xpath('div/p[1]/a/img/@alt').extract()[0]
             item['link'] = "http://www.urbanoutfitters.com/urban/catalog/" + product.xpath('div/p[2]/a/@href').extract()[0]
             # item['image'] = "http:" + product.xpath('div/p[1]/a/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
         yield Request(UrbanOutfittersURL, callback=self.parse, dont_filter=True, priority=30)
@@ -844,6 +874,7 @@ class LuisaSpider(Spider):
             item['name'] = product.xpath('.//a/span[1]/span[3]/text()').extract()[0]
             item['link'] = "https://www.luisaviaroma.com" + product.xpath('.//@href').extract()[0]
             # item['image'] = "https:" + product.xpath('.//a/span/span/span/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
         yield Request(LuisaURL, callback=self.parse, dont_filter=True, priority=31)
@@ -866,6 +897,7 @@ class SlamJamSpider(Spider):
             item['name'] = product.xpath('a/img/@alt').extract()[0]
             item['link'] = product.xpath('a/@href').extract()[0]
             # item['image'] = product.xpath('a/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
         yield Request(SlamJamURL, callback=self.parse, dont_filter=True, priority=32)
@@ -888,6 +920,7 @@ class Rise45Spider(Spider):
             item['name'] = product.xpath('a[2]/h4/text()').extract()[0]
             item['link'] = "https://rise45.com" + product.xpath('a[1]/@href').extract()[0]
             # item['image'] = "https:" + product.xpath('a[1]/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 			
         yield Request(Rise45URL, callback=self.parse, dont_filter=True, priority=33)
@@ -910,6 +943,7 @@ class UndefeatedSpider(Spider):
             item['name'] = product.xpath('div[2]/a/text()').extract()[0]
             item['link'] = "http://undefeated.com" + product.xpath('div[1]/a/@href').extract()[0]
             # item['image'] = product.xpath('div[1]/a/img/@data-src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
         yield Request(UndefeatedURL, callback=self.parse, dont_filter=True, priority=34)
@@ -932,6 +966,7 @@ class ZapposSpider(Spider):
             item['name'] = product.xpath('span[@class="productImgContainer"]/img/@alt').extract()[0]
             item['link'] = "http://www.zappos.com" + product.xpath('@href').extract()[0]
             # item['image'] = product.xpath('span[@class="productImgContainer"]/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
         yield Request(ZapposURL, callback=self.parse, dont_filter=True, priority=35)
@@ -954,6 +989,7 @@ class PointzSpider(Spider):
             item['name'] = product.xpath('a/@title').extract()[0]
             item['link'] = product.xpath('a/@href').extract()[0]
             # item['image'] = product.xpath('a/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
         yield Request(PointzURL, callback=self.parse, dont_filter=True, priority=36)
@@ -976,6 +1012,7 @@ class StickABushSpider(Spider):
             item['name'] = product.xpath('a/div/p/text()').extract()[0]
             item['link'] = product.xpath('a/@href').extract()[0]
             # item['image'] = product.xpath('a/img/@data-src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
         yield Request(StickABushURL, callback=self.parse, dont_filter=True, priority=37)
@@ -998,6 +1035,7 @@ class ShoesPalaceSpider(Spider):
             item['name'] = product.xpath('.//div[2]/text()').extract()[0]
             item['link'] = "http://www.shoepalace.com" + product.xpath('.//a/@href').extract()[0]
             # item['image'] = "http://www.shoepalace.com" + product.xpath('.//a/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 			
         yield Request(ShoesPalaceURL, callback=self.parse, dont_filter=True, priority=38)
@@ -1020,6 +1058,7 @@ class KongSpider(Spider):
             item['name'] = product.xpath('a/@title').extract()[0]
             item['link'] = "http://www.kongonline.co.uk" + product.xpath('a/@href').extract()[0]
             # item['image'] = "http:" + product.xpath('a/div/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 
         yield Request(KongURL, callback=self.parse, dont_filter=True, priority=39)
@@ -1042,6 +1081,7 @@ class SaveOurSoleSpider(Spider):
             item['name'] = product.xpath('a/@title').extract()[0]
             item['link'] = product.xpath('a/@href').extract()[0]
             # item['image'] = product.xpath('a/span/span/img/@srcset').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
         yield Request(SaveOurSoleURL, callback=self.parse, dont_filter=True, priority=40)
@@ -1064,6 +1104,7 @@ class InflammableSpider(Spider):
             item['name'] = product.xpath('div[1]/div[1]/a/img/@title').extract()[0]
             item['link'] = product.xpath('div[1]/div[1]/a/@href').extract()[0]
             # item['image'] = "http://www.inflammable.com/" + product.xpath('div[1]/div[1]/a/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 			
         yield Request(InflammableURL, callback=self.parse, dont_filter=True, priority=41)
@@ -1086,6 +1127,7 @@ class DefShopSpider(Spider):
             item['name'] = product.xpath('a/@title').extract()[0]
             item['link'] = product.xpath('a/@href').extract()[0]
             # item['image'] = product.xpath('a/div/img/@content').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 			
         yield Request(DefShopURL, callback=self.parse, dont_filter=True, priority=42)
@@ -1108,6 +1150,7 @@ class OffspringSpider(Spider):
             item['name'] = product.xpath('div[2]/div[1]/a//text()[3]').extract()[0].strip()
             item['link'] = "http://www.offspring.co.uk/view" + product.xpath('div[1]/a/@href').extract()[0]
             # item['image'] = product.xpath('div[1]/a/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 			
         yield Request(OffspringURL, callback=self.parse, dont_filter=True, priority=43)
@@ -1130,6 +1173,7 @@ class SoleKitchenSpider(Spider):
             item['name'] = product.xpath('div/a/@title').extract()[0]
             item['link'] = product.xpath('div/a/@href').extract()[0]
             # tem['image'] = product.xpath('div/span/div/div/div/a[2]/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 			
         yield Request(SoleKitchenURL, callback=self.parse, dont_filter=True, priority=44)
@@ -1152,6 +1196,7 @@ class DromeSpider(Spider):
             item['name'] = product.xpath('div[1]/img/@alt').extract()[0]
             item['link'] = "http://www.drome.co.uk" + product.xpath('div[2]/div[2]/a/@href').extract()[0]
             # item['image'] = "http://www.drome.co.uk" + product.xpath('div[1]/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
         yield Request(DromeURL, callback=self.parse, dont_filter=True, priority=45)
@@ -1174,6 +1219,7 @@ class FootAsylumSpider(Spider):
             item['name'] = product.xpath('div/span[2]/img/@alt').extract()[0]
             item['link'] = product.xpath('div/span[1]/text()').extract()[0]
             # item['image'] = "https://www.footasylum.com" + product.xpath('div/span[2]/img/@data-original').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 			
         yield Request(FootAsylumURL, callback=self.parse, dont_filter=True, priority=46)
@@ -1196,6 +1242,7 @@ class ConceptsSpider(Spider):
             item['name'] = product.xpath('div/h4/a/text()').extract()[0]
             item['link'] = "http://cncpts.com" + product.xpath('a/@href').extract()[0]
             # item['image'] = "http:" + product.xpath('a/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
         yield Request(ConceptsURL, callback=self.parse, dont_filter=True, priority=47)
@@ -1218,6 +1265,7 @@ class SocialStatusSpider(Spider):
             item['name'] = product.xpath('a/@title').extract()[0]
             item['link'] = "https://www.socialstatuspgh.com" + product.xpath('a/@href').extract()[0]
             # item['image'] = "https:" + product.xpath('a/img[1]/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
         yield Request(SocialStatusURL, callback=self.parse, dont_filter=True, priority=48)
@@ -1240,6 +1288,7 @@ class ExtraButterSpider(Spider):
             item['name'] = product.xpath('a/h4/text()').extract()[0]
             item['link'] = "https://shop.extrabutterny.com" + product.xpath('div/a/@href').extract()[0]
             # item['image'] = "https:" + product.xpath('div/a/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 			
         yield Request(ExtraButterURL, callback=self.parse, dont_filter=True, priority=49)
@@ -1262,6 +1311,7 @@ class BodegaSpider(Spider):
             item['name'] = product.xpath('div/div/h3/a/text()').extract()[0].strip()
             item['link'] = "https://shop.bdgastore.com" + product.xpath('div/a/@href').extract()[0]
             # item['image'] = "https:" + product.xpath('div/a/div[1]/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 			
         yield Request(BodegaURL, callback=self.parse, dont_filter=True, priority=50)
@@ -1284,6 +1334,7 @@ class SaintAlfredSpider(Spider):
             item['name'] = product.xpath('a/img/@alt').extract()[0]
             item['link'] = "https://www.saintalfred.com" + product.xpath('a/@href').extract()[0]
             # item['image'] = "https:" + product.xpath('a/img//@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
         yield Request(SaintAlfredURL, callback=self.parse, dont_filter=True, priority=51)	
@@ -1306,6 +1357,7 @@ class LapstoneNHammerSpider(Spider):
             item['name'] = product.xpath('a/img/@alt').extract()[0]
             item['link'] = "https://www.lapstoneandhammer.com" + product.xpath('a/@href').extract()[0]
             # item['image'] = "https:" + product.xpath('a/img//@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
         yield Request(LapstoneNHammerURL, callback=self.parse, dont_filter=True, priority=52)
@@ -1328,6 +1380,7 @@ class ShelfLifeSpider(Spider):
             item['name'] = product.xpath('.//a/div/img/@alt').extract()[0]
             item['link'] = "https://www.shelflife.co.za/" + product.xpath('.//a/@href').extract()[0]
             # item['image'] = "https://www.shelflife.co.za/" + product.xpath('.//a/div/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 
         yield Request(ShelfLifeURL, callback=self.parse, dont_filter=True, priority=53)
@@ -1350,6 +1403,7 @@ class AsphaltGoldSpider(Spider):
             item['name'] = product.xpath('a/@title').extract()[0]
             item['link'] = product.xpath('a/@href').extract()[0]
             # item['image'] = product.xpath('a/img//@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
         yield Request(AsphaltGoldURL, callback=self.parse, dont_filter=True, priority=54)
@@ -1372,6 +1426,7 @@ class HanonSpider(Spider):
             item['name'] = product.xpath('a/@title').extract()[0]
             item['link'] = "http://www.hanon-shop.com" + product.xpath('a/@href').extract()[0]
             # item['image'] = product.xpath('a/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
         yield Request(HanonURL, callback=self.parse, dont_filter=True, priority=55)
@@ -1395,6 +1450,7 @@ class SoleBoxSpider(Spider):
             temp = product.xpath('a/@href').extract()[0]
             item['link'] = re.sub(r'(\?(.*))', '', temp)
             # item['image'] = product.xpath('a/div/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 
         yield Request(SoleBoxURL, callback=self.parse, dont_filter=True, priority=56)
@@ -1417,6 +1473,7 @@ class ConsortiumSpider(Spider):
             item['name'] = product.xpath('div/h2/a/@title').extract()[0]
             item['link'] = product.xpath('div/h2/a/@href').extract()[0]
             # item['image'] = product.xpath('img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
         yield Request(ConsortiumURL, callback=self.parse, dont_filter=True, priority=57)
@@ -1439,6 +1496,7 @@ class HavenSpider(Spider):
             item['name'] = product.xpath('div[2]/p[2]/text()').extract()[0]
             item['link'] = product.xpath('@href').extract()[0]
             # item['image'] = "https:" + product.xpath('div[1]/img[1]/@data-src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 
         yield Request(HavenURL, callback=self.parse, dont_filter=True, priority=58)
@@ -1461,6 +1519,7 @@ class NeedSupplySpider(Spider):
             item['name'] = product.xpath('.//div/a/@title').extract()[0]
             item['link'] = product.xpath('.//div/a/@href').extract()[0]
             # item['image'] = product.xpath('.//div/a/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 
         yield Request(NeedSupplyURL, callback=self.parse, dont_filter=True, priority=59)
@@ -1483,6 +1542,7 @@ class LoadedSpider(Spider):
             item['name'] = product.xpath('.//div[2]/text()').extract()[0]
             item['link'] = "http://www.loadednz.com" + product.xpath('.//a/@href').extract()[0]
             # item['image'] = product.xpath('.//a/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 
         yield Request(LoadedURL, callback=self.parse, dont_filter=True, priority=60)
@@ -1505,6 +1565,7 @@ class WellGoshSpider(Spider):
             item['name'] = product.xpath('.//figure/a/@title').extract()[0]
             item['link'] = product.xpath('.//figure/a/@href').extract()[0]
             # item['image'] = product.xpath('.//figure/a/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 
         yield Request(WellGoshURL, callback=self.parse, dont_filter=True, priority=61)
@@ -1527,6 +1588,7 @@ class CapsuleSpider(Spider):
             item['name'] = product.xpath('a[1]/div/img/@alt').extract()[0]
             item['link'] = "http://www.capsuletoronto.com" + product.xpath('a[1]/@href').extract()[0]
             # item['image'] = "http:" + product.xpath('a[1]/div/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
         yield Request(CapsuleURL, callback=self.parse, dont_filter=True, priority=62)
@@ -1549,6 +1611,7 @@ class YMESpider(Spider):
             item['name'] = product.xpath('a/@title').extract()[0]
             item['link'] = product.xpath('a/@href').extract()[0]
             # item['image'] = product.xpath('a/span/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 			
         yield Request(YMEURL, callback=self.parse, dont_filter=True, priority=63)
@@ -1571,6 +1634,7 @@ class HypeDCSpider(Spider):
             item['name'] = product.xpath('.//a/@title').extract()[0]
             item['link'] = product.xpath('.//a/@href').extract()[0]
             # item['image'] = product.xpath('.//a/div/img/@data-src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 
         yield Request(HypeDCURL, callback=self.parse, dont_filter=True, priority=64)
@@ -1593,6 +1657,7 @@ class BSTNSpider(Spider):
             item['name'] = product.xpath('div/@data-alt').extract()[0]
             item['link'] = "https://www.bstnstore.com" + product.xpath('@href').extract()[0]
             # item['image'] = "https://www.bstnstore.com" + product.xpath('div/div[2]/@data-src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 			
 	yield Request(BSTNURL, callback=self.parse, dont_filter=True, priority=65)
@@ -1615,6 +1680,7 @@ class TrophyRoomSpider(Spider):
             item['name'] = product.xpath('a/img/@alt').extract()[0]
             item['link'] = "https://www.trophyroomstore.com" + product.xpath('a/@href').extract()[0]
             # item['image'] = "https:" + product.xpath('a/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 			
         yield Request(TrophyRoomURL, callback=self.parse, dont_filter=True, priority=66)
@@ -1637,6 +1703,7 @@ class OfficeSpider(Spider):
             item['name'] = product.xpath('div[2]/div/a/text()[2]').extract()[0].strip()
             item['link'] = "http://www.office.co.uk" + product.xpath('div[1]/a/@href').extract()[0]
             # item['image'] = "http:" + product.xpath('div[1]/a/img/@data-transition').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 
         yield Request(OfficeURL, callback=self.parse, dont_filter=True, priority=67)
@@ -1659,6 +1726,7 @@ class ALLikeSpider(Spider):
             item['name'] = product.xpath('a/@title').extract()[0]
             item['link'] = product.xpath('a/@href').extract()[0]
             # item['image'] = product.xpath('a/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 
         yield Request(ALLikeURL, callback=self.parse, dont_filter=True, priority=68)
@@ -1681,6 +1749,7 @@ class UrbanJungleSpider(Spider):
             item['name'] = product.xpath('a/@title').extract()[0]
             item['link'] = product.xpath('a/@href').extract()[0]
             # item['image'] = product.xpath('a/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
         yield Request(UrbanJungleURL, callback=self.parse, dont_filter=True, priority=69)
@@ -1703,6 +1772,7 @@ class SSenseSpider(Spider):
             item['name'] = product.xpath('.//meta[2]/@content').extract()[0]
             item['link'] = product.xpath('.//meta[4]/@content').extract()[0]
             # item['image'] = product.xpath('.//meta[3]/@content').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 
         yield Request(SSenseURL, callback=self.parse, dont_filter=True, priority=70)
@@ -1725,6 +1795,7 @@ class BackDoorSpider(Spider):
             item['name'] = product.xpath('a[1]/h6/text()').extract()[0]
             item['link'] = product.xpath('a[1]/@href').extract()[0]
             # item['image'] = product.xpath('div/a[2]/span/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 
         yield Request(BackDoorURL, callback=self.parse, dont_filter=True, priority=71)
@@ -1747,6 +1818,7 @@ class BasketSpider(Spider):
             item['name'] = product.xpath('a/@title').extract()[0]
             item['link'] = product.xpath('a/@href').extract()[0]
             # item['image'] = product.xpath('a/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 
         yield Request(BasketURL, callback=self.parse, dont_filter=True, priority=72)
@@ -1769,6 +1841,7 @@ class DopeFactorySpider(Spider):
             item['name'] = product.xpath('div/a/@title').extract()[0]
             item['link'] = product.xpath('div/a/@href').extract()[0]
             # item['image'] = product.xpath('div/a/div/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 
         yield Request(DopeFactoryURL, callback=self.parse, dont_filter=True, priority=73)
@@ -1791,6 +1864,7 @@ class NextDoorSpider(Spider):
             item['name'] = product.xpath('div/a/@title').extract()[0]
             item['link'] = product.xpath('div/a/@href').extract()[0]
             # item['image'] = product.xpath('div/a/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 
         yield Request(NextDoorURL, callback=self.parse, dont_filter=True, priority=74)
@@ -1813,6 +1887,7 @@ class SummerSpider(Spider):
             item['name'] = product.xpath('a/@title').extract()[0]
             item['link'] = product.xpath('a/@href').extract()[0]
             # item['image'] = product.xpath('a/div/img[1]/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 
         yield Request(SummerURL, callback=self.parse, dont_filter=True, priority=75)
@@ -1835,6 +1910,7 @@ class MrPorterSpider(Spider):
             item['name'] = product.xpath('a/div[2]/div/span[2]/text()').extract()[0].replace(" Sneakers", "")
             item['link'] = "https://www.mrporter.com" + product.xpath('a/@href').extract()[0]
             # item['image'] = product.xpath('a/div[1]/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 
         yield Request(MrPorterURL, callback=self.parse, dont_filter=True, priority=76)
@@ -1857,6 +1933,7 @@ class StormFashionSpider(Spider):
             item['name'] = product.xpath('ul/li/a/img/@alt').extract()[0].strip()
             item['link'] = "http://stormfashion.dk" + product.xpath('ul/li/a/@href').extract()[0]
             # item['image'] = product.xpath('ul/li/a/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 
         yield Request(StormFashionURL, callback=self.parse, dont_filter=True, priority=77)
@@ -1879,6 +1956,7 @@ class TresBienSpider(Spider):
             item['name'] = product.xpath('a/div[2]/h2/text()').extract()[0].strip()
             item['link'] = "http://tres-bien.com" + product.xpath('a/@href').extract()[0]
             # item['image'] = product.xpath('a/div[1]/picture/@data-default-src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 
         yield Request(TresBienURL, callback=self.parse, dont_filter=True, priority=78)
@@ -1901,6 +1979,7 @@ class PackerSpider(Spider):
             item['name'] = product.xpath('a/@title').extract()[0]
             item['link'] = "https://packershoes.com" + product.xpath('a/@href').extract()[0]
             # item['image'] = "https:" + product.xpath('a/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 
         yield Request(PackerURL, callback=self.parse, dont_filter=True, priority=79)
@@ -1923,6 +2002,7 @@ class ShoesAddictorSpider(Spider):
             item['name'] = product.xpath('h4/a/text()').extract()[0]
             item['link'] = product.xpath('h4/a/@href').extract()[0]
             # item['image'] = product.xpath('div/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 
         yield Request(ShoesAddictorURL, callback=self.parse, dont_filter=True, priority=80)
@@ -1945,6 +2025,7 @@ class AddictSpider(Spider):
             item['name'] = product.xpath('a/div[2]/div[1]/text()').extract()[0]
             item['link'] = "https://www.addictmiami.com" + product.xpath('a/@href').extract()[0]
             # item['image'] = "https:" + product.xpath('a/div[1]/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 
         yield Request(AddictURL, callback=self.parse, dont_filter=True, priority=81)
@@ -1967,6 +2048,7 @@ class AphroditeSpider(Spider):
             item['name'] = product.xpath('.//a/@title').extract()[0]
             item['link'] = product.xpath('.//a/@href').extract()[0]
             # item['image'] = "https:" + product.xpath('.//a/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 
         yield Request(AphroditeURL, callback=self.parse, dont_filter=True, priority=82)
@@ -1989,6 +2071,7 @@ class BaitSpider(Spider):
             item['name'] = product.xpath('a/@title').extract()[0]
             item['link'] = product.xpath('a/@href').extract()[0]
             # item['image'] = product.xpath('a/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 
         yield Request(BaitURL, callback=self.parse, dont_filter=True, priority=83)
@@ -2011,6 +2094,7 @@ class BlendsSpider(Spider):
             item['name'] = product.xpath('.//a/@title').extract()[0]
             item['link'] = "https://www.blendsus.com" + product.xpath('.//a/@href').extract()[0]
             # item['image'] = "https:" + product.xpath('.//a/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 
         yield Request(BlendsURL, callback=self.parse, dont_filter=True, priority=84)
@@ -2033,6 +2117,7 @@ class NiceKicksSpider(Spider):
             item['name'] = product.xpath('a/div/img/@alt').extract()[0]
             item['link'] = "https://shopnicekicks.com" + product.xpath('a/@href').extract()[0]
             # item['image'] = "https:" + product.xpath('a/div/img/@data-src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 
         yield Request(NiceKicksURL, callback=self.parse, dont_filter=True, priority=85)
@@ -2055,6 +2140,7 @@ class FeatureSpider(Spider):
             item['name'] = product.xpath('.//article/img/@alt').extract()[0]
             item['link'] = "https://www.featuresneakerboutique.com" + product.xpath('.//@href').extract()[0]
             # item['image'] = "https:" + product.xpath('.//article/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 
         yield Request(FeatureURL, callback=self.parse, dont_filter=True, priority=86)
@@ -2077,6 +2163,7 @@ class HypeBeastSpider(Spider):
             item['name'] = product.xpath('a[2]/h3/text()').extract()[0]
             item['link'] = "https://hbx.com" + product.xpath('div/a/@href').extract()[0]
             # item['image'] = product.xpath('div/a/img[1]/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 
         yield Request(HypeBeastURL, callback=self.parse, dont_filter=True, priority=87)
@@ -2099,6 +2186,7 @@ class DeadStockSpider(Spider):
             item['name'] = product.xpath('a/@title').extract()[0]
             item['link'] = "https://www.deadstock.ca" + product.xpath('a/@href').extract()[0]
             # item['image'] = "https:" + product.xpath('a/div[1]/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 
         yield Request(DeadStockURL, callback=self.parse, dont_filter=True, priority=88)
@@ -2121,6 +2209,7 @@ class NotreSpider(Spider):
             item['name'] = product.xpath('a[1]/img/@alt').extract()[0]
             item['link'] = "https://www.notre-shop.com" + product.xpath('a[1]/@href').extract()[0]
             # item['image'] = "https:" + product.xpath('a[1]/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 
         yield Request(NotreURL, callback=self.parse, dont_filter=True, priority=89)
@@ -2143,6 +2232,7 @@ class NrmlSpider(Spider):
             item['name'] = product.xpath('a/img/@alt').extract()[0]
             item['link'] = "https://nrml.ca" + product.xpath('a/@href').extract()[0]
             # item['image'] = "https:" + product.xpath('a/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 
         yield Request(NrmlURL, callback=self.parse, dont_filter=True, priority=90)
@@ -2165,6 +2255,7 @@ class OnenessSpider(Spider):
             item['name'] = product.xpath('div/a/img/@alt').extract()[0]
             item['link'] = "https://www.oneness287.com" + product.xpath('div/a/@href').extract()[0]
             # item['image'] = "https:" + product.xpath('div/a/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 			
         yield Request(OnenessURL, callback=self.parse, dont_filter=True, priority=91)
@@ -2187,6 +2278,7 @@ class PufferRedsSpider(Spider):
             item['name'] = product.xpath('.//a/@title').extract()[0]
             item['link'] = product.xpath('.//a/@href').extract()[0]
             # item['image'] = product.xpath('.//a/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 
         yield Request(PufferRedsURL, callback=self.parse, dont_filter=True, priority=92)
@@ -2209,6 +2301,7 @@ class RenartsSpider(Spider):
             item['name'] = product.xpath('a/h4/text()').extract()[0]
             item['link'] = "https://renarts.com" + product.xpath('div/a/@href').extract()[0]
             # item['image'] = "https:" + product.xpath('div/a/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 
         yield Request(RenartsURL, callback=self.parse, dont_filter=True, priority=93)
@@ -2231,6 +2324,7 @@ class ProperSpider(Spider):
             item['name'] = product.xpath('.//a/div[1]/img/@alt').extract()[0]
             item['link'] = "https://properlbc.com" + product.xpath('.//a/@href').extract()[0]
             # item['image'] = "https:" + product.xpath('.//a/div[1]/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 
         yield Request(ProperURL, callback=self.parse, dont_filter=True, priority=94)
@@ -2253,6 +2347,7 @@ class SoleStopSpider(Spider):
             item['name'] = product.xpath('.//a/img/@alt').extract()[0]
             item['link'] = "https://www.solestop.com" + product.xpath('.//a/@href').extract()[0]
             # item['image'] = "https:" + product.xpath('.//a/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 
         yield Request(SoleStopURL, callback=self.parse, dont_filter=True, priority=95)
@@ -2275,6 +2370,7 @@ class TitoloSpider(Spider):
             item['name'] = product.xpath('a/@title').extract()[0]
             item['link'] = product.xpath('a/@href').extract()[0]
             # item['image'] = product.xpath('div[1]/a/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
         yield Request(TitoloURL, callback=self.parse, dont_filter=True, priority=96)
@@ -2297,6 +2393,7 @@ class UptownSpider(Spider):
             item['name'] = product.xpath('.//a/img/@alt').extract()[0]
             item['link'] = "https://www.uptownmia.com" + product.xpath('.//a/@href').extract()[0]
             # item['image'] = "https:" + product.xpath('.//a/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 
         yield Request(UptownURL, callback=self.parse, dont_filter=True, priority=97)
@@ -2319,6 +2416,7 @@ class WestNYCSpider(Spider):
             item['name'] = product.xpath('.//a/img/@alt').extract()[0]
             item['link'] = "https://www.westnyc.com" + product.xpath('.//a/@href').extract()[0]
             # item['image'] = "https:" + product.xpath('.//a/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 
         yield Request(WestNYCURL, callback=self.parse, dont_filter=True, priority=98)
@@ -2341,6 +2439,7 @@ class XileClothingSpider(Spider):
             item['name'] = product.xpath('a/img/@alt').extract()[0]
             item['link'] = product.xpath('a/@href').extract()[0]
             # item['image'] = "https://www.xileclothing.com" + product.xpath('a/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 
         yield Request(XileClothingURL, callback=self.parse, dont_filter=True, priority=99)
@@ -2363,6 +2462,7 @@ class SoleflySpider(Spider):
             item['name'] = product.xpath('a/img/@alt').extract()[0]
             item['link'] = "https://www.solefly.com" + product.xpath('a/@href').extract()[0]
             item['image'] = "https:" + product.xpath('a/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 
         yield Request(SoleflyURL, callback=self.parse, dont_filter=True, priority=100)
@@ -2385,6 +2485,7 @@ class SVDSpider(Spider):
             item['name'] = product.xpath('div/a/img/@alt').extract()[0]
             item['link'] = product.xpath('div/a/@href').extract()[0]
             item['image'] = product.xpath('div/a/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 
         yield Request(SVDURL, callback=self.parse, dont_filter=True, priority=101)
@@ -2405,6 +2506,7 @@ class DSMNYSpider(Spider):
         for product in products:
             item = DSMNYItem()
             item['link'] = product.xpath('@href').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
         yield Request(DSMNYURL, callback=self.parse, dont_filter=True, priority=102)
@@ -2426,6 +2528,7 @@ class HubbastilleSpider(Spider):
             item = HubbastilleItem()
             item['name'] = product.xpath('section/div/div/a/img[1]/@title').extract()[0]
             item['link'] = product.xpath('section/div/div/a/@href').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
             yield item
 			
         yield Request(HubbastilleURL, callback=self.parse, dont_filter=True, priority=103)
