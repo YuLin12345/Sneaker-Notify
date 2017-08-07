@@ -15,6 +15,7 @@ class CrawlerItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
     
 class KithItem(Item):
     date = Field()
@@ -23,6 +24,7 @@ class KithItem(Item):
     link = Field()
     name = Field()
     size = Field()
+    size = Field()
     
 class RuvillaItem(Item):
     date = Field()
@@ -30,6 +32,7 @@ class RuvillaItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
     
 class FootLockerItem(Item):
     date = Field()
@@ -37,6 +40,7 @@ class FootLockerItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
     
 class FootActionItem(Item):
     date = Field()
@@ -44,6 +48,7 @@ class FootActionItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
     
 class ChampsItem(Item):
     date = Field()
@@ -51,6 +56,7 @@ class ChampsItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
     
 class EastBayItem(Item):
     date = Field()
@@ -58,6 +64,7 @@ class EastBayItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
     
 class FinishLineItem(Item):
     date = Field()
@@ -65,6 +72,7 @@ class FinishLineItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
     
 class AdidasItem(Item):
     date = Field()
@@ -72,6 +80,7 @@ class AdidasItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
     
 class NikeItem(Item):
     date = Field()
@@ -79,6 +88,7 @@ class NikeItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
     
 class FootShopItem(Item):
     date = Field()
@@ -86,6 +96,7 @@ class FootShopItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
     
 class CalirootsItem(Item):
     date = Field()
@@ -93,6 +104,7 @@ class CalirootsItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
     
 class AfewItem(Item):
     date = Field()
@@ -100,6 +112,7 @@ class AfewItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
     
 class EinhalbItem(Item):
     date = Field()
@@ -107,6 +120,7 @@ class EinhalbItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
     
 class EndItem(Item):
     date = Field()
@@ -114,6 +128,7 @@ class EndItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
     
 class SNSItem(Item):
     date = Field()
@@ -121,6 +136,7 @@ class SNSItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
     
 class GoodWillOutItem(Item):
     date = Field()
@@ -128,6 +144,7 @@ class GoodWillOutItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
     
 class TintItem(Item):
     date = Field()
@@ -135,6 +152,7 @@ class TintItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
     
 class OverkillItem(Item):
     date = Field()
@@ -142,6 +160,7 @@ class OverkillItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
     
 class FootDistrictItem(Item):
     date = Field()
@@ -149,6 +168,7 @@ class FootDistrictItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
     
 class SizeItem(Item):
     date = Field()
@@ -156,6 +176,7 @@ class SizeItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
     
 class YCMCItem(Item):
     date = Field()
@@ -163,6 +184,7 @@ class YCMCItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
     
 class CityItem(Item):
     date = Field()
@@ -170,6 +192,7 @@ class CityItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
     
 class NordstromItem(Item):
     date = Field()
@@ -177,6 +200,7 @@ class NordstromItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
     
 class BarneysItem(Item):
     date = Field()
@@ -184,6 +208,7 @@ class BarneysItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
     
 class JimmyJazzItem(Item):
     date = Field()
@@ -191,6 +216,7 @@ class JimmyJazzItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
     
 class JDSportsItem(Item):
     date = Field()
@@ -198,6 +224,7 @@ class JDSportsItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
     
 class FootPatrolItem(Item):
     date = Field()
@@ -205,6 +232,7 @@ class FootPatrolItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
     
 class SneakerBaasItem(Item):
     date = Field()
@@ -212,6 +240,7 @@ class SneakerBaasItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
     
 class SneakerPoliticsItem(Item):
     date = Field()
@@ -219,6 +248,7 @@ class SneakerPoliticsItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
     
 class UrbanIndustryItem(Item):
     date = Field()
@@ -226,6 +256,7 @@ class UrbanIndustryItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
     
 class UrbanOutfittersItem(Item):
     date = Field()
@@ -233,6 +264,7 @@ class UrbanOutfittersItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 
 class LuisaItem(Item):
     date = Field()
@@ -240,6 +272,7 @@ class LuisaItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
     
 class SlamJamItem(Item):
     date = Field()
@@ -247,6 +280,7 @@ class SlamJamItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
     
 class Rise45Item(Item):
     date = Field()
@@ -254,6 +288,7 @@ class Rise45Item(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
     
 class UndefeatedItem(Item):
     date = Field()
@@ -261,6 +296,7 @@ class UndefeatedItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
     
 class ZapposItem(Item):
     date = Field()
@@ -268,6 +304,7 @@ class ZapposItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
     
 class UbiqItem(Item):
     date = Field()
@@ -275,6 +312,7 @@ class UbiqItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
     
 class PointzItem(Item):
     date = Field()
@@ -282,6 +320,7 @@ class PointzItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
     
 class KicksItem(Item):
     date = Field()
@@ -289,6 +328,7 @@ class KicksItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
     
 class ShoesPalaceItem(Item):
     date = Field()
@@ -296,6 +336,7 @@ class ShoesPalaceItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
     
 class StickABushItem(Item):
     date = Field()
@@ -303,6 +344,7 @@ class StickABushItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
     
 class KongItem(Item):
     date = Field()
@@ -310,6 +352,7 @@ class KongItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
     
 class SaveOurSoleItem(Item):
     date = Field()
@@ -317,6 +360,7 @@ class SaveOurSoleItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
     
 class InflammableItem(Item):
     date = Field()
@@ -324,6 +368,7 @@ class InflammableItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
     
 class DefShopItem(Item):
     date = Field()
@@ -331,6 +376,7 @@ class DefShopItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
     
 class OffSpringItem(Item):
     date = Field()
@@ -338,6 +384,7 @@ class OffSpringItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
     
 class SoleKitchenItem(Item):
     date = Field()
@@ -345,6 +392,7 @@ class SoleKitchenItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
     
 class DromeItem(Item):
     date = Field()
@@ -352,6 +400,7 @@ class DromeItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
     
 class FootAsylumItem(Item):
     date = Field()
@@ -359,6 +408,7 @@ class FootAsylumItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
     
 class HHVItem(Item):
     date = Field()
@@ -366,6 +416,7 @@ class HHVItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class ConceptsItem(Item):
     date = Field()
@@ -373,6 +424,7 @@ class ConceptsItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class SocialStatusItem(Item):
     date = Field()
@@ -380,6 +432,7 @@ class SocialStatusItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class ExtraButterItem(Item):
     date = Field()
@@ -387,6 +440,7 @@ class ExtraButterItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 
 class BodegaItem(Item):
     date = Field()
@@ -394,6 +448,7 @@ class BodegaItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class SaintAlfredItem(Item):
     date = Field()
@@ -401,6 +456,7 @@ class SaintAlfredItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class LapstoneNHammerItem(Item):
     date = Field()
@@ -408,6 +464,7 @@ class LapstoneNHammerItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class ShelfLifeItem(Item):
     date = Field()
@@ -415,6 +472,7 @@ class ShelfLifeItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class AsphaltGoldItem(Item):
     date = Field()
@@ -422,6 +480,7 @@ class AsphaltGoldItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class HanonItem(Item):
     date = Field()
@@ -429,6 +488,7 @@ class HanonItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 
 class SoleBoxItem(Item):
     date = Field()
@@ -436,6 +496,7 @@ class SoleBoxItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class ConsortiumItem(Item):
     date = Field()
@@ -443,6 +504,7 @@ class ConsortiumItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class HavenItem(Item):
     date = Field()
@@ -450,6 +512,7 @@ class HavenItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class NeedSupplyItem(Item):
     date = Field()
@@ -457,6 +520,7 @@ class NeedSupplyItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class LoadedItem(Item):
     date = Field()
@@ -464,6 +528,7 @@ class LoadedItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class WellGoshItem(Item):
     date = Field()
@@ -471,6 +536,7 @@ class WellGoshItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class CapsuleItem(Item):
     date = Field()
@@ -478,6 +544,7 @@ class CapsuleItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class YMEItem(Item):
     date = Field()
@@ -485,6 +552,7 @@ class YMEItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class HypeDCItem(Item):
     date = Field()
@@ -492,6 +560,7 @@ class HypeDCItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class HolyPopItem(Item):
     date = Field()
@@ -499,6 +568,7 @@ class HolyPopItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class BSTNItem(Item):
     date = Field()
@@ -506,6 +576,7 @@ class BSTNItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class TrophyRoomItem(Item):
     date = Field()
@@ -513,6 +584,7 @@ class TrophyRoomItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class SideStepItem(Item):
     date = Field()
@@ -520,6 +592,7 @@ class SideStepItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class ShiekhItem(Item):
     date = Field()
@@ -527,6 +600,7 @@ class ShiekhItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class RezetItem(Item):
     date = Field()
@@ -534,6 +608,7 @@ class RezetItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class FootLockerEUItem(Item):
     date = Field()
@@ -541,6 +616,7 @@ class FootLockerEUItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class OfficeItem(Item):
     date = Field()
@@ -548,6 +624,7 @@ class OfficeItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class ALLikeItem(Item):
     date = Field()
@@ -555,6 +632,7 @@ class ALLikeItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class SportsShoesItem(Item):
     date = Field()
@@ -562,6 +640,7 @@ class SportsShoesItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class RunnersPointItem(Item):
     date = Field()
@@ -569,6 +648,7 @@ class RunnersPointItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class GraffitiItem(Item):
     date = Field()
@@ -576,6 +656,7 @@ class GraffitiItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class UrbanJungleItem(Item):
     date = Field()
@@ -583,6 +664,7 @@ class UrbanJungleItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class SSenseItem(Item):
     date = Field()
@@ -590,6 +672,7 @@ class SSenseItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class BackDoorItem(Item):
     date = Field()
@@ -597,6 +680,7 @@ class BackDoorItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class BasketItem(Item):
     date = Field()
@@ -604,6 +688,7 @@ class BasketItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class OneBlockDownItem(Item):
     date = Field()
@@ -611,6 +696,7 @@ class OneBlockDownItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class DopeFactoryItem(Item):
     date = Field()
@@ -618,6 +704,7 @@ class DopeFactoryItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class NextDoorItem(Item):
     date = Field()
@@ -625,6 +712,7 @@ class NextDoorItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class SummerItem(Item):
     date = Field()
@@ -632,6 +720,7 @@ class SummerItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class MrPorterItem(Item):
     date = Field()
@@ -639,6 +728,7 @@ class MrPorterItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class StormFashionItem(Item):
     date = Field()
@@ -646,6 +736,7 @@ class StormFashionItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class TresBienItem(Item):
     date = Field()
@@ -653,6 +744,7 @@ class TresBienItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class PackerItem(Item):
     date = Field()
@@ -660,6 +752,7 @@ class PackerItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class AddictItem(Item):
     date = Field()
@@ -667,6 +760,7 @@ class AddictItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class AphroditeItem(Item):
     date = Field()
@@ -674,6 +768,7 @@ class AphroditeItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class BaitItem(Item):
     date = Field()
@@ -681,6 +776,7 @@ class BaitItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class BlendsItem(Item):
     date = Field()
@@ -688,6 +784,7 @@ class BlendsItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class NiceKicksItem(Item):
     date = Field()
@@ -695,6 +792,7 @@ class NiceKicksItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class ClicksItem(Item):
     date = Field()
@@ -702,6 +800,7 @@ class ClicksItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class FeatureItem(Item):
     date = Field()
@@ -709,6 +808,7 @@ class FeatureItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class HypeBeastItem(Item):
     date = Field()
@@ -716,6 +816,7 @@ class HypeBeastItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 
 class DeadStockItem(Item):
     date = Field()
@@ -723,6 +824,7 @@ class DeadStockItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class NotreItem(Item):
     date = Field()
@@ -730,6 +832,7 @@ class NotreItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class NrmlItem(Item):
     date = Field()
@@ -737,6 +840,7 @@ class NrmlItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class OnenessItem(Item):
     date = Field()
@@ -744,6 +848,7 @@ class OnenessItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class PufferRedsItem(Item):
     date = Field()
@@ -751,6 +856,7 @@ class PufferRedsItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class RenartsItem(Item):
     date = Field()
@@ -758,6 +864,7 @@ class RenartsItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class ShoesGalleryItem(Item):
     date = Field()
@@ -765,6 +872,7 @@ class ShoesGalleryItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class ProperItem(Item):
     date = Field()
@@ -772,6 +880,7 @@ class ProperItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class SoleStopItem(Item):
     date = Field()
@@ -779,6 +888,7 @@ class SoleStopItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class TitoloItem(Item):
     date = Field()
@@ -786,6 +896,7 @@ class TitoloItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class UptownItem(Item):
     date = Field()
@@ -793,6 +904,7 @@ class UptownItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class WestNYCItem(Item):
     date = Field()
@@ -800,6 +912,7 @@ class WestNYCItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class WishATLItem(Item):
     date = Field()
@@ -807,6 +920,7 @@ class WishATLItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class XileClothingItem(Item):
     date = Field()
@@ -814,6 +928,7 @@ class XileClothingItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 
 class SoleflyItem(Item):
     date = Field()
@@ -821,6 +936,7 @@ class SoleflyItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
     
 class PattaItem(Item):
     date = Field()
@@ -828,6 +944,7 @@ class PattaItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class SVDItem(Item):
     date = Field()
@@ -835,6 +952,7 @@ class SVDItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class DSMNYItem(Item):
     date = Field()
@@ -842,6 +960,7 @@ class DSMNYItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class HubbastilleItem(Item):
     date = Field()
@@ -849,6 +968,7 @@ class HubbastilleItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
 	
 class ShoesAddictorItem(Item):
     date = Field()
@@ -856,3 +976,4 @@ class ShoesAddictorItem(Item):
     image = Field()
     link = Field()
     name = Field()
+    size = Field()
