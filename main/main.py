@@ -161,12 +161,21 @@ class KithSpider(Spider):
 					item['size'] = "https://kith.com/cart/add.js?id=" + product.xpath('div/div/a[2]/div/*/div[1]/@data-value').extract()[0] + "&quantity=1"
 					yield item
 					
+<<<<<<< HEAD
 				yield Request(KithURL, callback=self.parse, dont_filter=True, priority=0)	
 			
 			except:
 				pass
 				
 				
+=======
+			except:
+				pass
+				
+				yield Request(KithURL, callback=self.parse, dont_filter=True, priority=0)
+		
+		
+>>>>>>> master
 class RuvillaSpider(Spider):
     
     name = "RuvillaSpider"
@@ -2570,7 +2579,10 @@ process.crawl(Rise45Spider)
 process.crawl(UndefeatedSpider)
 process.crawl(ZapposSpider)
 process.crawl(PointzSpider)
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 process.crawl(StickABushSpider)
 process.crawl(KongSpider)
 process.crawl(SaveOurSoleSpider)
@@ -2579,6 +2591,10 @@ process.crawl(DefShopSpider)
 process.crawl(OffspringSpider)
 process.crawl(SoleKitchenSpider)
 process.crawl(DromeSpider)
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 process.crawl(FootAsylumSpider)
 process.crawl(ConceptsSpider)
 process.crawl(SocialStatusSpider)
@@ -2603,13 +2619,20 @@ process.crawl(TrophyRoomSpider)
 process.crawl(OfficeSpider)
 process.crawl(ALLikeSpider)
 process.crawl(UrbanJungleSpider)
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 process.crawl(SSenseSpider)
 process.crawl(BackDoorSpider)
 process.crawl(BasketSpider)
 process.crawl(DopeFactorySpider)
 process.crawl(NextDoorSpider)
 process.crawl(SummerSpider)
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 process.crawl(MrPorterSpider)
 process.crawl(StormFashionSpider)
 process.crawl(TresBienSpider)
