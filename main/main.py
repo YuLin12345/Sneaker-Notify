@@ -37,7 +37,7 @@ TintURL = "http://www.tint-footwear.com/shoes?dir=desc&limit=16&order=news_from_
 OverkillURL = "https://www.overkillshop.com/en/sneaker/filter/manufacturer-nike-adidas-jordan.html?dir=desc&limit=36&order=category_sorting&p=1"
 FootDistrictURL = "https://footdistrict.com/en/sneakers/latest/where/marca/adidas_jordan_nike/p/1/order/position/dir/desc/limit/12.html"
 SizeURL = "https://www.size.co.uk/mens/footwear/brand/nike,adidas-originals,adidas,nike-sb,jordan/latest/?from=0"
-YCMCURL = "http://www.ycmc.com/men/shoes/sneakers.html?dir=desc&order=new_arrivals&p=1&warm=1"
+YCMCURL = "http://www.ycmc.com/men/shoes/sneakers.html?dir=desc&order=new_arrivals&p=1"
 CityURL = "http://www.citygear.com/catalog/shoes/brand/nike-adidas-jordan/sort-by/news_from_date/sort-direction/desc.html"
 FootLockerURL = "http://m.footlocker.com/?uri=search&Nao=0&Rpp=20&N=991+76"
 FootActionURL = "http://m.footaction.com/?uri=search&Nao=0&Rpp=20&N=991+76"
@@ -2252,9 +2252,9 @@ class OnenessSpider(Spider):
 
         for product in products:
             item = OnenessItem()
-            item['name'] = product.xpath('div/a/img/@alt').extract()[0]
+            item['name'] = product.xpath('div/div[1]/a/text()').extract()[0]
             item['link'] = "https://www.oneness287.com" + product.xpath('div/a/@href').extract()[0]
-            # item['image'] = "https:" + product.xpath('div/a/img/@src').extract()[0]
+            # item['image'] = "https:" + product.xpath('div/a/div/img/@src').extract()[0]
             item['size'] = '**NOT SUPPORTED YET**'
             yield item
 			
