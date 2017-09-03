@@ -2432,7 +2432,7 @@ class XileClothingSpider(Spider):
         logging.critical("XileClothingSpider STARTED.")
         
     def parse(self, response):
-        products = Selector(response).xpath('//ul[@class="itemsList"]//li//div[1]')
+        products = Selector(response).xpath('//ul[@class="itemsList"]/li/div[1]')
 
         for product in products:
             item = XileClothingItem()
