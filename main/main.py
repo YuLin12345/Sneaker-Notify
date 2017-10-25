@@ -35,7 +35,7 @@ EndURL = "https://www.endclothing.com/us/footwear?p=1&brand=767-769-387963-48504
 SNSURL = "http://www.sneakersnstuff.com/en/2/sneakers/1?p=813&p=5954&p=1046&orderBy=Published"
 TintURL = "http://www.tint-footwear.com/shoes?dir=desc&limit=16&order=news_from_date&p=1"
 OverkillURL = "https://www.overkillshop.com/en/sneaker/filter/manufacturer-nike-adidas-jordan.html?dir=desc&limit=36&order=category_sorting&p=1"
-FootDistrictURL = "https://footdistrict.com/en/sneakers/latest/where/marca/adidas_jordan_nike/p/1/order/position/dir/desc/limit/12.html"
+FootDistrictURL = "https://footdistrict.com/en/sneakers/latest.html?limit=12&p=1"
 SizeURL = "https://www.size.co.uk/mens/footwear/brand/nike,adidas-originals,adidas,nike-sb,jordan/latest/?from=0"
 YCMCURL = "http://www.ycmc.com/men/shoes/sneakers.html?dir=desc&order=new_arrivals&p=1"
 CityURL = "http://www.citygear.com/catalog/shoes/brand/nike-adidas-jordan/sort-by/news_from_date/sort-direction/desc.html"
@@ -74,7 +74,7 @@ DromeURL = "http://www.drome.co.uk/footwear/?old_expand=2&brand=BR_AA&brand=BR_N
 FootAsylumURL = "https://www.footasylum.com/mens-footwear/?brand=BR_AA&brand=BR_NN&brand=BR_JORD&order=NEW+PRODUCTS&page=1"
 ConceptsURL = "http://cncpts.com/collections/footwear#"
 SocialStatusURL = "https://www.socialstatuspgh.com/collections/sneakers?page=1&sort_by=created-descending"
-ExtraButterURL = "https://shop.extrabutterny.com/collections/footwear?page=1&sort_by=created-descending"
+ExtraButterURL = URL = "https://shop.extrabutterny.com/collections/footwear?page=1&sort_by=created-descending"
 BodegaURL = "https://shop.bdgastore.com/collections/footwear?sort_by=created-descending&page=1"
 SaintAlfredURL = "https://www.saintalfred.com/collections/footwear?page=1&sort_by=created-descending"
 LapstoneNHammerURL = "https://www.lapstoneandhammer.com/collections/foortwear?page=1"
@@ -181,9 +181,9 @@ class RuvillaSpider(Spider):
         
         for product in products:
             item = RuvillaItem()
-            item['name'] = product.xpath('div/div[1]/a/@title').extract()[0]
-            item['link'] = product.xpath('div/div[1]/a/@href').extract()[0]
-            # item['image'] = product.xpath('div/div[1]/a/img/@src').extract()[0]
+            item['name'] = product.xpath('h3/text()').extract()[0]
+            item['link'] = product.xpath('@href').extract()[0]
+            # item['image'] = product.xpath('figure/img/@src').extract()[0]
             item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
@@ -388,9 +388,9 @@ class FootDistrictSpider(Spider):
         
         for product in products:
             item = FootDistrictItem()
-            item['name'] = product.xpath('.//li[1]/a[2]/@title').extract()[0]
-            item['link'] = product.xpath('.//li[1]/a[2]/@href').extract()[0]
-            # item['image'] = product.xpath('.//li[1]/a[2]/img/@src').extract()[0]
+            item['name'] = product.xpath('a[2]/@title').extract()[0]
+            item['link'] = product.xpath('a[2]/@href').extract()[0]
+            # item['image'] = product.xpath('a[2]/img/@src').extract()[0]
             item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
@@ -885,6 +885,7 @@ class SlamJamSpider(Spider):
     name = "SlamJamSpider"
     allowded_domains = ["slamjamsocialism.com"]
     start_urls = [SlamJamURL]
+    custom_settings = {'ROBOTSTXT_OBEY': False}
     
     def __init__(self):
         logging.critical("SlamJamSpider STARTED.")
@@ -894,9 +895,9 @@ class SlamJamSpider(Spider):
         
         for product in products:
             item = SlamJamItem()
-            item['name'] = product.xpath('a/img/@alt').extract()[0]
+            item['name'] = product.xpath('a/@title').extract()[0]
             item['link'] = product.xpath('a/@href').extract()[0]
-            # item['image'] = product.xpath('a/img/@src').extract()[0]
+            # item['image'] = product.xpath('a/div/img/@src').extract()[0]
             item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
@@ -1285,8 +1286,8 @@ class ExtraButterSpider(Spider):
 		
         for product in products:
             item = ExtraButterItem()
-            item['name'] = product.xpath('a/h4/text()').extract()[0]
-            item['link'] = "https://shop.extrabutterny.com" + product.xpath('div/a/@href').extract()[0]
+            item['name'] = product.xpath('div/article/div[2]/h3/a/@data-full-title').extract()[0]
+            item['link'] = "https://shop.extrabutterny.com" + product.xpath('div/article/div[2]/h3/a/@href').extract()[0]
             # item['image'] = "https:" + product.xpath('div/a/img/@src').extract()[0]
             item['size'] = '**NOT SUPPORTED YET**'
             yield item
@@ -2114,9 +2115,9 @@ class NiceKicksSpider(Spider):
 
         for product in products:
             item = NiceKicksItem()
-            item['name'] = product.xpath('a/div/img/@alt').extract()[0]
-            item['link'] = "https://shopnicekicks.com" + product.xpath('a/@href').extract()[0]
-            # item['image'] = "https:" + product.xpath('a/div/img/@data-src').extract()[0]
+            item['name'] = product.xpath('div/figure/img/@alt').extract()[0]
+            item['link'] = "https://shopnicekicks.com" + product.xpath('div/figure/a/@href').extract()[0]
+            # item['image'] = "https:" + product.xpath('div/figure/img/@src').extract()[0]
             item['size'] = '**NOT SUPPORTED YET**'
             yield item
 
@@ -2461,7 +2462,7 @@ class SoleflySpider(Spider):
             item = SoleflyItem()
             item['name'] = product.xpath('a/img/@alt').extract()[0]
             item['link'] = "https://www.solefly.com" + product.xpath('a/@href').extract()[0]
-            item['image'] = "https:" + product.xpath('a/img/@src').extract()[0]
+            # item['image'] = "https:" + product.xpath('a/img/@src').extract()[0]
             item['size'] = '**NOT SUPPORTED YET**'
             yield item
 
