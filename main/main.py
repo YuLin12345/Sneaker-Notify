@@ -35,7 +35,7 @@ EndURL = "https://www.endclothing.com/us/footwear?p=1&brand=767-769-387963-48504
 SNSURL = "http://www.sneakersnstuff.com/en/2/sneakers/1?p=813&p=5954&p=1046&orderBy=Published"
 TintURL = "http://www.tint-footwear.com/shoes?dir=desc&limit=16&order=news_from_date&p=1"
 OverkillURL = "https://www.overkillshop.com/en/sneaker/filter/manufacturer-nike-adidas-jordan.html?dir=desc&limit=36&order=category_sorting&p=1"
-FootDistrictURL = "https://footdistrict.com/en/sneakers/latest/where/marca/adidas_jordan_nike/p/1/order/position/dir/desc/limit/12.html"
+FootDistrictURL = "https://footdistrict.com/en/sneakers/latest.html?limit=12&p=1"
 SizeURL = "https://www.size.co.uk/mens/footwear/brand/nike,adidas-originals,adidas,nike-sb,jordan/latest/?from=0"
 YCMCURL = "http://www.ycmc.com/men/shoes/sneakers.html?dir=desc&order=new_arrivals&p=1"
 CityURL = "http://www.citygear.com/catalog/shoes/brand/nike-adidas-jordan/sort-by/news_from_date/sort-direction/desc.html"
@@ -59,7 +59,7 @@ UrbanOutfittersURL = "http://www.urbanoutfitters.com/urban/catalog/category.jsp?
 LuisaURL = "https://www.luisaviaroma.com/men/catalog/shoes/sneakers/lang_EN/lineid_4/catid_97?FilterDes=4R8,140,210,DNR,VL1,DMS,W8H,3HU,VW5&Page=1&SortType=NewIn"
 SlamJamURL = "https://www.slamjamsocialism.com/footwear/#/manufacturer-adidas_by_raf_simons-adidas_consortium-adidas_originals-nike-nike_gyakusou-nike_special_project/page-1"
 Rise45URL = "https://rise45.com/collections/mens-footwear"
-UndefeatedURL = "http://undefeated.com/footwear"
+UndefeatedURL = "https://shop.undefeated.com/collections/footwear"
 ZapposURL = "http://www.zappos.com/men-shoes/CK_XAcABAuICAgEY.zso?s=isNew/desc/goLiveDate/desc/recentSalesStyle/desc/"
 PointzURL = "https://www.5pointz.co.uk/footwear?brand=510_486_493&dir=desc&order=release_date"
 StickABushURL = "https://www.stickabush.com/sneaker.html?limit=18&p=1"
@@ -74,7 +74,7 @@ DromeURL = "http://www.drome.co.uk/footwear/?old_expand=2&brand=BR_AA&brand=BR_N
 FootAsylumURL = "https://www.footasylum.com/mens-footwear/?brand=BR_AA&brand=BR_NN&brand=BR_JORD&order=NEW+PRODUCTS&page=1"
 ConceptsURL = "http://cncpts.com/collections/footwear#"
 SocialStatusURL = "https://www.socialstatuspgh.com/collections/sneakers?page=1&sort_by=created-descending"
-ExtraButterURL = "https://shop.extrabutterny.com/collections/footwear?page=1&sort_by=created-descending"
+ExtraButterURL = URL = "https://shop.extrabutterny.com/collections/footwear?page=1&sort_by=created-descending"
 BodegaURL = "https://shop.bdgastore.com/collections/footwear?sort_by=created-descending&page=1"
 SaintAlfredURL = "https://www.saintalfred.com/collections/footwear?page=1&sort_by=created-descending"
 LapstoneNHammerURL = "https://www.lapstoneandhammer.com/collections/foortwear?page=1"
@@ -95,7 +95,7 @@ TrophyRoomURL = "https://www.trophyroomstore.com/collections/all/footwear?page=1
 OfficeURL = "http://www.office.co.uk/view/search?page=1&pageSize=30&search=his&sort=releaseDate&BRAND=Adidas"
 ALLikeURL = "https://www.allikestore.com/default/sneakers.html?dir=desc&limit=16&manufacturer=27_639_494_641_628_28_650&order=created_at&p=1"
 UrbanJungleURL = "http://www.urbanjunglestore.com/en/sneakers/shopby/nike-jordan-adidas.html#"
-SSenseURL = "https://www.ssense.com/en-us/men/designers/all/shoes/sneakers/pages/1"
+SSenseURL = "https://www.ssense.com/en-us/men/sneakers?page=1"
 BackDoorURL = "https://www.back-door.it/product-category/sneakers/page/1/?orderby=date"
 BasketURL = "http://www.baskets-store.com/sneakers/-/adidas-originals_nike/?dir=desc&ignore=true&limit=20&order=news_from_date&p=1"
 DopeFactoryURL = "http://www.dope-factory.com/categories/shoes.html?dir=desc&limit=20&order=product_date&p=1"
@@ -181,9 +181,9 @@ class RuvillaSpider(Spider):
         
         for product in products:
             item = RuvillaItem()
-            item['name'] = product.xpath('div/div[1]/a/@title').extract()[0]
-            item['link'] = product.xpath('div/div[1]/a/@href').extract()[0]
-            # item['image'] = product.xpath('div/div[1]/a/img/@src').extract()[0]
+            item['name'] = product.xpath('h3/text()').extract()[0]
+            item['link'] = product.xpath('@href').extract()[0]
+            # item['image'] = product.xpath('figure/img/@src').extract()[0]
             item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
@@ -388,9 +388,9 @@ class FootDistrictSpider(Spider):
         
         for product in products:
             item = FootDistrictItem()
-            item['name'] = product.xpath('.//li[1]/a[2]/@title').extract()[0]
-            item['link'] = product.xpath('.//li[1]/a[2]/@href').extract()[0]
-            # item['image'] = product.xpath('.//li[1]/a[2]/img/@src').extract()[0]
+            item['name'] = product.xpath('.//a[2]/@title').extract()[0]
+            item['link'] = product.xpath('.//a[2]/@href').extract()[0]
+            # item['image'] = product.xpath('.//a[2]/img/@src').extract()[0]
             item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
@@ -885,6 +885,7 @@ class SlamJamSpider(Spider):
     name = "SlamJamSpider"
     allowded_domains = ["slamjamsocialism.com"]
     start_urls = [SlamJamURL]
+    custom_settings = {'ROBOTSTXT_OBEY': False}
     
     def __init__(self):
         logging.critical("SlamJamSpider STARTED.")
@@ -894,9 +895,9 @@ class SlamJamSpider(Spider):
         
         for product in products:
             item = SlamJamItem()
-            item['name'] = product.xpath('a/img/@alt').extract()[0]
+            item['name'] = product.xpath('a/@title').extract()[0]
             item['link'] = product.xpath('a/@href').extract()[0]
-            # item['image'] = product.xpath('a/img/@src').extract()[0]
+            # item['image'] = product.xpath('a/div/img/@src').extract()[0]
             item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
@@ -936,13 +937,13 @@ class UndefeatedSpider(Spider):
         logging.critical("UndefeatedSpider STARTED.")
         
     def parse(self, response):
-        products = Selector(response).xpath('//div[@class="view view-solr view-id-solr view-display-id-solr_grid_footwear grid view-dom-id-d656a32e9a8bc23ef35dadd83510be07"]//div[@class="view-content"]//div[contains(@class,"views-row")]')
-        
+        products = Selector(response).xpath('//div[@class="collection-listing cf"]//div[@class="product-list"]//div[contains(@class,"product-block")]')
+		
         for product in products:
             item = UndefeatedItem()
-            item['name'] = product.xpath('div[2]/a/text()').extract()[0]
-            item['link'] = "http://undefeated.com" + product.xpath('div[1]/a/@href').extract()[0]
-            # item['image'] = product.xpath('div[1]/a/img/@data-src').extract()[0]
+            item['name'] = product.xpath('.//a/div[1]/div/div/text()').extract()[0]
+            item['link'] = "https://shop.undefeated.com" + product.xpath('.//a/@href').extract()[0]
+            # item['image'] = "http:" + product.xpath('.//div/div/a/img/@src').extract()[0]
             item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
@@ -1285,8 +1286,8 @@ class ExtraButterSpider(Spider):
 		
         for product in products:
             item = ExtraButterItem()
-            item['name'] = product.xpath('a/h4/text()').extract()[0]
-            item['link'] = "https://shop.extrabutterny.com" + product.xpath('div/a/@href').extract()[0]
+            item['name'] = product.xpath('div/article/div[2]/h3/a/@data-full-title').extract()[0]
+            item['link'] = "https://shop.extrabutterny.com" + product.xpath('div/article/div[2]/h3/a/@href').extract()[0]
             # item['image'] = "https:" + product.xpath('div/a/img/@src').extract()[0]
             item['size'] = '**NOT SUPPORTED YET**'
             yield item
@@ -1737,6 +1738,7 @@ class UrbanJungleSpider(Spider):
     name = "UrbanJungleSpider"
     allowded_domains = ["urbanjunglestore.com"]
     start_urls = [UrbanJungleURL]
+    custom_settings = {'ROBOTSTXT_OBEY': False}
     
     def __init__(self):
         logging.critical("UrbanJungleSpider STARTED.")
@@ -1765,13 +1767,13 @@ class SSenseSpider(Spider):
         logging.critical("SSenseSpider STARTED.")
         
     def parse(self, response):
-        products = Selector(response).xpath('//div[@class="browsing-product-list"]//div[contains(@class,"browsing-product-item")]')
+        products = Selector(response).xpath('//div[@class="browsing-product-list"]//figure[contains(@class,"browsing-product-item")]')
 
         for product in products:
             item = SSenseItem()
-            item['name'] = product.xpath('.//meta[2]/@content').extract()[0]
-            item['link'] = product.xpath('.//meta[4]/@content').extract()[0]
-            # item['image'] = product.xpath('.//meta[3]/@content').extract()[0]
+            item['name'] = product.xpath('.//a/figcaption/p[2]/text()').extract()[0]
+            item['link'] = product.xpath('.//meta[3]/@content').extract()[0]
+            # item['image'] = product.xpath('.//meta[2]/@content').extract()[0]
             item['size'] = '**NOT SUPPORTED YET**'
             yield item
 
@@ -2114,9 +2116,9 @@ class NiceKicksSpider(Spider):
 
         for product in products:
             item = NiceKicksItem()
-            item['name'] = product.xpath('a/div/img/@alt').extract()[0]
-            item['link'] = "https://shopnicekicks.com" + product.xpath('a/@href').extract()[0]
-            # item['image'] = "https:" + product.xpath('a/div/img/@data-src').extract()[0]
+            item['name'] = product.xpath('div/figure/img/@alt').extract()[0]
+            item['link'] = "https://shopnicekicks.com" + product.xpath('div/figure/a/@href').extract()[0]
+            # item['image'] = "https:" + product.xpath('div/figure/img/@src').extract()[0]
             item['size'] = '**NOT SUPPORTED YET**'
             yield item
 
@@ -2461,7 +2463,7 @@ class SoleflySpider(Spider):
             item = SoleflyItem()
             item['name'] = product.xpath('a/img/@alt').extract()[0]
             item['link'] = "https://www.solefly.com" + product.xpath('a/@href').extract()[0]
-            item['image'] = "https:" + product.xpath('a/img/@src').extract()[0]
+            # item['image'] = "https:" + product.xpath('a/img/@src').extract()[0]
             item['size'] = '**NOT SUPPORTED YET**'
             yield item
 
