@@ -59,7 +59,7 @@ UrbanOutfittersURL = "http://www.urbanoutfitters.com/urban/catalog/category.jsp?
 LuisaURL = "https://www.luisaviaroma.com/men/catalog/shoes/sneakers/lang_EN/lineid_4/catid_97?FilterDes=4R8,140,210,DNR,VL1,DMS,W8H,3HU,VW5&Page=1&SortType=NewIn"
 SlamJamURL = "https://www.slamjamsocialism.com/footwear/#/manufacturer-adidas_by_raf_simons-adidas_consortium-adidas_originals-nike-nike_gyakusou-nike_special_project/page-1"
 Rise45URL = "https://rise45.com/collections/mens-footwear"
-UndefeatedURL = "http://undefeated.com/footwear"
+UndefeatedURL = "https://shop.undefeated.com/collections/footwear"
 ZapposURL = "http://www.zappos.com/men-shoes/CK_XAcABAuICAgEY.zso?s=isNew/desc/goLiveDate/desc/recentSalesStyle/desc/"
 PointzURL = "https://www.5pointz.co.uk/footwear?brand=510_486_493&dir=desc&order=release_date"
 StickABushURL = "https://www.stickabush.com/sneaker.html?limit=18&p=1"
@@ -95,7 +95,7 @@ TrophyRoomURL = "https://www.trophyroomstore.com/collections/all/footwear?page=1
 OfficeURL = "http://www.office.co.uk/view/search?page=1&pageSize=30&search=his&sort=releaseDate&BRAND=Adidas"
 ALLikeURL = "https://www.allikestore.com/default/sneakers.html?dir=desc&limit=16&manufacturer=27_639_494_641_628_28_650&order=created_at&p=1"
 UrbanJungleURL = "http://www.urbanjunglestore.com/en/sneakers/shopby/nike-jordan-adidas.html#"
-SSenseURL = "https://www.ssense.com/en-us/men/designers/all/shoes/sneakers/pages/1"
+SSenseURL = "https://www.ssense.com/en-us/men/sneakers?page=1"
 BackDoorURL = "https://www.back-door.it/product-category/sneakers/page/1/?orderby=date"
 BasketURL = "http://www.baskets-store.com/sneakers/-/adidas-originals_nike/?dir=desc&ignore=true&limit=20&order=news_from_date&p=1"
 DopeFactoryURL = "http://www.dope-factory.com/categories/shoes.html?dir=desc&limit=20&order=product_date&p=1"
@@ -388,9 +388,9 @@ class FootDistrictSpider(Spider):
         
         for product in products:
             item = FootDistrictItem()
-            item['name'] = product.xpath('a[2]/@title').extract()[0]
-            item['link'] = product.xpath('a[2]/@href').extract()[0]
-            # item['image'] = product.xpath('a[2]/img/@src').extract()[0]
+            item['name'] = product.xpath('.//a[2]/@title').extract()[0]
+            item['link'] = product.xpath('.//a[2]/@href').extract()[0]
+            # item['image'] = product.xpath('.//a[2]/img/@src').extract()[0]
             item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
@@ -937,13 +937,13 @@ class UndefeatedSpider(Spider):
         logging.critical("UndefeatedSpider STARTED.")
         
     def parse(self, response):
-        products = Selector(response).xpath('//div[@class="view view-solr view-id-solr view-display-id-solr_grid_footwear grid view-dom-id-d656a32e9a8bc23ef35dadd83510be07"]//div[@class="view-content"]//div[contains(@class,"views-row")]')
-        
+        products = Selector(response).xpath('//div[@class="collection-listing cf"]//div[@class="product-list"]//div[contains(@class,"product-block")]')
+		
         for product in products:
             item = UndefeatedItem()
-            item['name'] = product.xpath('div[2]/a/text()').extract()[0]
-            item['link'] = "http://undefeated.com" + product.xpath('div[1]/a/@href').extract()[0]
-            # item['image'] = product.xpath('div[1]/a/img/@data-src').extract()[0]
+            item['name'] = product.xpath('.//a/div[1]/div/div/text()').extract()[0]
+            item['link'] = "https://shop.undefeated.com" + product.xpath('.//a/@href').extract()[0]
+            # item['image'] = "http:" + product.xpath('.//div/div/a/img/@src').extract()[0]
             item['size'] = '**NOT SUPPORTED YET**'
             yield item
             
@@ -1738,6 +1738,7 @@ class UrbanJungleSpider(Spider):
     name = "UrbanJungleSpider"
     allowded_domains = ["urbanjunglestore.com"]
     start_urls = [UrbanJungleURL]
+    custom_settings = {'ROBOTSTXT_OBEY': False}
     
     def __init__(self):
         logging.critical("UrbanJungleSpider STARTED.")
@@ -1766,13 +1767,13 @@ class SSenseSpider(Spider):
         logging.critical("SSenseSpider STARTED.")
         
     def parse(self, response):
-        products = Selector(response).xpath('//div[@class="browsing-product-list"]//div[contains(@class,"browsing-product-item")]')
+        products = Selector(response).xpath('//div[@class="browsing-product-list"]//figure[contains(@class,"browsing-product-item")]')
 
         for product in products:
             item = SSenseItem()
-            item['name'] = product.xpath('.//meta[2]/@content').extract()[0]
-            item['link'] = product.xpath('.//meta[4]/@content').extract()[0]
-            # item['image'] = product.xpath('.//meta[3]/@content').extract()[0]
+            item['name'] = product.xpath('.//a/figcaption/p[2]/text()').extract()[0]
+            item['link'] = product.xpath('.//meta[3]/@content').extract()[0]
+            # item['image'] = product.xpath('.//meta[2]/@content').extract()[0]
             item['size'] = '**NOT SUPPORTED YET**'
             yield item
 
