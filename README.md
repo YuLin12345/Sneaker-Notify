@@ -18,9 +18,10 @@ Description: Crawl a list of sneaker websites. Once the new product is found or 
  - AFewStore
  - ALLike
  - Addict
- - AdidasUS
  - AdidasEU
+ - AdidasUS
  - Aphrodite
+ - Asos
  - AsphaltGold
  - BSTN
  - Back Door
@@ -35,11 +36,11 @@ Description: Crawl a list of sneaker websites. Once the new product is found or 
  - City Gear
  - Concepts
  - Consortium
+ - DSMNY
  - DeadStock
  - DefShop
  - Dope Factory
  - Drome
- - DSMNY
  - EastBay
  - End - Captcha if crawl too much.
  - Extra Butter NY
@@ -57,14 +58,16 @@ Description: Crawl a list of sneaker websites. Once the new product is found or 
  - HypeBeast
  - HypeDC
  - Inflammable
+ - Italist
  - JDSports
  - JimmyJazz - ASN blocked on Vultr via CloudFlare.
  - Kith
  - Kong
  - Lapstone and Hammer
+ - LiveStock
  - Loaded
  - Luisa Via Roma
- - MrPorter
+ - Mr Potter
  - NeedSupply
  - Next Door
  - NiceKicks
@@ -74,6 +77,7 @@ Description: Crawl a list of sneaker websites. Once the new product is found or 
  - Nrml
  - Office
  - Offspring
+ - Oi Polloi
  - Oneness
  - OverKill
  - Packer
@@ -98,6 +102,7 @@ Description: Crawl a list of sneaker websites. Once the new product is found or 
  - SoleKitchen
  - SoleStop
  - Solefly
+ - Soto
  - StickABush
  - StormFashion
  - Summer
@@ -112,6 +117,7 @@ Description: Crawl a list of sneaker websites. Once the new product is found or 
  - Urban Outfitters
  - WellGosh
  - West NYC
+ - Woodwood
  - XileClothing
  - YCMC
  - YME Universe

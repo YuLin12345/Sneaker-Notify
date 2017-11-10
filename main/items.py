@@ -970,6 +970,54 @@ class HubbastilleItem(Item):
     name = Field()
     size = Field()
 	
+class WoodwoodItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+    size = Field()
+	
+class SotoItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+    size = Field()
+	
+class OipolloiItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+    size = Field()
+	
+class LiveStockItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+    size = Field()
+	
+class AsosItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+    size = Field()
+	
+class ItalistItem(Item):
+    date = Field()
+    price = Field()
+    image = Field()
+    link = Field()
+    name = Field()
+    size = Field()
+	
 class ShoesAddictorItem(Item):
     date = Field()
     price = Field()

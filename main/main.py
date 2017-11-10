@@ -128,6 +128,12 @@ SoleflyURL = "https://www.solefly.com/collections/mens-1?page=1"
 SVDURL = "https://www.sivasdescalzo.com/en/lifestyle/sneakers?limit=36&p=1"
 DSMNYURL = "http://shop.doverstreetmarket.com/us/what-s-new"
 HubbastilleURL = "http://hubbastille.com/13-le-rez-de-chaussee?orderby=date_add&orderway=desc&orderway=desc&p=1"
+WoodwoodURL = "https://www.woodwood.com/men/footwear"
+SotoURL = "https://www.sotostore.com/footwear/sneakers?dir=asc&order=position"
+OipolloiURL = "https://www.oipolloi.com/collections/new-stuff?page=1"
+LiveStockURL = "https://www.deadstock.ca/collections/footwear?page=1&sort_by=created-descending"
+AsosURL = "http://us.asos.com/men/new-in/new-in-shoes/cat/?cid=17184&pge=0&refine=attribute_900:1608|brand:17,18,15565&currentpricerange=25-430&pgesize=36"
+ItalistURL = "https://www.italist.com/en/men/shoes/sneakers/204/?sort_field=insert_time&q=&limit=60&skip=1"
 ShoesAddictorURL = "http://shoesaddictor.com/"
 
 
@@ -2535,10 +2541,212 @@ class HubbastilleSpider(Spider):
 			
         yield Request(HubbastilleURL, callback=self.parse, dont_filter=True, priority=103)
 		
+class WoodwoodSpider(Spider):
+    
+    name = "WoodwoodSpider"
+    allowded_domains = ["woodwood.com"]
+    start_urls = [WoodwoodURL]
+    
+    def __init__(self):
+        logging.critical("WoodwoodSpider STARTED.")
+        
+    def parse(self, response):
+        products = Selector(response).xpath('//ul[@class="list-commodity list-commodity-grid"]//li')
+
+        for product in products:
+            item = WoodwoodItem()
+            item['name'] = product.xpath('a/span[3]/text()').extract()[0]
+            item['link'] = product.xpath('a/@href').extract()[0]
+            item['image'] = product.xpath('a/span[1]/span/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
+            yield item
+            
+        yield Request(WoodwoodURL, callback=self.parse, dont_filter=True, priority=104)
+		
+class SotoSpider(Spider):
+    
+    name = "SotoSpider"
+    allowded_domains = ["sotostore.com"]
+    start_urls = [SotoURL]
+    
+    def __init__(self):
+        logging.critical("SotoSpider STARTED.")
+        
+    def parse(self, response):
+        products = Selector(response).xpath('//li[contains(@class,"item")]')
+
+        for product in products:
+            item = SotoItem()
+            item['name'] = product.xpath('a/img/@alt').extract()[0]
+            item['link'] = product.xpath('a/@href').extract()[0]
+            item['image'] = product.xpath('a/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
+            yield item
+            
+        yield Request(SotoURL, callback=self.parse, dont_filter=True, priority=105)
+		
+class OipolloiSpider(Spider):
+    
+    name = "OipolloiSpider"
+    allowded_domains = ["addictmiami.com"]
+    start_urls = [OipolloiURL]
+    
+    def __init__(self):
+        logging.critical("OipolloiSpider STARTED.")
+        
+    def parse(self, response):
+        products = Selector(response).xpath('//div[@class="collection-items"]//div[@class="collection-product"]')
+
+        for product in products:
+            item = OipolloiItem()
+            item['name'] = product.xpath('a/div[2]/span[3]/text()').extract()[0].strip()
+            item['link'] = "https://www.oipolloi.com" + product.xpath('a/@href').extract()[0]
+            item['image'] = "https:" + product.xpath('a/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
+            yield item
+
+        yield Request(OipolloiURL, callback=self.parse, dont_filter=True, priority=106)
+
+class LiveStockSpider(Spider):
+    
+    name = "LiveStockSpider"
+    allowded_domains = ["deadstock.ca"]
+    start_urls = [LiveStockURL]
+    
+    def __init__(self):
+        logging.critical("LiveStockSpider STARTED.")
+        
+    def parse(self, response):
+        products = Selector(response).xpath('//div[@class="sixteen columns products"]//div[contains(@class,"four columns")]')
+
+        for product in products:
+            item = LiveStockItem()
+            item['name'] = product.xpath('a/@title').extract()[0]
+            item['link'] = "https://www.deadstock.ca" + product.xpath('a/@href').extract()[0]
+            item['image'] = "https:" + product.xpath('a/div/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
+            yield item
+
+        yield Request(LiveStockURL, callback=self.parse, dont_filter=True, priority=107)
+		
+class AsosSpider(Spider):
+    
+    name = "AsosSpider"
+    allowded_domains = ["us.asos.com"]
+    start_urls = [AsosURL]
+    
+    def __init__(self):
+        logging.critical("AsosSpider STARTED.")
+        
+    def parse(self, response):
+        products = Selector(response).xpath('//div[@class="results three-grid"]//ul//li[contains(@class,"product-container interactions")]')
+
+        for product in products:
+            item = AsosItem()
+            item['name'] = product.xpath('a/div/span/text()').extract()[0]
+            item['link'] = product.xpath('a/@href').extract()[0]
+            item['image'] = product.xpath('a/div/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
+            yield item
+
+        yield Request(AsosURL, callback=self.parse, dont_filter=True, priority=108)
+		
+class ItalistSpider(Spider):
+    
+    name = "ItalistSpider"
+    allowded_domains = ["italist.com"]
+    start_urls = [ItalistURL]
+    
+    def __init__(self):
+        logging.critical("ItalistSpider STARTED.")
+        
+    def parse(self, response):
+        products = Selector(response).xpath('//div[@id="product_list"]//div[contains(@class,"single_product span3")]')
+
+        for product in products:
+            item = ItalistItem()
+            item['name'] = product.xpath('div/span[2]/a/h2/text()').extract()[0]
+            item['link'] = "https://www.italist.com" + product.xpath('div/span[2]/a/@href').extract()[0]
+            # item['image'] = "https:" + product.xpath('a/div[1]/img/@src').extract()[0]
+            item['size'] = '**NOT SUPPORTED YET**'
+            yield item
+
+        yield Request(ItalistURL, callback=self.parse, dont_filter=True, priority=109)
+		
 		
 crawler_settings = Settings()
 crawler_settings.setmodule(settings)
 process = CrawlerProcess(settings=crawler_settings)
+
+process.crawl(SaveOurSoleSpider)
+process.crawl(InflammableSpider)
+process.crawl(DefShopSpider)
+process.crawl(OffspringSpider)
+process.crawl(SoleKitchenSpider)
+process.crawl(DromeSpider)
+process.crawl(FootAsylumSpider)
+process.crawl(ConceptsSpider)
+process.crawl(SocialStatusSpider)
+process.crawl(ExtraButterSpider)
+process.crawl(BodegaSpider)
+process.crawl(SaintAlfredSpider)
+process.crawl(LapstoneNHammerSpider)
+process.crawl(ShelfLifeSpider)
+process.crawl(AsphaltGoldSpider)
+process.crawl(HanonSpider)
+process.crawl(SoleBoxSpider)
+process.crawl(ConsortiumSpider)
+process.crawl(HavenSpider)
+process.crawl(NeedSupplySpider)
+process.crawl(LoadedSpider)
+process.crawl(WellGoshSpider)
+process.crawl(CapsuleSpider)
+process.crawl(YMESpider)
+process.crawl(HypeDCSpider)
+process.crawl(BSTNSpider)
+process.crawl(TrophyRoomSpider)
+process.crawl(OfficeSpider)
+process.crawl(ALLikeSpider)
+process.crawl(UrbanJungleSpider)
+process.crawl(SSenseSpider)
+process.crawl(BackDoorSpider)
+process.crawl(BasketSpider)
+process.crawl(DopeFactorySpider)
+
+process.crawl(NextDoorSpider)
+process.crawl(SummerSpider)
+process.crawl(MrPorterSpider)
+process.crawl(StormFashionSpider)
+process.crawl(TresBienSpider)
+process.crawl(PackerSpider)
+process.crawl(AddictSpider)
+process.crawl(AphroditeSpider)
+process.crawl(BaitSpider)
+process.crawl(BlendsSpider)
+process.crawl(NiceKicksSpider)
+process.crawl(FeatureSpider)
+process.crawl(HypeBeastSpider)
+process.crawl(DeadStockSpider)
+process.crawl(NotreSpider)
+process.crawl(NrmlSpider)
+process.crawl(OnenessSpider)
+process.crawl(PufferRedsSpider)
+process.crawl(RenartsSpider)
+process.crawl(ProperSpider)
+process.crawl(SoleStopSpider)
+process.crawl(TitoloSpider)
+process.crawl(UptownSpider)
+process.crawl(WestNYCSpider)
+process.crawl(XileClothingSpider)
+process.crawl(SoleflySpider)
+process.crawl(SVDSpider)
+process.crawl(HubbastilleSpider)
+process.crawl(WoodwoodSpider)
+process.crawl(SotoSpider)
+process.crawl(OipolloiSpider)
+process.crawl(LiveStockSpider)
+process.crawl(AsosSpider)
+process.crawl(ItalistSpider)
 
 process.crawl(KithSpider)
 process.crawl(RuvillaSpider)
@@ -2572,72 +2780,8 @@ process.crawl(Rise45Spider)
 process.crawl(UndefeatedSpider)
 process.crawl(ZapposSpider)
 process.crawl(PointzSpider)
-
 process.crawl(StickABushSpider)
 process.crawl(KongSpider)
-process.crawl(SaveOurSoleSpider)
-process.crawl(InflammableSpider)
-process.crawl(DefShopSpider)
-process.crawl(OffspringSpider)
-process.crawl(SoleKitchenSpider)
-process.crawl(DromeSpider)
-process.crawl(FootAsylumSpider)
-process.crawl(ConceptsSpider)
-process.crawl(SocialStatusSpider)
-process.crawl(ExtraButterSpider)
-process.crawl(BodegaSpider)
-process.crawl(SaintAlfredSpider)
-process.crawl(LapstoneNHammerSpider)
-process.crawl(ShelfLifeSpider)
-process.crawl(AsphaltGoldSpider)
-process.crawl(HanonSpider)
-process.crawl(SoleBoxSpider)
-process.crawl(ConsortiumSpider)
-process.crawl(HavenSpider)
-process.crawl(NeedSupplySpider)
-process.crawl(LoadedSpider)
-process.crawl(WellGoshSpider)
-process.crawl(CapsuleSpider)
-process.crawl(YMESpider)
-process.crawl(HypeDCSpider)
-process.crawl(BSTNSpider)
-process.crawl(TrophyRoomSpider)
-process.crawl(OfficeSpider)
-process.crawl(ALLikeSpider)
-process.crawl(UrbanJungleSpider)
-
-process.crawl(SSenseSpider)
-process.crawl(BackDoorSpider)
-process.crawl(BasketSpider)
-process.crawl(DopeFactorySpider)
-process.crawl(NextDoorSpider)
-process.crawl(SummerSpider)
-process.crawl(MrPorterSpider)
-process.crawl(StormFashionSpider)
-process.crawl(TresBienSpider)
-process.crawl(PackerSpider)
-process.crawl(AddictSpider)
-process.crawl(AphroditeSpider)
-process.crawl(BaitSpider)
-process.crawl(BlendsSpider)
-process.crawl(NiceKicksSpider)
-process.crawl(FeatureSpider)
-process.crawl(HypeBeastSpider)
-process.crawl(DeadStockSpider)
-process.crawl(NotreSpider)
-process.crawl(NrmlSpider)
-process.crawl(OnenessSpider)
-process.crawl(PufferRedsSpider)
-process.crawl(RenartsSpider)
-process.crawl(ProperSpider)
-process.crawl(SoleStopSpider)
-process.crawl(TitoloSpider)
-process.crawl(UptownSpider)
-process.crawl(WestNYCSpider)
-process.crawl(XileClothingSpider)
-process.crawl(SoleflySpider)
-process.crawl(SVDSpider)
-process.crawl(HubbastilleSpider)
 
 # process.crawl(ShoesAddictorSpider)
 # process.crawl(DSMNYSpider)

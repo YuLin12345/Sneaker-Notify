@@ -27,6 +27,7 @@ table, th, td{
 	<option value="afew">Afew</option>
 	<option value="allike">Allike</option>
 	<option value="aphrodite">Aphrodite</option>
+	<option value="asos">Asos</option>
 	<option value="asphaltgold">Asphaltgold</option>
 	<option value="backdoor">Backdoor</option>
 	<option value="bait">Bait</option>
@@ -70,12 +71,14 @@ table, th, td{
 	<option value="hypebeast">Hypebeast</option>
 	<option value="hypedc">Hypedc</option>
 	<option value="inflammable">Inflammable</option>
+	<option value="italist">Italist</option>
 	<option value="jdsports">JDSports</option>
 	<option value="jimmyjazz">Jimmyjazz</option>
 	<option value="kicks">Kicks</option>
 	<option value="kith">Kith</option>
 	<option value="kong">Kong</option>
 	<option value="lapstonenhammer">Lapstonenhammer</option>
+	<option value="livestock">LiveStock</option>
 	<option value="loaded">Loaded</option>
 	<option value="luisa">Luisa</option>
 	<option value="mrporter">Mrporter</option>
@@ -88,6 +91,7 @@ table, th, td{
 	<option value="nrml">NRML</option>
 	<option value="office">Office</option>
 	<option value="offspring">Offspring</option>
+	<option value="oipolloi">Oi Polloi</option>
 	<option value="oneblockdown">Oneblockdown</option>
 	<option value="oneness">Oneness</option>
 	<option value="overkill">Overkill</option>
@@ -117,6 +121,7 @@ table, th, td{
 	<option value="socialstatus">Socialstatus</option>
 	<option value="solebox">Solebox</option>
 	<option value="solefly">Solefly</option>
+	<option value="soto">Soto</option>
 	<option value="solekitchen">Solekitchen</option>
 	<option value="solestop">Solestop</option>
 	<option value="sportsshoes">Sportsshoes</option>
@@ -137,6 +142,7 @@ table, th, td{
 	<option value="urbanoutfitters">Urbanoutfitters</option>
 	<option value="wellgosh">Wellgosh</option>
 	<option value="westnyc">Westnyc</option>
+	<option value="woodwood">Woodwood</option>
 	<option value="wishatl">Wishatl</option>
 	<option value="xileclothing">Xileclothing</option>
 	<option value="ycmc">YCMC</option>
@@ -212,6 +218,7 @@ $conn->close();
 	<option value="afew">Afew</option>
 	<option value="allike">Allike</option>
 	<option value="aphrodite">Aphrodite</option>
+	<option value="asos">Asos</option>
 	<option value="asphaltgold">Asphaltgold</option>
 	<option value="backdoor">Backdoor</option>
 	<option value="bait">Bait</option>
@@ -255,12 +262,14 @@ $conn->close();
 	<option value="hypebeast">Hypebeast</option>
 	<option value="hypedc">Hypedc</option>
 	<option value="inflammable">Inflammable</option>
+	<option value="italist">Italist</option>
 	<option value="jdsports">JDSports</option>
 	<option value="jimmyjazz">Jimmyjazz</option>
 	<option value="kicks">Kicks</option>
 	<option value="kith">Kith</option>
 	<option value="kong">Kong</option>
 	<option value="lapstonenhammer">Lapstonenhammer</option>
+	<option value="livestock">LiveStock</option>
 	<option value="loaded">Loaded</option>
 	<option value="luisa">Luisa</option>
 	<option value="mrporter">Mrporter</option>
@@ -273,6 +282,7 @@ $conn->close();
 	<option value="nrml">NRML</option>
 	<option value="office">Office</option>
 	<option value="offspring">Offspring</option>
+	<option value="oipolloi">Oi Polloi</option>
 	<option value="oneblockdown">Oneblockdown</option>
 	<option value="oneness">Oneness</option>
 	<option value="overkill">Overkill</option>
@@ -302,6 +312,7 @@ $conn->close();
 	<option value="socialstatus">Socialstatus</option>
 	<option value="solebox">Solebox</option>
 	<option value="solefly">Solefly</option>
+	<option value="soto">Soto</option>
 	<option value="solekitchen">Solekitchen</option>
 	<option value="solestop">Solestop</option>
 	<option value="sportsshoes">Sportsshoes</option>
@@ -322,6 +333,7 @@ $conn->close();
 	<option value="urbanoutfitters">Urbanoutfitters</option>
 	<option value="wellgosh">Wellgosh</option>
 	<option value="westnyc">Westnyc</option>
+	<option value="woodwood">Woodwood</option>
 	<option value="wishatl">Wishatl</option>
 	<option value="xileclothing">Xileclothing</option>
 	<option value="ycmc">YCMC</option>

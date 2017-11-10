@@ -511,11 +511,35 @@ class MYSQL_Pipeline(object):
 			
         # Insert item into hubbastille table.
         elif isinstance(item, HubbastilleItem):	
-			self.cursor.execute("INSERT INTO hubbastille (name, link, date) VALUES (%s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), DATE))
+            self.cursor.execute("INSERT INTO hubbastille (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
+			
+        # Insert item into woodwood table.
+        elif isinstance(item, WoodwoodItem):	
+            self.cursor.execute("INSERT INTO woodwood (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
+			
+        # Insert item into soto table.
+        elif isinstance(item, SotoItem):	
+            self.cursor.execute("INSERT INTO soto (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
+			
+        # Insert item into oipolloi table.
+        elif isinstance(item, OipolloiItem):	
+            self.cursor.execute("INSERT INTO oipolloi (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
+			
+        # Insert item into livestock table.
+        elif isinstance(item, LiveStockItem):	
+            self.cursor.execute("INSERT INTO livestock (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
+			
+        # Insert item into asos table.
+        elif isinstance(item, AsosItem):	
+            self.cursor.execute("INSERT INTO asos (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
+			
+        # Insert item into italist table.
+        elif isinstance(item, ItalistItem):	
+            self.cursor.execute("INSERT INTO italist (name, link, date) VALUES (%s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), DATE))
 			
         # Insert item into shoesaddictor table.
         elif isinstance(item, ShoesAddictorItem):	
-            self.cursor.execute("INSERT INTO shoesaddictor (name, link, date) VALUES (%s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), DATE))
+            self.cursor.execute("INSERT INTO shoesaddictor (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
 			
         self.conn.commit()
 		
