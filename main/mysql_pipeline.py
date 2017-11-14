@@ -511,7 +511,7 @@ class MYSQL_Pipeline(object):
 			
         # Insert item into hubbastille table.
         elif isinstance(item, HubbastilleItem):	
-            self.cursor.execute("INSERT INTO hubbastille (name, link, image, date) VALUES (%s, %s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), item['image'].encode('utf-8'), DATE))
+            self.cursor.execute("INSERT INTO hubbastille (name, link, date) VALUES (%s, %s, %s)", (item['name'].encode('utf-8'), item['link'].encode('utf-8'), DATE))
 			
         # Insert item into woodwood table.
         elif isinstance(item, WoodwoodItem):	
@@ -544,7 +544,7 @@ class MYSQL_Pipeline(object):
         self.conn.commit()
 		
         # If item name contain below words. Tweet it.
-        keywords = ['ultra boost', 'air jordan', 'jordan retro', 'nmd', 'boost', 'retro', 'flyknit', 'yeezy', 'ronnie', 'fieg', 'pharrel', 'atmos', 'clots', 'mars', 'yard']
+        keywords = ['ultra boost', 'air jordan', 'jordan retro', 'nmd', 'boost', 'retro', 'flyknit', 'yeezy', 'ronnie', 'fieg', 'pharrel', 'atmos', 'clots', 'mars', 'yard', 'fear of god', 'fog']
 		
         if any(keyword in item['name'].encode('utf-8').lower() for keyword in keywords):
 		  # Twitter Auth - Tweet the item with date, time, item name, and link.
