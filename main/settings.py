@@ -28,7 +28,19 @@ USER_AGENT_LIST = "useragents.txt"
 ROBOTSTXT_OBEY = True
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
-CONCURRENT_REQUESTS = 32
+CONCURRENT_REQUESTS = 112
+
+# Configure maximum concurrent items to process by Scrapy in the Item Processor (default: 100)
+CONCURRENT_ITEMS = 200
+
+# Whether to enable DNS in-memory cache (default: true)
+DNSCACHE_ENABLED = True
+
+# DNS in-memory cache size (default: 10000)
+DNSCACHE_SIZE = 20000
+
+# Timeout for processing of DNS queries in seconds (default: 60)
+DNS_TIMEOUT = 300
 
 # Configure a delay for requests for the same website (default: 0)
 # See http://scrapy.readthedocs.org/en/latest/topics/settings.html#download-delay
